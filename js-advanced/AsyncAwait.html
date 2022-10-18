@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async / Await</title>
+</head>
+<body>
+    <script>
+        // A declaração async function define uma função assíncrona, que retorna uma Promise. Quando a função assíncrona retorna um valor, a Promise será resolvida com o valor retornado. Quando a função assíncrona lança uma exceção ou algum valor, a Promise será rejeitada com o valor lançado
+        
+        //Uma função assíncrona pode conter uma expressão await, que pausa a execução da função assíncrona e espera pela resolução da Promise passada, e depois retoma a execução da função assíncrona e retorna o valor resolvido
+
+        //async faz uma função retornar uma promise. A palavra-chave async antes de uma função faz com que a função retorne uma promisse
+        //await faz uma função esperar por uma promise. A palavra-chave await antes de uma função faz com que a função espere por uma promise, só pode ser usada dentro de uma async
+
+        function contarTP(n) { // Função que contem a promisse
+            let cont = 0
+            return new Promise((resolve, rejected)=> {
+                let t = setTimeout(() => {
+                    for(let i = 0; i < n; i++){
+                    cont++
+                }      
+                if(cont == n){ 
+                    resolve(cont) 
+                } else {
+                    rejected("ERRO") 
+                }
+                }, 3000);
+            })
+        }
+
+        async function contarTPA(n) { // Função Async que retorna uma promisse
+            const r = await contarTP(n) // await garante que vai ter o retorno da promisse dentro da função contarTP, ja que faz a função esperar pela execução da promisse passada retornando o valor resolvido
+            console.log(r)
+         
+        }
+
+        function contarP(n) { // Função que contem a promisse
+            let cont = 0
+            return new Promise((resolve, rejected)=> { 
+                for(let i = 0; i<n; i++){
+                    cont++
+                }
+                if(cont == n){ 
+                    resolve(cont) 
+                } else {
+                    rejected("ERRO") 
+                }
+            })        
+        }
+
+        async function contarPA(n) { // Função Async que retorna uma promisse
+            const r = await contarP(n) // await garante que vai ter o retorno da promisse dentro da função contarTP, ja que faz a função esperar pela execução da promisse passada retornando o valor resolvido
+            console.log(r)
+        }
+
+        async function contarTPASync(n) { // Posso fazer a função da promise direto na function Async tbm
+            let cont = 0;
+            const r = await new Promise((resolve, rejected)=> { 
+                let t = setTimeout(() => {
+                    for(let i = 0; i < n; i++){
+                    cont++
+                }      
+                if(cont == n){ 
+                    resolve(cont) 
+                } else {
+                    rejected("ERRO") 
+                }
+                }, 4000);
+            }) 
+            console.log(r)
+         
+        }
+
+        contarTPA(10) // Como a promisse foi definida na função Async podemos chamar a function direto
+        contarPA(20)
+        contarTPASync(7)
+
+    </script>
+    
+</body>
+</html>

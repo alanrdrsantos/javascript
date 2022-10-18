@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+    <script>
+        var numbers = [1, 3, 5, 6, 7, 8, 9, 50]
+        let res1 = 0
+        // for(var res = 1; res < numbers.length; res++)
+        for(var res in numbers) { // Jeito mais mais facil para descobrir a posição(Quantos numeros) dentro do array[numbers]! Só funciona com Arrays e Objetos
+
+            res1 += numbers[res] // // Estou acrescentando o valor de res1(difinido como 0) com ele mesmo(+=)(res1 = res1 + numbers[res]), somando com todos os numeros do array(numbers) atraves de sua quantidade ou posição[res] 
+        }
+
+        document.write(res1)
+    </script>
+    
+</body>
+</html>

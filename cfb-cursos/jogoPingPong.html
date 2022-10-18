@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: #aaa;
+        }
+        #dvPainel {
+            display: flex;
+            height: 50px;
+            align-items: center;
+        }
+        .itemPainel {
+            margin: 5px;
+        }
+        #dvJogo {
+            width: 960px;
+            height: 500px;
+            border: 1px solid #000;
+            background-color: #000;
+        }
+        #dvBola {
+            position: absolute;
+            top: 240px;
+            left: 475px;
+            width: 20px;
+            height: 20px;
+            background-color: #888;
+            border-radius: 50%;
+        }
+        .barra {
+            position: absolute;
+            width: 20px;
+            height: 140px;
+            background-color: #888;
+            top:180px;
+        }
+        .esquerda {
+            left: 10px;
+        }
+
+        .direita {
+            left: 930px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="dvJogo">
+        <div id="dvBola"></div>
+        <div id="dvJogador" class="barra esquerda"></div>
+        <div id="dvCpu" class="barra direita"></div>
+    </div>
+    <div id="dvPainel">
+        <div class="itemPainel">
+            <label>Pontos</label>
+            <input type="text" id="txtPontos" value="0" size="10">
+        </div>
+        <div class="itemPainel">
+            <button id="btIniciar">Iniciar</button>
+        </div>
+    </div>
+    
+    <script>
+        var vbtIniciar // Variavel para o botão iniciar
+        var vbola // Variavel para a bola do jogo
+        var vcpu // Variavel para a CPU
+        var vjogador // Variavel para o jogador
+        var vPaineltxtPontos // Variavel para o painel
+        var game,frames // Variaveis para controlar a animação
+        var posBolaX, posBolaY // Variaveis para as posições da bola no eixo x e y
+        var posJogadorX, posJogadorY // Variaveis para a posição do jogador nos eixos x e y
+        var posCpuX, posCpuY // Variaveis para a posição do CPU nos eixos x e y
+        var dirJy // Variavel para direção da barra no eixo y, controlando se vai subir ou descer com o evento Keydown no teclado
+        var posJogIniY = 180, posCpuIniY = 180, posBolaIniX = 475, posBolaIniY = 240  // Variaveis para posição inicial do jogador,CPU e Bola ja contida no css la em cima! Vai ser usada para iniciar o jogo e quando reiniciar o jogo
+        var posJogIniX=10 
+        var posCpuIniX=930
+        var campoX=0, campoY=0 // Variaveis para guardar as posições X e Y do campo 
+        var campoW=960, campoH=500 //Variaveis para guardar a largura e altura do campo, de acordo com o numero inicial ja informado no css
+        var barraW=20, barraH=140  //Variaveis para guardar a largura e altura da barra, de acordo com o numero inicial ja informado no css
+        var bolaW=20, bolaH=20 // //Variaveis para guardar a largura e altura da bola, de acordo com o numero inicial ja informado no css
+        var bolaX, bolaY // Variavel para a direção da bola no eixo X e Y
+        var cpuY=0 // Variavel para a direção da barrinha da cpu, iniciando com 0 para voltar ao inincio
+        var velBola // Variavel para a velocidade da bola
+        var velCpu, velJogador // Variaveis para a velocidade de deslocamento da CPU e jogador
+        var pontos=0 // Variavel para os pontos do jogo, iniciando com 0
+        var tecla // Variavel para armazenar o codigo da tecla pressionada ou quando for solta, atraves do eventos keyup e keydown
+        var jogo = false // Variavel do tipo boolean (true-false)para indicar se o jogo está rolando ou não, iniciando em false para saber que o jogo está parado ou seja nao pode se movimentar
+
+        function controlajog(){ // Função de controle do jogador
+            if (jogo) { // se jogo estiver rolando 
+                posJogadorY+=velJogador*dirJy // Posição do jogador Y vai receber a velocidade do jogador (velJogador) vezes(*) a direção do jogador no eixo y!Obs tenho que colocar como forma de encremento(+=) para movimentar varias vezes, senão colocar só vai fazer 1 movimento e parar
+                if((posJogadorY+barraH) >= (campoH) || ((posJogadorY) <= 0)) { // Se a posição do jogador Y(posJogadorY) + altura da barrinha(barraH) ja definido nas variaveis globais, for maior ou igual (>=) a altura do campo(campoH) ja definida nas variaveis globais, ou (||) se posição do jogador Y for menor ou igual(>=) a 0, assim nao deixando ultrapassar a barrinha fora do campo quando estiver acima, vai executar o codigo abaixo
+                    posJogadorY+=(velJogador*dirJy)*(-1) // Reposicionameto para a barrinha do jogador não sair fora da div, colocando (-1) para fazer os calculos pq -1 com -1 e 1 positivo e -1 com 1 é negativo ou seja vai bater no limite da div e vai voltar pq no eixo y pra cima é negativo e para baixo positivo
+
+                }
+                vjogador.style.top=posJogadorY + "px" // Atualizando a posição do jogador na tela  pegando a variavel do jogador (vjogador) passando a posição do jogador no eixo y(posJogadorY) definida acima e a unidade de medida(px)! 
+            }
+        }
+
+        function controlacpu() { // Função de controle da CPU
+            if (jogo) { // Verificando se o jogo está rolando
+                if((posBolaX >(campoW/2)) && (bolaX > 0)) { // Se posição da bola no eixo x (posBolaX) for maior (>) que a largura no campo divivido por 2(campow/2), usando isso para selecionar a metade do campo, ou seja o lado direito do campo por ser positivo(>) e (&&) e a direção da bola no eixo x (bolax) for maior(>) que 0, ou seja indo para direita! Lembrando que no eixo x o lado direito é positivo e o esquerdo negativo
+                    //Movimentar CPU
+                    if(((posBolaY + (bolaH/2)) > ((posCpuY+(barraH/2)))+velCpu)){ // Se posição da bola no eixo y (posBolay) + a metade da bola (bolaH) for maior (>) que a posição da cpu no eixo y + a metade da barra (barraH) + a velocidade da cpu (velCpu) para pegar um atraso na movimentação, senao vai mover muito de acordo com o centro da bola
+                        // Mover para baixo
+                        if((posCpuY+barraH) <= campoH) { // Se posição da cpu no eixo y posCpuY + altura da barra (barraH)) for menor ou igual (<=) a altura do campo 
+                            posCpuY+=velCpu // A cpu vai se mover, pegando sua posição e incrementando com sua velocidade
+                        }
+                    }else if((posBolaY+(bolaH/2)) < (posCpuY+(barraH/2))-velCpu){ // Mesmos codigos acima, só vai inverter para menor (<) e subtrair a velocidade da cpu (-velCpu)
+                        // Mover para cima
+                        if(posCpuY >= 0) { 
+                            posCpuY-=velCpu // Para se mover para baixo tenho que subtrair a velocidade, lembrando que no eixo y para baixo é negativo 
+                        }
+                    }
+
+                }else {
+                    //Posicionar CPU no centro
+                    if((posCpuY+(barraH/2)) < (campoH/2)){ // Verificando se posição da Cpu no eixo y (posCpuY) + metade da barra (barraH/2) estiver menor (<) que a metade do campo (campoH/2)
+                        posCpuY+=velCpu // Movendo a Cpu incrementando a posição da cpu no eixo y (posCpuY) a velocidade da cpu (velCpu), fazendo que cpu desça pois no eixo y para baixo é positivo
+                    } else if ((posCpuY+(barraH/2)) > (campoH/2)){ // Caso ao contrário se posição da Cpu no eixo y (posCpuY) + metade da barra (barraH/2) estiver maior (>) que a metade do campo (campoH/2), isso significa que está para baixo
+                        posCpuY-=velCpu // Movendo a Cpu decrementando a posição da cpu no eixo y (posCpuY) a velocidade da cpu (velCpu), fazendo que cpu subtraia indo para cima pois no eixo y para cima é negativo
+
+                    }
+                }
+                vcpu.style.top = posCpuY+"px" // atualizando a posição da cpu na tela 
+            }
+        }
+
+        function controlaBola() { // Função para controlar a movimentação da bola
+            posBolaX+=velBola*bolaX // Incrementando(+=) na posição X da bola (posBolaX) assim vai se descolocar varias vezes nao ficando parada, a velocidade da bola (velBola) vezes (*) a direção da bola no eixo X (bolaX)
+            posBolaY+=velBola*bolaY // Incrementando(+=) na posição Y da bola (posBolaY) assim vai se descolocar varias vezes nao ficando parada, a velocidade da bola (velBola) vezes (*) a direção da bola no eixo Y (bolaY)
+            //Colisão da bola com o jogador
+            if((posBolaX <= posJogadorX+barraW) && ((posBolaY+bolaH >= posJogadorY) && (posBolaY <= posJogadorY+barraH))) {  // se a posição da bola no eixo x (posBolaX) for menor ou igual (<=) a posição do jogador(posJogadorX) + A largura da barra(barraW), tenho que colocar a largura da barra pra bola nao ultrapassar, e(&&) posição da bola no eixo Y (posBolaY) + a altura da bola (bolaH) for maior ou igual (>=) posição do jogador no eixo y (posJogadorY) e (&&) posição da bola y (posBolaY) for menor ou igual (<=) posição do jogador no eixo y (posJogadorY) + a altura da barra (barraH)
+                bolaY=(((posBolaY+(bolaH/2)) - (posJogadorY+(barraH/2))) / 16 )// Bola na direção y(bolaY) vai receber posição da bola no eixo y (posBolaY) + a altura da bola(bolaH) dividido por 2 (/2) para pegar exatamente o meio da bolinha, menos a posição do jogador y (posJogadorY) + a altura da barra (barraH) dividido por 2 assim pegando todo o resultado obtido e dividindo por 16, dessa forma a barrinha vai ser dividida em 16 partes
+                bolaX*= -1 // Invertendo a direção da bola no eixo x, direção x (bolaX) vezes(*) -1
+                }  
+                // Colisão da bola com o CPU
+            if((posBolaX >= posCpuX-barraW) && ((posBolaY+bolaH >= posCpuY) && (posBolaY <= posCpuY+barraH))) { // São as mesmas condiçoes acima mudando para o cpu, mudando somente a primeira condição para maior ou igual (>=) por ficar o lado direito e ao invés de somar a altura da barra eu subtraio(-barraW)
+                bolaY=(((posBolaY+(bolaH/2)) - (posCpuY+(barraH/2))) / 16)
+                bolaX*= -1 
+            } // Limites superior e inferior
+            if ((posBolaY >= 480)||(posBolaY <= 0)){ // se posição da bola no eixo y for maior ou igual (>=) 480 e (||) posição da bola no eixo y for menor ou igual(<=) a 0
+                bolaY*=-1 // Vai inverter a direção da bola no eixo y, multiplicando para inverter a posição (bolaY*=-1)
+            } 
+            //Saiu da Tela pela direita e pela esquerda
+            if(posBolaX >=(campoW-bolaW)) {// se posição da bola x (posBolaX) for maior ou igual(>=) a largura do campo(campoW) menos(-) a largura da bola(bolaW) 
+                velBola = 0 // Modificando a velocidade da bola (velBola) para 0, assim fazendo que ela pare
+                posBolaX=posBolaIniX // Modificando a posição da bola no eixo x(posBolaX) para a posição inicial(posBolaIniX), assim quando marcar o ponto ela volta em sua posição inicial no meio, ja definido nas variaveis globais la em cima
+                posBolaY=posBolaIniY // Modificando a posição da bola no eixo y(posBolaY) para a posição inicial(posBolaIniY), assim quando marcar o ponto ela volta em sua posição inicial no meio, ja definido nas variaveis globais la em cima
+                posJogadorY=posJogIniY // Modificando a posição do jogador para voltar ao inicio
+                posCpuY=posCpuIniY // Modificando a posição do Cpu para voltar ao inicio
+                pontos++ //saiu pela direita é ponto do jogador, então encrementa +1 em pontos(pontos++)
+                vPaineltxtPontos.value=pontos  //Atualizando o painel de pontos, pegando o valor da variavel (vPailneltxtPontos) e passando pra pontos 
+                jogo=false // Definindo o jogo em false para ele parar
+                vjogador.style.top=posJogadorY + "px" // Atualizando na tela a posição do jogador
+                vcpu.style.top=posCpuY + "px" // Atualizando na tela a posição da cpu
+            }else if (posBolaX <= 0) { // Mesma rotina acima, só mudando o menor ou igual a 0(<=0) para definir o ponto para a Cpu na esquerda
+                velBola = 0 
+                posBolaX=posBolaIniX 
+                posBolaY=posBolaIniY 
+                posJogadorY=posJogIniY 
+                posCpuY=posCpuIniY 
+                pontos-- // Subtraindo pontos para mostrar que foi ponto da CPU 
+                vPaineltxtPontos.value=pontos 
+                jogo=false 
+                vjogador.style.top=posJogadorY + "px" 
+                vcpu.style.top=posCpuY + "px" 
+
+            }
+
+            vbola.style.top=posBolaY+"px" // Atualizando a posição da bola no eixo Y na tela  pegando a variavel da bola (vbola) passando a posição da bola no eixo y(posBolaY) definida acima e a unidade de medida(px)! 
+            vbola.style.left=posBolaX+"px" // Atualizando a posição da bola no eixo X na tela  pegando a variavel da bola (vbola) passando a posição da bola no eixo x(posBolaX) definida acima e a unidade de medida(px)! 
+        }
+
+
+        function teclaDw () { // Função para o controle da tecla Down , quando a tecla for presionada chama a funcão teclaDW e quando for liberada chama a função teclaUp para mover e parar a movimentação
+            tecla = event.keyCode // Armanzenando na variavel tecla o codigo da tecla pressionada
+            if(tecla==38) {  // Se tecla for igual tecla para cima(38)
+            dirJy =-1 // Direção no eixo Y está recendo -1 decrementando 1(=-1), lembrando que no eixo Y para cima é negativo e para baixo positivo
+            } else if(tecla==40) { // Se tecla for igual tecla para baixo(40)
+            dirJy =+1 // Direção no eixo Y está recendo 1(positivo), incrementando 1(=+1)
+            } 
+        }
+
+        function teclaUp () { // Função para o controle da tecla quando a função teclaDW não estiver mais presionando a tecla
+            tecla = event.keyCode
+            if(tecla==38) {
+                dirJy = 0 // Direção no eixo Y está recendo 0, assim parando de mover e ficando parada depois que as teclas são liberadas com o evento keyup ja definido na função teclaUp
+
+            } else if(tecla==40) {
+                dirJy = 0
+
+            }
+        }
+
+        function game() { // Função que vai controlar o jogo
+            if(jogo) { // Se o jogo estiver rolando vai receber os comandos abaixo que vai conter todos os controles no nosso game do jogador, bola e cpu
+                controlajog() // Chamando a função controlajog()
+                controlaBola() // Chamando a função controlaBola()
+                controlacpu() // Chamando a função controlacpu()
+            }
+            frames=requestAnimationFrame(game) // Armazenando na variavel frames o requestAnimationFrame que realiza uma animação passando por parametro a função callback que vai repetir
+
+        }
+
+        function iniciaJogo() { // Função que vai iniciar o jogo
+            if(!jogo) { // Se jogo não estiver rolando vai executar as variaveis abaixo
+                velBola=velCpu=velJogador=8 // Definindo a velocides da bola, jogador e cpu para inicializar, lembrando que velocidade foi zerada quando marca o ponto por isso devemos definir a velocidade novamente
+                cancelAnimationFrame(frames) // Chamando o cancelAnimationFrame(frames) passando por parametro a variavel que contem o requestAnimationFrame, assim não fica uma chamada em cima da outra, lembrando que vai chamar a função game no final
+                jogo=true // Passando jogo para verdadeiro para o jogo iniciar
+                dirJy = 0 // Inicializando com 0 a direção da barra (para cima e para baixo)
+                bolaY = 0 // Inicializando a direção da bola no eixo y com 0
+                if ((Math.random()*10) < 5) { // Sorteando um número aleatorio atraves do (Match.random) e multiplicando(*) por 10, sendo menor que 5 (<5)...
+                    bolaX=-1 // direção da bola no eixo x vai receber -1
+                } else {
+                    bolaX=1 // Senão direção da bola no eixo X vai receber 1
+                }
+                posJogadorX = posJogIniX
+                posCpuX = posCpuIniX
+                posBolaX = posBolaIniX // Armazenando na variavel posBolaX a posição ja definida la em cima na variavel posBolaIniX
+                posBolaY = posBolaIniY // Armazenando na variavel posBolaY a posição ja definida la em cima na variavel posBolaIniY
+                posJogadorY=posJogIniY// Armazenando na variavel posJogadorY a posição posJogIniY
+                posCpuY = posCpuIniY //  Armazenando na variavel posCpuY a posição ja definida la em cima na variavel posCpuIniY
+                game() // Chamando a função game que controla a animação definida acima
+            }
+
+        }
+
+        function inicializa() { // Função que vai inicializar as variaveis
+            velBola=velCpu=velJogador=8 // Armazenando a velocidade 8 nas variaveis velBola, velCpu e velJogador
+            vbtIniciar=document.getElementById("btIniciar") // Associando o elemento do botão Iniciar atraves do getElementById pegando seu id e amrmazenando na variavel vbtIniciar
+            vbtIniciar.addEventListener("click", iniciaJogo) // Adicionando o evento click na função iniciaJogo! Ou seja quando for clicado vai chamar a função iniciaJogo
+            vjogador = document.getElementById("dvJogador") // Associando o elemento da div do jogador atraves do getElementById pegando seu id e amrmazenando na variavel vjogador
+            vcpu=document.getElementById("dvCpu") // Associando o elemento da div da CPU atraves do getElementById pegando seu id e armazenando na variavel vcpu
+            vbola=document.getElementById("dvBola") // Associando o elemento da div da bola atraves do getElementById pegando seu id e armazenando na variavel dvBola
+            vPaineltxtPontos = document.getElementById("txtPontos") // Associando o elemento da div do painel atraves do getElementById pegando seu id e armazenando na variavel vPaineltxtPontos
+            document.addEventListener("keydown", teclaDw) // Adicionando o evento keydown para quando as teclas forem precionadas na função teclaDw
+            document.addEventListener("keyup", teclaUp) // Adicionando o evento keyup para quando as teclas forem liberadas
+            
+        }
+
+        window.addEventListener("load", inicializa) // Evento load que vai inicilizar a função inicializa quando carregada a pagina
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement / appendChild</title>
+</head>
+<body>
+    <script>
+        // createElement cria elementos html em qualquer parte do document
+        // apppendChild adiciona o elemento criado em qualquer parte do document especificado
+
+        var p = document.createElement("p") // Dessa forma que criamos um elemento html, passando por parametro a tag a ser criada, nesse caso um paragrafo(p)
+        
+        // Para definir o texto do elemento criado que foi o (p) temos duas formas o textContent e o createTextNode
+        
+        // p.textContent="CFB Cursos" atribuindo o texto direto a variavel do elemento criado como nesse caso do textContent
+
+        var t = document.createTextNode("Curso de JavaScript - CFB Cursos") // Ou adicionando dentro de uma variavel usando o createTextNode passando por parametro o texto a ser atribuido("CFB Cursos")
+
+        p.appendChild(t) // Nesse caso o elemento criado(p) está recebendo o texto da variavel(t) atraves do appendChild
+
+        document.body.appendChild(p) // Para adicionar o elemento criado usamos o appendChild passando por parametro o elemento, que nesse caso esta armazenado na variavel(p) e está sendo adicionado no body(document.body)
+
+    </script>   
+</body>
+</html>

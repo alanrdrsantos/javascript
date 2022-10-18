@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que país é esse</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+        }
+
+        input#txtpais {
+            width: 150px;
+            height: 20px;
+            font: normal 12pt Arial;
+            padding: 0px 10px;
+        }
+
+        input#veri-button {
+            height: 25px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Em qual país você mora?</h1>
+    <label> Digite seu país aqui por favor:</label>
+    <input type="text" name="txtpais" id="txtpais">
+   <input type="button" value="Verificar" id="veri-button" onclick="verificar()">
+   <div class="resultado">Resultado:</div>
+   <script>
+       function verificar() {
+           var pais = window.document.querySelector('input#txtpais')
+           var rel = window.document.querySelector('div.resultado')
+           rel.innerHTML = `<p>Vivendo em ${pais.value}</p>`
+           if (pais.value == 'Brasil') {
+               rel.innerHTML += `<p>Você é brasileiro</p>`
+           } else {
+               rel.innerHTML += `<p>Você é estrangeiro</p>`
+           }
+       }
+   </script>    
+</body>
+</html>

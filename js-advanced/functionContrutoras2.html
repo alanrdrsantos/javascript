@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Construtoras 2</title>
+</head>
+<body>
+    <script>
+        // É considerado uma boa prática nomear funções de construtor com uma primeira letra maiúscula
+        function Celular (marcaCelular,tamanhoTela,capacidadeBateria) {
+            this.marcaCelular = marcaCelular
+            this.tamanhoTela = tamanhoTela
+            this.capacidadeBateria = capacidadeBateria
+            this.ligar = function() { // Podemos usar metodos tbm dentro da função costrutora e fazemos dessa maneira usando o this e o nome da função em seguida a function() 
+                console.log("Fazendo ligação...")
+            }          
+        }
+
+        // Como function Celular()é uma função construtora de objetos os objetos do mesmo tipo são criados chamando a função construtora com a palavra-chave new
+         const celular = new Celular ("Xiomi", 6, 4000) // Instanciando um novo object a function Celular, com isso todas as propriedades que estão definidas no Celular passam no object celular atraves de um parametro("Xiomi"..)
+         
+         console.log(celular) // Usando o console log para mostrar que as priedadesforam armazenados no celular
+         console.log(`Marca: ${celular.marcaCelular}`)
+         console.log(`Tamanho de tela: ${celular.tamanhoTela} polegadas`)
+         console.log(`Bateria: ${celular.capacidadeBateria}`) // Mostrando as propriedades do object instanciado(celular) definidas na function construtora Celular com o this
+
+    </script>  
+</body>
+</html>

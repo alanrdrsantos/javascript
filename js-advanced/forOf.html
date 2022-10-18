@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for of</title>
+</head>
+<body>
+   
+    <script>
+        // A instrutura for of percorre os valores de um objeto iterável! Ele permite que você faça um loop sobre estruturas de dados iteráveis, como Arrays, Strings, Maps, NodeLists e muito mais. Assim retornando seu valor atraves da variavel declarada no loop for of que pode ser declarada como const, let ou var
+
+        /* Sintaxe:
+                 for (variavel of iteravel) {
+                        declaração
+                } 
+        */
+
+        const notas = [100,80,75,30,64,47,98,81,60]
+        let aprovados = 0
+        let reprovados = 0
+
+        for (let n of notas) { // // Criamos uma let, var ou const e informamos o object iterativo, que nesse caso é um array, que vai percorrer ou seja ultilizamos o for of para percorrer os object iteraveis (incluindo Array, Strings, Map, Set...)  assim retornando seu valor na variavel declarada
+            n >= 60 ? aprovados++ : reprovados++
+
+             console.log(n) // Depois de percorrer armazena na let criada(n), dentro do for, os valores do array notas
+        }
+
+        console.log(`Aprovados: ${aprovados} // Reprovados: ${reprovados}`)
+
+    </script>   
+</body>
+</html>

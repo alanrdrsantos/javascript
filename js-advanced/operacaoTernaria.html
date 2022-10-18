@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operações Ternárias</title>
+  </head>
+  <body>
+    <script>
+      /* Sintaxe de uma operação ternária
+            
+            teste lógico ? SE verdadeiro : SE falso
+
+            teste lógico = Uma expressão que é avaliada como verdadeiro (true) ou falso (false)
+
+            SE verdadeiro : SE falso = Expressões com valores de qualquer tipo, sendo o primeiro valor para retornar verdadeiro e o segundo para retornar falso
+        */
+
+      let n1 = 10;
+      let n2 = 5;
+      let op = false;
+
+      /* if(n1 == n2) {
+            console.log("igual")
+        } else {
+            console.log("Diferente")
+        } */
+
+      n1 == n2 ? console.log("igual") : console.log("Diferente"); // Essa é a operação ternária do exemplo acima
+
+      op ? console.log("igual") : console.log("Diferente"); // Podemos usar diretamente uma variavel ja que é um teste logico e a let op é to tipo boolean (True/False), como op é true executa a primeira expressão!
+
+      const r = op ? "igual" : "Diferente"; // Podemos associar uma operação ternária a uma variavel tambem!
+      console.log(r); // Aqui chamamos o console.log(r) retornando a const r já que a operação ternaria esta armazenado na mesma ou seja o resultado vai sair dela
+
+      // Operação ternaria com &&(and)
+      const r2 = op && "Igual"; // Nessa caso se a expressão(op) da operação ternária for verdadeiro automaticamente ela passa e faz o teste retornando o que foi definido, como op esta com o valor false nesse caso ele vai retornar false, se fosse verdadeiro retonaria "igual"
+
+      console.log(r2);
+    </script>
+  </body>
+</html>

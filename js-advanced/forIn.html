@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in</title>
+</head>
+<body>
+    
+    <script>
+        /* O laço for...in  interage sobre propriedades enumeradas de um objeto, na ordem original de inserção
+         Sintaxe: for ([indice] in [objeto])
+                         declaração */
+
+        const aluno = {nome: "Alan", sobrenome: "Rodrigues"}
+        const notas = {n1: 80, n2: 75, n3: 92, n4: 85}
+        const info = {...aluno, ...notas} 
+
+       for (let dados in info) { // Criamos uma let, var ou const e informamos o object que vai percorrer ou seja ultilizamos o for in para percorrer o object
+        console.log(dados) // Depois de percorrer armazena na let criada(dados), dentro do for, as propriedades do object info(nome:,sobrebome:,n1:.... )
+        console.log(info[dados]) // Para ler os valores usamos o object passando no índice a let criada, dessa forma pegamos o valor de todos os objects (info[dados])
+       }
+        
+
+    </script>   
+</body>
+</html>

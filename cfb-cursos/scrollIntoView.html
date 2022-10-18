@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollIntoView</title>
+    <style>
+        body {
+            padding: 0px;
+        }
+        .carro {
+            width: 371px;
+            height: 750px;
+            display: block;
+            margin-bottom: 50px;
+        }
+        .menu_item {
+            height: 100%;
+            cursor: pointer;
+        }
+        #menu {
+            border: solid 3px #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+            position: fixed;
+            top:10px;
+            left: 400px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <img id="btnc1" data-nome="c1" src="img/car1.png" class="menu_item"> <!-- Usando o dataset para poder associar os elementos -->
+        <img id="btnc2" data-nome="c2" src="img/car2.png" class="menu_item">
+        <img id="btnc3" data-nome="c3" src="img/car3.png" class="menu_item">
+        <img id="btnc4" data-nome="c4" src="img/car4.png" class="menu_item">
+    </div>
+    <img id="c1" src="img/car1.png" class="carro">
+    <img id="c2" src="img/car2.png" class="carro">
+    <img id="c3" src="img/car3.png" class="carro">
+    <img id="c4" src="img/car4.png" class="carro">
+
+    <script>
+        //scrollIntoView serve para poder rolar a pagina ou seja move o elemento ao qual é aplicado para a área visível da janela do navegador
+
+        function rolar() {
+            var obj = event.target.dataset.nome // Usando event.target que é uma referência ao objeto que enviou o evento, ou seja vai me retornar o elemento clicado, com o dataset e o nome da propriedade para retornar (dataset.modelo) o valor ja definido
+            document.getElementById(obj).scrollIntoView() //Pegando o elemento de acordo com o valor de obj, e usando o scrollIntoView para rolar o elemento desejado ficando visivel na viewport 
+        }
+        
+        function inicia() {
+            document.getElementById("btnc1").addEventListener("click", rolar) // // Adicionando um evento de click com o addEventlistener, passado por parameto, no elemento com o id="btnc1", quando cliclado chama a função rolar() executando seus comandos
+            document.getElementById("btnc2").addEventListener("click", rolar)
+            document.getElementById("btnc3").addEventListener("click", rolar)
+            document.getElementById("btnc4").addEventListener("click", rolar)
+
+        }
+
+     window.addEventListener("click", inicia)
+    </script>
+</body>
+</html>

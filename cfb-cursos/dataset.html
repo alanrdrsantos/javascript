@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataset</title>
+    <style>
+        .carro {
+            width: 371px;
+            height: 750px;
+            display: inline;
+            cursor: pointer;
+        }
+        #painel {
+            border: solid 3px #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="painel"></div>
+    <div id="c1" class="carro"><img src="img/car1.png" data-modelo="Marea" data-cor="Branco" data-pot="80" data-vel="120"></div> <!-- Usando o dataset nos elementos html, primeiro colocamos data e o nome da propriedade ou seja o atributo que quero adicionar, atribuindo um valor no final -->
+    <div id="c2" class="carro"><img src="img/car2.png" data-modelo="Ferrari" data-cor="Vermelho" data-pot="350" data-vel="320"></div>
+    <div id="c3" class="carro"><img src="img/car3.png" data-modelo="Camaro" data-cor="Amarelo" data-pot="110" data-vel="180"></div>
+    <div id="c4" class="carro"><img src="img/car4.png" data-modelo="Lamborghini" data-cor="Preto" data-pot="220" data-vel="260"></div>
+
+
+    <script>
+        // dataSet permite que adicionemos dados a elementos HMTL ou seja qualquer elemento, como se fossem constantes, por exemplo podemos criar um elemento e definimos uma série de atributos que funcionarão como informações deste elemento, que pode ser facilmente obtido por javascript. Sintaxe fica assim data-nome_do_dataset="valor"
+
+        function definePainel() {
+            var obj = event.target // Usando event.target que é uma referência ao objeto que enviou o evento, ou seja vai me retornar o elemento clicado
+            var painel = document.getElementById("painel") // Associando o elemento do id="painel"(div) a varianel painel
+            painel.innerHTML = `Modelo: ${obj.dataset.modelo} <br>`// Mostrando na div associada(painel) com o InnerHTML o conteudo da variavel painel e do dataset já definido no html, usamos dataset e o nome da propriedade para retornar (dataset.modelo) o valor ja definido   
+            painel.innerHTML += `Cor: ${obj.dataset.cor} <br>` // Incrementando (+=) para não sobrescrever e sim ir adicionando o dataset ja definido
+            painel.innerHTML += `Potência: ${obj.dataset.pot} <br>`  
+            painel.innerHTML += `Velocidade: ${obj.dataset.vel} <br>`     
+
+        }
+
+        function inicia() {
+            document.getElementById("c1").addEventListener("click", definePainel) // Adicionando um evento de click com o addEventlistener, passado por parameto, no elemento com o id="c1", quando cliclado chama a função definePainel() executando seus comandos
+            document.getElementById("c2").addEventListener("click", definePainel)
+            document.getElementById("c3").addEventListener("click", definePainel)
+            document.getElementById("c4").addEventListener("click", definePainel)
+        }
+
+        window.addEventListener("load", inicia) // / evento de load para carregar a pagina com os comandos da function inicia()
+
+
+    </script>
+</body>
+</html>

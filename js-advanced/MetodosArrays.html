@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Métodos de Array</title>
+</head>
+<body>
+    <h1>10 Métodos e Array</h1>
+
+    <script>
+        const data = [
+            {name: "Matheus", age: 31, sallary: 2000, driverLicense: true},
+            {name: "João", age: 18, sallary: 1500, driverLicense: false},
+            {name: "Mariana", age: 22, sallary: 4000, driverLicense: true},
+            {name: "Pedro", age: 50, sallary: 7200, driverLicense: true},
+            {name: "Érica", age: 16, sallary: 2000, driverLicense: false}
+        ]
+
+        //1 - Reverse, método que inverte os itens de um array. O primeiro elemento do array se torna o último e o último torna-se o primeiro
+
+        const reverseData = data.reverse()
+
+        console.log(reverseData)
+
+        //2 - find, método que retorna o valor do primeiro elemento do array que satisfizer a função de teste provida. Caso contrario, undefined é retornado
+
+        const highSallary = 5000
+
+        const highestSallary = data.find((user) => user.sallary > highSallary) 
+
+        console.log(highestSallary)
+
+        //3 - findIndex, método que retorna o índice no array do primeiro elemento que satisfizer a função de teste provida. Caso contrário, retorna -1, indicando que nenhum elemento passou no teste
+
+        const lowestSallary = data.findIndex((user) => user.sallary > 0 && user.sallary < 2000) // Salario maior que 0 e menor que 2000
+
+        console.log(lowestSallary)
+
+        data[lowestSallary].sallary += 200 // Pegando o array data passando como indice a const (lowestSallary) que está armazenado o indice do menor salario, definido acima, e incrementando + 200 no sallary
+
+        console.log(data)
+
+        //4 - includes, método que determina se um array contém um determinado elemento, retornando true ou false apropriadamente
+
+        const numbers = [1, 2, 3, 4, 5]
+
+        const hasFour = numbers.includes(3)
+
+        console.log(hasFour)
+        console.log(numbers.includes(100))
+
+        //5 - map, metodo que invoca a função callback passada por argumento para cada elemento do Array e devolve um novo Array como resultado, sendo ele o array original pois não cria outro
+
+        data.map((user) => (user.newsletter = false)) // Implementando o object newsletter para cada elemento do array data
+
+        console.log(data)
+
+        //6 - filter, método que cria um novo array com todos os elementos que passaram no teste implementado pela função fornecida
+
+        const drivers = data.filter((user) => user.driverLicense)
+
+        console.log(drivers)
+
+        //7 - reduce, método que executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno
+
+        const SallariesSum = data.reduce((totalSallary, user) => (totalSallary += user.sallary),0) // Definindo uma variavel para somar todos os salarios (totalSallarry), incrementando o valor de totalSallary com sallary assim fazendo a soma(totalSallary += user.sallary)! Como a variavel criada totalSallary não foi definida com nenhum valor colocamos 0 como ponto de partida(,0)
+
+        console.log(SallariesSum)
+
+        //8 - forEach, método que executa uma dada função em cada elemento de um array
+
+        const showUserName = (users) => {
+            users.forEach((user) => { // Metodo forEach se assemelha a estrutura de looping (for, while), geralmente é usado para exibir alguma coisa na tela
+                console.log(`Olá ${user.name}!`)
+            })
+        }
+
+        showUserName(data)
+
+        //9 - some, método que testa se ao menos um dos elementos no array passa no teste implementado pela função atribuída e retorna um valor true ou false
+
+        let someoneWithNewsletter = data.some((user) => user.newsletter)
+
+        console.log(someoneWithNewsletter)
+
+        data[0].newsletter = true // Adicionando true a propriedade newsletter atraves da posição do array (data[0)])
+
+        someoneWithNewsletter = data.some((user) => user.newsletter)
+
+        console.log(someoneWithNewsletter)
+
+        //10 -every, método que testa se todos os elementos do array passam pelo teste implementado pela função fornecida
+
+        const everyUserHasName = data.every((user) => user.name)
+
+        console.log(everyUserHasName)
+
+        const everyUserHasGoodSallary = data.every((user) => user.sallary > 5000)
+
+        console.log(everyUserHasGoodSallary)
+
+
+    </script>   
+</body>
+</html>

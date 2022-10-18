@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novos métodos para String em Javascript</title>
+</head>
+<body>
+
+    <script>
+
+        let curso = "Curso de JavaScript moderno"
+        let c = "moderno"
+
+        //O método startsWith() verifica se uma string começa com os caracteres especificados no parametro, retornando true se começar ou false 
+        console.log(curso.startsWith("Curso"))
+
+        //O método endsWith() verifica se uma string termina com os caracteres especificados no parametro, retornando true se terminar ou false 
+        console.log(curso.endsWith(c) ? "Verdadeiro" : "Falso") // Podemos usar uma operação ternária também nesse caso, retornando o que foi definido! ("Verdadeiro" : "Falso") lembrando que o o primeiro valor vai retonar se for true e o segundo se for false
+
+        // O método includes() determina se um conjunto de caracteres pode ser encontrado dentro de uma string ou não, retornando true ou false
+        console.log(curso.includes("JavaScript"))
+
+        // O método repeat() constrói e retorna uma nova string com um determinado número de cópias concatenadas da string original ou seja repete a string selecionada um determinado números de vezes
+        console.log(curso.repeat(2))
+
+
+
+
+
+    </script>   
+</body>
+</html>

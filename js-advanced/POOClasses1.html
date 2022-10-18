@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - Programação Orientada a Objetos Part 1</title>
+</head>
+<body>
+
+    <script>
+        // JavaScript é uma linguagem de programação orientada a objetos e, assim sendo, suas variáveis são dependentes dos objetos. Nas linguagens de programação orientadas a objetos, os programadores criam seus próprios objetos e tipos de variáveis. Um objeto é um tipo especial de variável que contém propriedades e métodos
+
+        class Carro {
+            constructor(c) { // O constructor é um método especial para criar e inicializar um objeto criado a partir de uma classe ou seja é executado no momento em que a classe é instanciada, além disso os atributos da classe são definidos dentro deste método! Passando por parametro (c) que vai ser a cor
+                this.cor = c // Criando um novo atributo direto no constructor, usando o this que faz a referencia ao proprio objeto, (nesse caso é o Carro) ou seja usando this sempre vai fazer a referencia ao proprio objeto que ele está, e atribuindo um valor (c) que vai ser a cor definida no parametro
+                console.log(`olá, sou um novo carro da cor ${this.cor}`) // this.cor vai ser o (c) definido no parametro (this.cor = c)
+            }    
+        }
+
+        let car1 = new Carro() // Criando um novo object para a class Carro (new Carro()), cada um dos objetos tem o comportamento individual, ou seja eles não são relacionados entre si o que eu fazer para um object não vai afetar o outro. Como estou instanciando um novo objeto a classe Carro, automaticamente chama o metodo constructor executando o que foi definido nele
+        let car2 = new Carro("Vermelho") // Definido o parametro (c) do constructor da class Carro, passando por parametro "Vermelho" que vai ser a cor deinido no this.cor = c
+        let car3 = new Carro("Azul")
+        let car4 = new Carro("Verde")
+        
+
+    </script>
+</body>
+</html>

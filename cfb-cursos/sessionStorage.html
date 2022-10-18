@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage - sessionStorage</title>
+</head>
+<body>
+    <input type="text" name="fnome" id="fnome" size="20" maxlength="20"><br><br>
+    <button id="btnP2">Página 2</button>
+    <button id="btnP3">Página 3</button>
+    <button id="btnLimpar" onclick="limpar()">Limpar Session Storage</button>
+
+    <script>
+        // sessionStorage ao contrario do localStorage é uma seção e quando se fecha o brownser todos os dados amrzenados são apagados, no localStorage os dados não são apagados, sessionStorage também é difinido por uma key e um value e tambem os mesmos metodos setItem, getItem e removeItem assim como no localstorage!
+
+        function pagina(pg) { // função que vai carregar a pagina quando clicar, definida na função inicia() adicionado com eventos em uma função anônima
+            sessionStorage.nome=document.getElementById("fnome").value // Armazenando o valor do input(fnome) na sessionStorage com a key nome
+            if(pg==2) {
+                window.location.assign("sessionpag2.html") // Usando o metodo location.assign para carregar o documento passado por parametro
+            } else if(pg==3) {
+                window.location.assign("sessionpag3.html")
+            }
+
+        }
+
+        function inicia() {
+            // adicionando o evento click, definido com uma função anônima chamando a função pagina(pg) passando o parametro desejado definido no if e else if da mesma
+            document.getElementById("btnP2").addEventListener("click", function(){
+                pagina(2)
+            })
+            document.getElementById("btnP3").addEventListener("click", function(){
+                pagina(3)
+            })
+        }
+
+        function limpar() { //Função para apagar o sessionStorage
+            sessionStorage.clear() // Metodo clear limpa o sessionStorage
+        }
+
+        window.addEventListener("load", inicia)
+
+    </script>
+</body>
+</html>

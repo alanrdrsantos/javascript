@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+    <style>
+        .titulo{
+            color: #f00;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+
+        div {
+            border: 1px solid #000;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        a{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">querySelectorAll</h1>
+    <p>O querySelectorAll() é um método que retorna os elementos do documento que correspondem a uma classe de CSS ou a uma tag específica.</p>
+    <h2 class="titulo">Curso de JavaScript</h2>
+    <p>www.youtube.com/cfbcursos</p>
+    <p class="titulo">cfbcursos.com.br</p>
+    <div>
+        <p>Este texto está dentro de uma div</p>
+        <p>Este também</p>
+    </div>
+    <a href="http://www.youtube.com/cfbcursos" target="_blank">CANAL</a>
+    <a href="http://cfbcursos.com.br">SITE</a>
+
+    <hr>
+
+    <script>
+        var Ps = document.querySelectorAll("p")
+        var elementos = document.querySelectorAll(".titulo")
+        for(var i = 0; i < elementos.length; i++) // Vai aparecer todos os elementos com a classe titulo, como já definico na variavel elementos acima
+        document.write(elementos[i].innerHTML + "<br>")
+        document.write("<br>")
+       
+        document.write(Ps[0].innerHTML)
+        Ps[0].style.color="#00f"
+        Ps[1].innerHTML = "NOVO TEXTO"
+
+    </script>
+</body>
+</html>

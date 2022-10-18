@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName 2</title>
+</head>
+<body>
+    <h2>CFB Cursos</h2>
+    <p>Curso de JavaScript</p>
+    <h2>Aula 25</h2>
+    <p>www.youtube.com/cfbcursos</p>
+    <h2>cfbcursos.com.br</h2>
+    <hr>
+
+    <script>
+        var tagsP = document.getElementsByTagName("*") // Colocando asteristico(*) pega todas as tags do html
+        tagsP[9].style.color="#00f" // Colocando a tag h2 Aula 25 em
+        tagsP[7].innerHTML = "CFB CURSOS é bão demais" // Mudando o conteudo da tag h2 CFB Cursos com InnerHTML
+    </script>
+    
+</body>
+</html>

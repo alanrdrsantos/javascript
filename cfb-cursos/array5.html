@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 5</title>
+    <script>
+        var mochila =[], mochila1 =[], mochila2 =[], pos
+        var str = "Macaco"
+        
+        mochila1.push("Faca") 
+        mochila1.push("Corda")
+        mochila1.push("Pederneira")
+        mochila1.push("Chave")
+        mochila1.push("Lanterna")
+        mochila1.push("Pedra") 
+        mochila1.push("Mouse")
+
+        mochila2.push("Arame") 
+        mochila2.push("Luvas")
+        mochila2.push("Joelheira")
+        mochila2.push("Meias")
+        mochila2.push("Moeda")
+        mochila2.push("Canivete")
+
+        
+        mochila=mochila1.concat(mochila2) // Método concat concatena(junta) dois Arrays
+        // concat cria um novo array unindo todos os elementos que foram passados como parâmetro, na ordem dada, para cada argumento e seus elementos (se o elemento passado for um array)
+
+        document.write(mochila[0] + "<br>")
+        document.write(mochila[1] + "<br>")
+        document.write(mochila[2] + "<br>")
+        document.write(mochila[3] + "<br>")
+        document.write(mochila[4] + "<br>")
+        document.write(mochila[5] + "<br>")
+        document.write(mochila[6] + "<br>")
+        document.write(mochila[7] + "<br>")
+        document.write(mochila[8] + "<br>")
+        document.write(mochila[9] + "<br>")
+        document.write(mochila[10]+ "<br>")
+        document.write(mochila[11]+ "<br>")
+
+        document.write("Tamanho da mochila 1:" + mochila1.length + "<br>")
+        document.write("Tamanho da mochila 2:" + mochila2.length + "<br>")
+        document.write("Tamanho da mochila :" + mochila.length + "<br>")
+        // Length em Arrays retorna o tamamaho(quantidade de itens) do elemento
+        document.write(`O comprimento da palavra Macaco é ${str.length}`)
+        // A propriedade length de um objeto String contém o comprimento(quantidade de letras), ou seja para uma string vazia length vai ser 0
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

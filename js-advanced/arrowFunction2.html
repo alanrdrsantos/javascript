@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+
+    <script>
+
+        const soma = (a,b) =>  a + b // Quando não uso o {} da função, a arrow function já retorna automaticamente o valor sem usar a palavra return, se a função tiver {} tenho que usar o return
+        console.log(soma(20,20))
+
+       
+        const community = () => { // Como usei o {} da função tenho que usar a palavra return, sem o {} não precisaria usar como no exemplo acima
+            return "Collab"    
+        } 
+        console.log(community())
+
+       
+        const double = n1 => n1 * 2 // Quando se tem 1 único parametro na arrow function podemos remover o parenteses() só funciona quando se tem 1 parametro, lembrando que é opcional! E como esta sem o {} ja vai retornar direto
+        console.log(double(7))
+
+        const sum = (n1,n2,n3) => n1 + n2 + n3 // Arrow function com multiplos parametros
+        console.log(sum(2,2,2))
+
+
+        const sum2 = year => { // Geralamente quando usamos o {} na arrow function e pra execução de uma logica, como abaixo, lembrando que nesse caso temos que usar o return por estar envolvido na (chaves{})! Por conter só 1 parametro tbm não é preciso o uso do parenteses()
+            if(year >= 18){
+                return "Maior de Idade"
+            } else {
+                return "Menor de idade"
+            }
+        }
+        console.log(sum2(30))
+
+
+        const getPerson  = () => { // Para retornar um objeto literal na arrow function temos que usar essa sintaxe, se colocarmos somente um {} seu valor vai ser undefined, lembrando que os objetos são declarados com {} e toda vez que usamos {} na função precisamos colocar a palavra return para retornar! Nesse caso para não usar a palavra return podemos envolver a função com parentes() ao inves das chaves{}, exemplo ({nome: "Alan", idade: 30})
+            return {nome: "Alan", idade: 30}
+        }
+        console.log(getPerson())
+
+    
+                
+        function Person() {
+            this.year = 0
+
+            setInterval(() => { // Usando arrow function para definir o que o setInterval vai executar, o this na arrow function vai se referir o object e não o windown, nota se que não usamos o contructor para que isso aconteça
+                this.year = this.year + 1
+                console.log(`Qual o this: ${this}`)
+                console.log(`Qual é a idade? : ${this.year}`)
+            },1000) // O tempo colocamos como segundo parametro depois de definirmos o que a função vai executar
+        }
+
+        const p1 = new Person()
+    
+      
+
+            
+         
+        
+        
+
+
+
+
+    </script>   
+</body>
+</html>

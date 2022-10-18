@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametros Rest</title>
+</head>
+<body>
+    <script>
+        // A sintaxe de rest parameter (parâmetros rest) nos permite representar um número indefinido de argumentos como um array
+
+        function soma(...num) { // rest são usados como parametros para definir um numero indefinido de elementos
+            let res = 0
+            for (n of num) { // usando o for of para pegar todos os valores de (num) e armazenando na variavel (n)
+                res+= n // somando e incrementando a let res,que foi definido acima como 0, todos os valores quardados em n! Lembrando que os valores do parametro rest que foi definido como (...num), foram guardados na variavel (n) definido acima com o for of
+            }
+            return res // Retornando o valor da soma armazenado em res
+
+        }
+
+        
+        /* let qtde = num.length // Pegando o tamanho de num, que é o nosso parametro rest, e armazenando na variavel let qtde
+        for (let i = 0; i < qtde; i++) { // Enquanto i for menor que a quantidade de parametro rest (i < qtde), vai incrementando +1 (i++)
+            res+= num[i] // res recebe a soma incrementando o valor de num na posição do indice, assim pegando todos os numeros de num como foi definido acima (res+= num[i])
+        }     
+        return res // Retornando o valor de res */
+        
+        console.log(soma(10,40,9)) // Como a funçao soma esta com um parametro res, podemos colocar uma quantidade de elementos indefenidos 
+
+
+    </script>
+</body>
+</html>

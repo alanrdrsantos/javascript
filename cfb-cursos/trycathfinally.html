@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de erros</title>
+    <script>
+        //A declaração (try) consiste  em um bloco try, que contém uma ou mais declarações, e ao menos uma cláusula catch  ou uma cláusula finally
+        // Uma cláusula (catch) contém declarações que especificam o que fazer caso uma exceção seja lançada no bloco try. Ou seja, se você quer que o bloco try tenha êxito, e caso não tenha, você quer que o controle passe para o bloco catch.Caso qualquer declaração dentro do bloco try  (ou em uma função chamada no interior do bloco try) lançar uma exceção o controle imediatamente muda para a cláusula catch. Se nenhuma exceção for lançada no bloco try a cláusula catch é ignorada.
+        //A cláusula finally é executada após a excecução do bloco try e da(s) cláusula(s) catch porém antes das declarações seguintes ao try. Ela sempre é executada, independente se uma exceção for lançada ou capturada.
+        try { // Quando acontece o erro(excessão) no (try) é passado para o bloco (catch), caso não aconteça a declaração do try é executada normalmente
+            document.writi("CFB Cursos")
+        }catch(e) { // Quando acontece um erro é gerado uma excessão passando pro (cath-tratamento do erro) e o try é interrompido imediatamente mandando o erro(excessão) para a variavel declarada no () do cath, no caso (e)
+            document.write("ERRO: " + e.message) // message = erro que aparece no try "document.writi"
+            console.log("Mensagem de erro: " + e.message) // Concatenou "Mensagem de erro" + erro do try nessa caso "document.writi".
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

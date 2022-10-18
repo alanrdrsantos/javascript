@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerHTML</title>
+</head>
+<body>
+    <p id="texto">CFB Cursos</p>
+    <input type="text" id="cxtexto" value="CFB Cursos">
+
+
+
+    <script>
+        var cxt=document.getElementById("cxtexto").value
+        var cxt1=document.getElementById("texto")
+      
+        // InnerHTML obtem o conteúdo(html) de uma tag ou modifica o conteudo da mesma 
+        //var cxt1=document.getElementById("texto").innerHTML  Nesse caso está obtendo o conteudo
+
+        // var cxt1=document.getElementById("texto").innerHTML="JavaScript"
+        cxt1.innerHTML="JavaScript" // Nesse caso esta modificando
+
+
+    </script>
+</body>
+</html>

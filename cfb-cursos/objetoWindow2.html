@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Window parte 2</title>
+    <style>
+        #painel {
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 15px;
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="info()">Tamanho</button>
+    <div id="painel"></div>
+
+    <script>
+        var l, a, px, py 
+
+        var painel = document.getElementById("painel")
+
+        
+        
+        function info() {
+            l=window.innerWidth // Propiedade innerWidth para saber a largura interna da janela, para largura externa usar outerWidth
+            a=window.innerHeight // Propiedade innerHeight para saber a altura interna da janela, para altura externa usar outerHeight
+            px=window.screenX // Propiedade screenX para saber a posição no eixo x
+            py=window.screenY // Propiedade screenY para saber a posição no eixo y
+            painel.innerHTML=`L:${l}<br>A:${a}<br>X:${px}<br>Y:${py}`
+
+        }
+
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Reduce</title>
+</head>
+<body>
+
+    <script>
+        // O método reduce() executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno.
+
+      let num = [0,1,2,3,4,5]
+      
+      let soma = num.reduce((n1,n2)=> { // Armazenando em (soma) o array (num) usando o metodo reduce para retornar o que foi definido na função callback que é uma arrow function, lembrando que reduce retornara um único valor, a função contem dois parametros(n1,n2), assim inicialmente recebendo o primeiro e o segundo valor do array (num) no parametro. 
+        console.log(`${n1} + ${n2}`)
+        return n1 + n2 // Definindo o comando da função para retornar a soma de n1 + n2! Como reduce retorna somente um valor essa função vai funcionar da seguinte maneira: n1 recebe o primeiro valor do array, e n2 recebe o segundo valor, assim retornando a soma de n1 + n2 como esta programado, o n1 agora tem o valor da soma anterior e n2 o proximo numero assim fazendo a soma nessa sequencia ate chegar em um unico valor! Exemplo no console log acima! 
+        
+    })
+    
+    console.log(soma)
+    
+    
+    let pessoas = [
+        {nome: "Bruno", idade: 40},
+        {nome: "Alan", idade: 30},
+        {nome: "Monica", idade: 25},
+        {nome: "Ronaldinho", idade: 18} 
+    ]
+    
+    let nomes = pessoas.reduce((p1,p2)=>{ // Armazenando em (nomes) no array de objetos literais (pessoas) usando o metodo reduce para retornar o que foi definido na função callback que é uma arrow function que contem dois parametros(p1,p2), assim inicialmente recebendo o primeiro e o segundo valor do array (pessoas) no parametro.
+        p1.push(p2.nome) // Usando o metodo push() para adicionar um elemento ao final do array, nesse caso está adicionando ao p1 a propriedade nome do p2! Lembrando que nesse caso p1 recebe o primeiro valor de nome e p2 o segundo valor! Explicação abaixo no console.log
+        console.log(`${p1} --- ${p2.nome}`)
+        return p1 // Retornando o valor armazenado em p1, que foi definido atraves do push que seria a propriedade nome do object array
+    },[]) // Colocamos[] para converter o rertorno em array
+
+    console.log(nomes) // Mostrando o que foi definido em nomes
+
+    let idades = pessoas.reduce((p1,p2)=> {
+        p1.push(p2.idade) 
+        return p1 
+    },[])
+
+    console.log(idades)
+  
+    </script>   
+</body>
+</html>

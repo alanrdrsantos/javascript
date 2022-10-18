@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Location parte 1</title>
+</head>
+<body>
+    <h1>Home - aula68.html</h1>
+
+    <a href="paginaLocation1.html#cfbcursos#curso_de_javascript?alan_javascript">Página 2</a>
+
+    <script>
+        // Location contem informações da URL, podendo resgatar informações da URL 
+        
+        var aux = location.hash // location.hash verifica as ancorâs(#) e vai obter seus valores nessas passagens de parametros, como aconteceu no link acima <a #cfbcursos#curso_de_javascript>
+        var dados = aux.split("#") // O método split() divide uma string em um array de strings de acordo com algum separador; por exemplo, o espaço em branco ou algo determinado por uma expressão regular., nesse caso o ("#") Além disso, o caractere separador é removido das substrings e colocado uma virgula para separar armazenando em uma array.
+        var h = location.hostname // location.hostname retorna o endereço do host (www.etc.com.br)
+        var hr = location.href // location.href serve para retornar a URL ou definir um valor(setar) para URL
+        var o = location.origin // location.origin vai mostrar o protocolo, o hostname e o numéro da porta 
+        var p = location.pathname // location.pathname vai retornar o caminho apos o protocolo e o hostname, http://wwww.youtube.com/cfbcursos o path name vai ser cfbcursos
+        var pt = location.port //location.port vai retornar o numéro da porta da URL
+        var pr = location.protocol // location.protocol vai retornar o protocolo da URL
+        var se = location.search // location.search é quase a mesma coisa que o (hash), mas ao inves de separar por # ele separa por ?(ponto de interrogação)
+        
+
+        document.write(`<hr>${dados}`)
+        document.write(`<br>${h}`)
+        document.write(`<br>${hr}`)
+        document.write(`<br>${o}`)
+        document.write(`<br>${p}`)
+        document.write(`<br>${pt}`)
+        document.write(`<br>${pr}`)
+        document.write(`<br>${se}`)
+
+        
+        
+
+
+
+    </script>   
+</body>
+</html>

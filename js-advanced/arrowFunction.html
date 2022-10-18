@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+        /*Arrow function nos permitem escrever uma sintaxe de função mais curta. Estas expressões de funções são melhor aplicadas para funções que não sejam métodos, e elas não podem ser usadas como construtoras 
+        Sintaxe: 
+        let myFunction = (a, b) => a * b;   
+                         (parâmetros) => expressão (O que a função vai fazer) 
+        
+        Parênteses são opcionais quando só há um nome de parâmetro: 
+        a => expressão
+
+        Quando não há parametros para a função usamos com o parenteses vazio:
+        () => expressão
+
+        Quando há um comando só para a expressão podemaos deixar na mesma linha, quando a expressão for mais longa usamos o {}
+        (a, b, c) => {
+            a * b
+            b + c
+        }
+        */
+
+        const soma = (n1,n2) => { // Arrown function associada a const soma passando 2 numeros como parametro (n1 + n2)
+            return n1 + n2 // rertonando a soma de n1 + n2
+        }
+
+        console.log(soma(5,5)) // chamando a const soma passando os numeros (n1 + n2) nos parametros 
+
+        const add = (...num) => { // Arrow function associada a const add com um parametro rest(...num)
+            let res = 0
+            for (n of num) // For of para percorrer num, que é um parametro rest que nos permite representar indefinidos números assim formando um array, e armazenando os valores na variavel n
+                res+= n // Fazendo a soma incrementando a res que tem valor inicial 0 com n que foram armazenados os valores de num
+            return res // Retornando o valos da soma de res
+        }
+
+        console.log(add(6,7,1)) // Passando os valores de num como parametro(6,7,1) na const add
+
+        const par = num => { // Arrow Function associada a const par com um parametro (num)
+            if(num % 2 == 0) // se num divisivel por 2 for igual a 0,(num % 2 == 0) ou seja tiver o resto 0, vai ser par
+                return true // Retorna true
+             else // senão
+                return false  // Retorna false     
+        }
+
+        console.log(par(2)) // Passando o numero 2 como parametro na const par, para poder fazar a verificação ja definida na arrow function
+        console.log(par(3) ? "É par" : "É impar") // Usando uma operação ternária para retornar as expressões: "É par" : "É impar", lembrando que na operação ternária sempre vai retornar o primeiro teste se for true, se for false retornara o segundo teste nessa ocasião
+
+        const name = () => {
+            return "Alan"
+        }
+
+        console.log(name())
+
+    </script>
+</body>
+</html>

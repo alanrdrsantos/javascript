@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 3</title>
+    <script>
+        var mochila =[], pos
+        
+        mochila.push("Faca") 
+        mochila.push("Corda")
+        mochila.push("Pederneira")
+        mochila.push("Chave")
+        mochila.push("Lanterna")
+        mochila.push("Pedra") 
+            
+        document.write(mochila.indexOf("Lanterna") + "<br>")
+         // (indexOf) Método que verifica se o elemento está no Array,
+        // ele busca o elemento do array e retorna a posição do mesmo
+         document.write(mochila.indexOf("Arame") + "<br>")  
+         // Quando não acha o elemento, retorna -1 
+         
+         var res = window.prompt("Digite um item: ")
+         pos = mochila.indexOf(`${res}`)
+         // Podemos usar if e else para saber da posição e o nome do item
+         if (pos == - 1) {  // ou podemos usar (pos < 0) como condição
+            document.write("Ítem não esta na mochila<br>")
+        } else {
+            document.write(`${mochila[pos]} esta na mochila na posição ${pos}`)
+
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

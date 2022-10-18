@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Anônimas</title>
+</head>
+<body>
+
+
+    <script>
+        // A ideia da função anônima é que você possa criar uma função sem que anteriormente haja um nome para ela e ao declarar uma variável você já pode inserir uma função anônima para a mesma ou seja podemos dizer que as funções anônimas não dependem de nomes, e são somente declaradas em variáveis e é claro: você vai sempre chamar a função anônima pelo nome do variável, já que ela por si só não possui um nome
+
+        const alo = function() { // Armazenando na const alo uma função anonima, lembrando que pode ser declarada e usada dinamicamente, ou seja a const alo vai receber o conteudo de function! Lembrando que se a function nao tiver um return a const alo vai receber todo conteudo da function
+            return "Alo mundo"
+        
+        }
+
+        console.log(alo()) // Chamando a const alo, que tem o conteudo da function anonima, dessa forma com parenteses() para aparecer só o return, caso nao coloque dessa forma me retorna todo o conteudo
+
+        let soma = function(...num) { // Armazenando na let soma uma função anonima com o parametro rest(..num)
+            let res = 0
+            for(n of num) { // usando o for of para pegar todos os valores de (num) e armazenando na variavel (n)
+                res+= n // somando e incrementando a let res,que foi definido acima como 0, todos os valores quardados em n! Lembrando que os valores do parametro rest que foi definido como (...num), foram guardados na variavel (n) definido acima com o for of
+            }
+
+            return res // Retornando o valor da soma armazenado em res
+        }
+
+        console.log(soma(9,9)) // Como a let soma esta definida com uma function anonima com um parametro res, podemos colocar uma quantidade de elementos indefenidos (9,9)
+
+
+    </script>   
+</body>
+</html>

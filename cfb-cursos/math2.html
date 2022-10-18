@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+</head>
+<body>
+    <h1>Classe Math biblioteca matemática</h1>
+
+    <script>
+       
+       var valor = 60
+       // Se quiser entre 1 e 60, colocar 59 no valor da variavel(valor) e acrescentar +1 no valor embaixo desse modo -> document.write(Math.round(Math.random()*valor + 1)
+       
+       for(i = 0; i < 6; i++) { 
+           document.write(Math.round(Math.random()*valor) + "<br>") // Gerando 6 números com a estrutura for, sendo eles aleatórios entre 0 e 60 com o metodo Math.random*valor(60) e arredondando com o metodo Match.round
+       }
+
+       var angulo = 45
+       // O valor é passado em graus e no (cos) e (sin) precisamos tranformar em Radianos (angulo * Math.PI/180)
+       var c = Math.cos(angulo * Math.PI/180) // Metodo Math.cos retorna o cosseno, nesse caso esta retornando o cosseno da variavel angulo
+       var s = Math.sin(angulo * Math.PI/180) // Metodo Math.sin retona o seno , nessa caso esta retornando o seno da variavel angulo
+       document.write("Angulo: " + angulo + "<br>Cosseno: " + c + "<br>Seno: " + s + "<br>")
+
+       var ma = Math.max(1,2,3,4,5,6,7,8) // Metodo que retona o maior valor de uma sequência informado no parametro
+       var mi = Math.min(1,2,3,4,5,6,7,8) // Metodo que retorna o menor valor de uma sequência informado no parametro
+
+       document.write("O maior valor encontrado foi " + ma + "<br>")
+       document.write("O menor valor encontrado foi " + mi + "<br>")
+
+
+
+
+      
+
+       
+    </script>   
+</body>
+</html>

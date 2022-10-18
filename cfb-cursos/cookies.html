@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+<body onload="iniCookie()">
+    <script>
+        // Cookies são dados, armazenados em pequenos arquivos de texto, em seu computador! Quando um servidor da Web envia uma página da Web para um navegador, a conexão é encerrada e o servidor esquece tudo sobre o usuário.Os cookies foram inventados para resolver o problema "como lembrar informações sobre o usuário" Quando um usuário visita uma página da web, seu nome pode ser armazenado em um cookie.Na próxima vez que o usuário visitar a página, o cookie "lembra" seu nome.Os cookies são salvos em pares nome-valor como: username = John Doe! Sua sintaxe fica assim: document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"
+
+        function criarCookie(nome, valor, expira) { // função para criar o cookie
+            var dtExpira = "expires=" + expira // Armazenado na variavel dtExpira uma data de expiração ("expires= Tue, 01 Jan 2115 12:00:00 UTC ") para definir no cookie abaixo, lembrando que expira passado por parametro vai ser definido na hora que a função criarCookie for chamada
+            document.cookie = nome + "=" + valor + "; " + dtExpira // A propriedade cookie permite ler e gravar cookies associados ao documento(document.cookies) precisando do nome com seu valor(username=John Doe) e a data de expiração do cookie(expires=Thu, 18 Dec 2013 12:00:00 UTC) sem uma data de expiração por padrão o cookie é excluído quando o navegador é fechado, os parametros passados são separados por (;)! Podemos usar (path=/) também no cookie que é uma parametro de caminho, assim informando ao navegador a qual caminho o cookie pertence! Por padrão o cookie pertence à página atual
+        }
+
+        function lerCookie(nome) { // Função para ler o cookie, passando por parametro o nome do cookie(nome), ou seja essa função vai pesquisar o cookie que eu informei e retornar seu valor 
+            var vnome = nome + "=" // Armazendo na variavel vnome o nome que esta no parametro da função + igual(=), o igual preciso para associar o seu valor 
+            var ca = document.cookie.split(";") // Armazenando na variavel ca todos os cokkies com o document.cookie e o split que divide uma string em um array de strings de acordo com algum separador que nesse caso foi o (;) 
+            for ( i=0; i < ca.length; i++) { // for para percorrer o tamanho do agora array ca, ou seja percorrer a quantidade do ca, enquanto for menor que o indice(i < ca.length) continua percorrendo (i++)
+                var c = ca[i] // Armazenando na variavel c os cookies(ca) com suas posições, indices ([i])
+                while (c.charAt(0) == " ") { // verificando com o while ou seja enquanto a 1° posição da string do cookie (c.charAt(0)) for igual a nada (== " "), lembrando que na variavel c estão armazenados os cookies com seus indices(ca[i])! ChartAt retorna o caractere especificado a partir de uma string, nesse caso retorna a 1ª posição da variavel c (c.charAt(0) pois seu indice é 0..
+                    c = c.substring(1) // o conteudo da variavel c, que são os cookies com seu indice (ca[i]) recebe c.substring(1), ou seja me retorna 1 caractere com o substring(1), lembrando que o metodo substring extrai caracteres podendo ser entre dois índices ou a quantia definidos por parametro(), nesse caso como a variavel c é um array vai me retornar a string da posição 1 (substring(1)), isso se na primeira posição ela estiver vazia como definido na condição do while
+                }
+                if (c.indexOf(vnome) == 0) // verificando se a posição do vnome do cookie (c.indexOf(vnome)) for igual a 0 (==0), lembrando que o indexOf retorna a posição (indice) da string passado por parametro (vnome)
+                    return c.substring(vnome.length, c.length) // vai retornar os caracteres do cookie de acordo com o que foi passado por parametro com o metodo substring (c.substring(vnome.length, c.length)), lembrando que vnome.length está o tamanho do nome do cookie e c.length esta pegando o tamamnho do cookie, assim vai me retornar os caracteres iniciando do tamanho do nome ate o tamanho do cookie, dessa maneira vai me retornar o valor do cookie
+            }
+            return "" // Se não for encontrado o cookie retorno nada 
+        }
+
+        function iniCookie() {  // funçao para verificar se o cookie existe! Se ja existir o alert vai retornar seu valor senão vai criar o cookie
+            var username = lerCookie("username") // Armazenando na variavel username a função lerCookie passando por parametro o texto "username"
+            if (username!= "") { // Verificando se username for diferente de vazio (username!= "")
+                alert("Bem vindo novamente " + username) // emitindo um alert ("Bem vindo novamente " + o conteudo armazenado na variavel username, como definido abaixo vai ser o nome digitado no prompt) 
+            }else {
+                username = prompt("Digite seu nome:", "") // associando o prompt a variavel username
+                if(username != "" && username != null) { // se username for diferente de vazio (username != "") e (&&) username for diferente de null (username!= null), executa o comando abaixo criando o cookie
+                    criarCookie("username", username, " Tue, 01 Jan 2115 12:00:00 UTC ") // Chamando a função criarCookie e definindo o valor dos parametros passados (nome="username" que nesse caso é um texto, valor="username" que nesse caso é uma variavel que armazena a função lerCookie com o parametro("username" em texto)) ou seja como definido no else vai armazenar o nome digitado com o prompt e por ultimo (expira="Tue, 01 Jan 2115 12:00:00 UTC") lembrando que a variavel que controla a expiração do cookie foi definida assim (var dtExpira = "expires=" + expira), assim armazenado as informaçoes no cookies
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

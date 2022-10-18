@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+        // Todos os objetos JavaScript herdam propriedades e métodos de um protótipo. Prototype é o mecanismo pelo qual objetos JavaScript herdam recursos uns dos outros portanto a propriedade prototype permite adicionar novas propriedades e metodos aos construtores de objetos
+
+
+        class Carro {
+            constructor(tpCarro ,tpComb) {
+                this.qtdeComb = 100
+                this.ligado = false
+                this.tipoComb = tpComb
+                this.tipo = tpCarro
+            }
+            info() {
+                console.log(`Quantidade de combústivel: ${this.qtdeComb}`)
+                console.log(`Ligado...................:` + (this.ligado ? "Sim" : "Não"))
+                console.log(`Tipo do combustível......: ${this.tipoComb}`)
+                if(this.tipo == 1) {
+                    console.log(`Tipo de carro............: Passeio`)
+                } else if(this.tipo == 2){
+                    console.log(`Tipo de carro............: Combate`)
+                }else {
+                    console.log(`Tipo de carro............: Transporte`)
+                }
+            }
+            set setligado(t) {
+                this.ligado=t
+            }
+            get getligado() {
+                return this.ligado
+            }
+            set setComb(v) {
+                if(v<0 || v > 100) {
+                    alert("Valor invalido, combustível não pode passar de 100!")
+                } else {
+                    this.qtdeComb=v
+                }
+            }
+            get getComb() {
+                return this.qtdeComb
+            }
+        }
+
+        Carro.prototype.potencia = 500 // Atribuindo a propriedade (potencia) com o prototype na class Carro
+        Carro.prototype.velocidade = 100
+        Carro.prototype.velMax = 350
+
+        Carro.prototype.info2 = function(){ // Atribuindo o metodo info2 na class Carro com o prototype, atraves de uma function
+            console.log(`Potência.....: ${this.potencia}`)
+            console.log(`Velocidade...: ${this.velocidade}`)
+            console.log(`Vel. Maxima..: ${this.velMax}`) // Definindo na função as propriedades criadas com o prototype ao car1, assim mostrando no console.log
+        }
+
+        Carro.prototype.marca = "Ford"
+        Carro.prototype.modelo = "Mustang"
+
+
+        Carro.prototype.info = function() { // Prototype tambem substitui metodos e propriedades existentes, como nesse caso do info() da class Carro
+            console.log(`Marca.....: ${this.marca}`)
+            console.log(`Modelo....: ${this.modelo}`)
+            this.info2() // chamando outro metodo usando o this, info2() esta dentro do metodo info() agora        
+        }
+
+       const car1 = new Carro (1,"Gasosa") // Instanciando um new object a classe CarroCombat
+       
+       car1.info() // info() foi alterado com o prototype
+
+       car1.info2() // Atribuindo o metodo criado com o prototype (info2) ao object car1 
+   </script>    
+</body>
+</html>

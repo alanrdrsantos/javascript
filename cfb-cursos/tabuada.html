@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <script>
+        var num = prompt("Digite um número para saber a tabuada: ")
+        var tab = document.querySelector("#tabu")
+
+        if (num == 0 || num == null) {
+            alert("Você precisa digitar um número por favor!")  
+            document.write("Obrigado por nos visitar!") 
+        } else {
+            for(c=0; c <= 10; c++) {
+                document.write(`${num} x ${c} = ${num*c}<br>` )
+
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="tabu"></div>
+    
+    
+</body>
+</html>

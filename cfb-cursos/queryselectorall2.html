@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+    <style>
+        .titulo{
+            color: #f00;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+
+        div {
+            border: 1px solid #000;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        a{
+            display: block;
+        }
+        .quadro {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">querySelectorAll</h1>
+    <p class="para">O querySelectorAll() é um método que retorna os elementos do documento que correspondem a uma classe de CSS ou a uma tag específica.</p>
+    <h2 class="titulo">Curso de JavaScript</h2>
+    <p>www.youtube.com/cfbcursos</p>
+    <p class="titulo">cfbcursos.com.br</p>
+    <div>
+        <h3>JavaScript aula 26</h3>
+        <p>Este texto está dentro de uma div</p>
+        <p>Este também</p>
+    </div>
+    <div class="quadro">
+        <h3>JavaScript aula 26</h3>
+        <p>Este texto está dentro de uma div</p>
+        <p>Este também</p>
+    </div>
+    <a href="http://www.youtube.com/cfbcursos" target="_blank">CANAL</a>
+    <a href="http://cfbcursos.com.br">SITE</a>
+
+    <hr>
+
+    <script>
+       var elementos =  document.querySelectorAll("p.titulo") // Dessa forma retornara somente as tags p com a class="titulo"
+        for(i = 0; i < elementos.length; i++ ) {
+            document.write(elementos[i].innerHTML + "<br>")
+        }
+
+        var element= document.querySelectorAll("div > p") // Dessa forma estou pegando os elementos p dentro da div com o sinal > de filho direto
+         var element= document.querySelectorAll("div > *") // com o asteristico* pega todos os elementos da tag div
+        for(i=0; i < element.length; i++) {
+           element[i].style.color="#0a0"
+        } 
+
+        var div2= document.querySelectorAll("div.quadro") // Dessa forma estou pegando a tag div com a class="quadro"
+        for(i=0; i < div2.length; i++) {
+          div2[i].style.backgroundColor="red"
+        } 
+
+        var elementos2 = document.querySelectorAll("h1,h3"); // Dessa forma estou pegando todos os elementos h1 e h2
+        for(i=0; i < elementos2.length; i++) {
+          elementos2[i].style.color="pink"
+        } 
+
+        var par = document.querySelector("p.para") // QuerySelector não precisa do for por não estar em uma Nodelist(lista) como o querySelectorAll
+            par.style.color="#0f0"
+    
+       
+     
+
+
+    </script>
+</body>
+</html>

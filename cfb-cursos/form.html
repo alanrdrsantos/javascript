@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Forms com JavaScript</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input {
+            display: block;
+        }
+
+        input[type=submit], label {
+            margin-top: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <form name="curso1" id="curso1" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Primeiro - 1">
+        <label>Senha</label>
+        <input type="password" name="fSenha" id="fSenha" value="123">
+        <input type="submit" name="btEnviar"value="Enviar">
+    </form>
+    <form name="curso2" id="curso2" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Segundo - 2">
+        <label>Senha</label>
+        <input type="password" name="fSenha" id="fSenha" value="123">
+        <input type="submit" name="btEnviar"value="Enviar">
+    </form>
+
+    <hr>
+
+    <script>
+        var fm = document.forms.length // (forms) Dessa forma retorna somente o formulário (tag form), não retorna os elementos do formulário por exemplo os inputs (forms.length = quantidade de formulários)
+        document.write(fm + "<br>")
+
+        var fmm = document.forms[0].id // Dessa forma retorna o id através do indíce[0]
+        document.write(fmm + "<br>")
+
+        var fm2 = document.forms.item(0).id // Dessa forma retorna o id através do metodo item(0)
+        document.write(fm2 + "<br>")
+
+        var fm3 = document.forms.namedItem("curso1").id // Dessa forma retorna o id através do metodo namedItem("curso1"), já passando o nome do id como parametro
+        document.write(`${fm3} <br>`)
+
+        var fm4 = document.forms.namedItem("curso1").innerHTML // Colocando o InnerHTML no final retornara o formulário inteiro(Serve para todos os comandos anteriores, substituindo o (id) no final)
+        document.write(`${fm4} <br>`)
+
+    </script>
+    
+</body>
+</html>

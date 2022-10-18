@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hasFocus</title>
+    <style>
+        #painel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="painel"></div>
+    <div id="dvmsg">Página <span id="simnao"></span> está em foco</div>
+    <img src="img/logo.png">
+
+    <script>
+        // hasFocus retorna um valor Boolean (true ou false) que indica se o documento ou qualquer elemento dentro do documento está com o foco ativo, true se estiver em foco e false se não estiver
+
+        setInterval(foco, 0) // A função foco vai ser chamada de 0 em 0 milessimos com o setInterval, assim mostrando instanteneamente se a pagina esta em foco ou não pois não vai ser parado o setInterval! 
+        
+        function foco() { // função que vai verificar se a pagina esta em foco ou não
+            var res=document.getElementById("simnao") // Associando o elemento (div) com id="simnao" a variavel res
+            var painel=document.getElementById("painel") // Associando o elemento (div) com id="painel" a variavel painel
+            var focus = document.hasFocus() // Armazenando na variavel focus o hasFocus para saber se esta em foco ou não
+            if(focus) { // Se focus(variavel que esta armazenado o hasFocus) for verdadeiro executa o comando abaixo
+                res.innerHTML="" // Não altera o texto da div associada(res) no HTML
+                painel.style.display="none" // Associando display none em painel para não mostrar o conteudo
+
+            } else {
+                res.innerHTML=">>NÃO<<" // senão for verdadeiro altera o texto da div associada(res) no HTML para ">>NÃO<<"
+                painel.style.display="block" // // Associando display block em painel para mostrar o conteudo
+            }
+        } 
+            
+
+
+
+    </script>
+</body>
+</html>

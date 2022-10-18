@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+
+    <script>
+        // Promisse é um object que permite a construção de funções de processamento assíncrono representando um valor que poderá estar disponível agora, no futuro ou nunca, ou seja promise basicamente torna algo que é assíncrona em síncrona
+
+        //As funções assíncronas não precisam esperar que uma ação finalize para continuar a próxima tarefa, ou seja, é possível lidar com diversas requisições simultaneamente, terminando mais tarefas em um menor período
+
+        // Já as funções síncronas executa o codigo em sequencia  ou seja, na ordem que foram inseridas
+
+        /*Uma Promise está em um destes estados: 
+
+        pending (pendente): Estado inicial, que não foi realizada nem rejeitada.
+        fulfilled (realizada): sucesso na operação.
+        rejected (rejeitado):  falha na operação. */
+
+        // resolve: função para retornar o resultado da promise
+        // reject: função para retornar o erro da promise
+        // São passados no parametro na promisse
+
+        // then - permite definir o bloco executado mediante o cumprimento de uma promise
+        // catch - permite definir o bloco executado mediante a rejeição de uma promise
+
+
+        function contar(n) {
+            let cont = 0
+            for(let i = 0; i<n; i++){
+                cont++
+            }
+            return cont
+        }
+
+        function contarT(n) {
+            let cont = 0
+            let t = setTimeout(() => { // Usando uma Arrow Function onde o for que está dentro dela vai ser executado em 3 segundos(3000) como definido no setTimeout. Lembrando que o método global setTimeout()define um cronômetro que executa uma função ou trecho de código especificado assim que o cronômetro expirar.
+                for(let i = 0; i<n; i++){
+                    cont++
+                }
+            }, 3000)
+
+            return cont
+        }
+
+        function contarP(n) {
+            let cont = 0
+            let p = new Promise((resolve, rejected)=> { // Armazenando a promisse dentro do object p! Usando uma arrow function e passando 2 parametros, um para o resolve e o outro para o rejected, lembrando que posso colocar qualquer nome no parametro! 
+                for(let i = 0; i<n; i++){
+                    cont++
+                }
+                if(cont == n){ // se cont for igual a n (cont==n)
+                    resolve(cont) // Uso o resolve com o valor da contagem (resolve(cont))
+                } else {
+                    rejected("ERRO") // Se der certo a promisse retorna o resolve senão retorna o rejected
+                }
+
+            })
+            return p // Retornando a promisse
+        }
+
+        function error(){
+            return new Promise((resolve, rejected) => {
+                rejected("Error haha")
+            })
+        }
+
+        function somaPositivos(n1,n2) {
+            return new Promise((res, rej) => {
+                if(n1 >=0 && n2 >=0) {
+                    res(n1+n2)
+                } else{
+                    rej("DEU RUIM")
+                }
+            })
+        }
+
+        function contarTP(n) { // Antes a função contarT() o setTimeout era assincrono, agora com a promise ele se torna sincrono ou seja, vai executar os comandos na ordem inserida e onde eu colocar a função contarTP
+            let cont = 0
+            let p = new Promise((resolve, rejected)=> {
+                let t = setTimeout(() => {
+                    for(let i = 0; i <n; i++){
+                    cont++
+                }      
+                if(cont == n){ 
+                    resolve(cont) 
+                } else {
+                    rejected("ERRO") 
+                }
+                }, 3000);
+            })
+            return p
+        }
+
+
+        console.log(contar(10000))
+        console.log(contarT(10)) // Retornou 0 pq não chega a fazer a operação da (let t)
+        console.log(contarP(10)) // Promise retornou fulfilled, ou seja sucesso na operação, deu certo
+
+        contarP(10) // chamando a função que esta a promise, é importante lembrar que toda promise retorna dois métodos recursivamente, o then e catch: o primeiro é executado quando a promise tem sucesso e o segundo quando ocorre uma falha na execução.
+            .then(sucesso => console.log(`Sucesso ${sucesso}`)) // Se a promisse der certo ela cai no then e executa a arrow function sucesso
+            .catch(erro => console.log(erro)) // Se a promisse estiver errada cai no catch e executa a arrow function erro
+
+        error()
+            .catch(erros => console.error(erros))
+
+        somaPositivos(10,2)   
+            .then(sucess => console.log(`Sucesso: ${sucess}`)) 
+            .catch(error => console.log(error))
+
+        contarTP(10)
+            .then(sucess => console.log(`Sucesso: ${sucess}`)) 
+            .catch(error => console.log(error))    
+
+    </script>    
+</body>
+</html>

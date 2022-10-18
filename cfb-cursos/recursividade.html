@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursividade</title>
+    <style>
+        #quad {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="quad"></div>
+
+    <script>
+        // recursividade é quando uma função chama a si própria
+
+        function contador (min,max) {
+            document.write(min + "<br>")
+            if (min < max) {
+                contador(++min, max) // Incrementando o min primeiro (++min) para depois realizar a operação assim ja entrando na funçao com o valor ++min incrementado, se eu realizar a pos incremento (min++) ele vai realizar a operação primeiro e depois incrementar
+
+            }
+        }
+
+        contador (0,10)
+
+        function fatorial (n) { // fatorial de 5! = 5*4*3*2*1 = 120
+            if (n == 1) {
+                return 1
+            }
+            return n*fatorial(n-1)
+        }
+
+        document.write(fatorial(5))
+
+        
+        var obj = document.getElementById("quad")
+        var ang = 0
+        var anima
+        
+        function gira () {
+            obj.style.transform ="rotate("+ang+"deg)" // ang começa com 0 e vai incrementando 1 com o ang++
+            ang++
+            if (ang > 360) {
+                ang = 0
+            }
+            anima = requestAnimationFrame(gira)
+        }
+
+        gira()
+
+    
+
+    </script>   
+</body>
+</html>

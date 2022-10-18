@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Literais Part 3</title>
+</head>
+<body>
+
+    <script>
+        
+        const Carro = { // Criando uma const e definindo o nome do objeto literal para Carro
+            marca: "VW", // criamos uma propriedade(marca) e ultilizamos dois pontos : para atribuir seu valor("VW") e colocamos virgula no final(,)
+            modelo: "Golf", // Não usamos virgula na ultima propriedade 
+            info: function() { // Podemos definir metodos tbm,como funções, nos objetos literais
+                console.log(`Marca: ${this.marca}`) // usando o this para ligar o objeto dentro da função, dessa forma pegando seu valor
+                console.log(`Modelo: ${this.modelo}`)
+            }
+        }
+        
+         // desestruturação de objetos, permite extrai dados de um determinado objeto! Podemos extrair valores de objetos literais utilizando o nome de suas propriedades como no exemplo abaixo
+
+         let {nome = "Aventador",marca, modelo} = Carro // Assim que desestruturamos um objeto, passando o nome da propriedade que quero extrair seu valor{marca, modelo} associando ao objeto onde elas estão (=Carro). Podemos definir uma nova propriedade tambem que não esta no objeto literal, nesse caso ja colando seu valor (nome = "Aventador")
+
+         marca = "Ford" // Podemos redefinir marca e modelo também, mas não vai  alterar as propriedades do Carro, para isso temos que associar nessa forma (Carro.marca)
+         modelo = "Mustang"
+
+         console.log(marca) // Assim dessa forma como foi desestruturado, marca e modelo ja vão aparecer seus valores
+         console.log(modelo)
+         console.log(nome)
+         console.log(Carro)
+    </script>    
+</body>
+</html>

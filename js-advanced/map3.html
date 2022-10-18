@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Part 3</title>
+</head>
+<body>
+    <script>
+        let produtos = new Map([ // Criando um objeto map(produtos) já passando por parâmetro sua chave-valor
+            ["01", "Mouse"],
+            ["02", "Teclado"],
+            ["03", "Monitor"],
+            ["04", "Gabinete"]
+        ])
+   
+        produtos.set("05",["Memória"]) // Adicionando ao map produtos com o metodo set, uma key-value("05","Memória")
+
+        function info (chave, valor) { // função que vai server de callback para o map, passando dois parametros(chave, valor) assim o forEach ja passa os valores automaticamente que vão ser a key-value do map que vai receber a função
+            console.log(`Chave: ${valor} - Valor: ${chave}`)
+        }
+
+        // O método forEach() executa a função que foi provida uma vez para cada par de chave-valor no objeto Map, na order em que foram inseridos
+        produtos.forEach(info) // Chamando a função callback no parametro (info)ou seja, a função que será executada em cada entrada do map (produtos) que é o map que está sendo iterado
+        
+        //O método map.keys() é usado para extrair as chaves de um determinado elemento do objeto map, assim retornando o objeto iterator. As chaves são retornadas na ordem em que foram inseridas
+        let itk = produtos.keys() // Armazenando na let itk o metodo keys para retornar as chaves do map produtos (produtos.keys())
+        console.log(itk.next()) // como retorna um object interator usamos o metodo next() para chamar os elementos do map na ordem que foram inseridos
+
+        //O método map.keys() é usado para extrair os valores de um determinado elemento do objeto map, assim retornando o objeto iterator. Os valores são retornados na ordem em que foram inseridos
+        let itv = produtos.values() // Armazenando na let itv o metodo values para retornar os valores do map produtos (produtos.values())
+        console.log(itv.next()) // como retorna um object interator usamos o metodo next() para chamar os elementos do map na ordem que foram inseridos
+
+        //O método has() retorna um boolean(true,false) indicando se o elemento com a chave especificada existe ou não
+        console.log(produtos.has("03")) // Usando o metodo has no map produtos passando uma chave no parametro que vai ser verificada se existe ou nao, assim retonando true ou false
+        console.log(produtos.has("02") ? console.log("A chave existe!") : console.log("A chave não existe!") ) // Fazendo a verificação do has se existe a chave com uma operação ternária, se existir retorna a primeira expressão senao a segunda definida
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Literais Part 2</title>
+</head>
+<body>
+    <script>
+
+        const Veiculo= { // Criando uma const e definindo o nome do objeto literal para Veiculo
+            marca: "VW", // criamos uma propriedade(marca) e ultilizamos dois pontos : para atribuir seu valor("VW") e colocamos virgula no final(,)
+            modelo: "Golf", // Não usamos virgula na ultima propriedade 
+            info: function() { // Podemos definir metodos tbm,como funções, nos objetos literais
+                console.log(`Marca: ${this.marca}`) // usando o this para ligar o objeto dentro da função, dessa forma pegando seu valor
+                console.log(`Modelo: ${this.modelo}`)
+            }
+        }
+
+        const Caracteristicas = { // // Criando uma const e definindo o nome do objeto literal para Caracteristicas
+            cor: "Cinza", // Definindo o valor das propriedades cor: e cambio:
+            cambio: "Automático"      
+        }
+
+        delete Caracteristicas.cor // Deletando com o delete, a propriedade cor do object Caracteristicas
+
+        const Carro = Object.assign(Veiculo,Caracteristicas) // Definindo o object.assign, passando por parametro os objetos que quero mesclar nesse caso estou juntando o object veiculo e Caracteri sticas , no novo object Carro. O método Object.assign() é usado para copiar os valores de todas as propriedades próprias enumeráveis de um ou mais objetos de origem para um objeto destino. Este método irá retornar o objeto destino.
+
+        console.log(Carro) // chamando o object Carro, provando que mesclou tudo de (Veiculo,Caracteristicas) 
+        Carro.info() // Metodos também são mesclados
+        
+    </script>
+    
+</body>
+</html>

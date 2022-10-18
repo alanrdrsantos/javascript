@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Geradoras</title>
+</head>
+<body>
+    
+
+    <script>
+        // Podemos definir uma função geradora como, uma função que pode ser interrompida e depois continuada ou seja são funções onde a execução é adiada até o momento que precisamos de seu retorno. Os contextos ficam salvos a cada reentrada.
+
+        //A declaração function* (palavra chave function seguida de um asterisco) define um função geradora (generator function), que retorna um objeto Generator.Geradores são funções cuja execução pode ser interrompida e posteriormente reconduzida. Seus contextos (de associações de variáveis) ficarão salvos entre cada recondução.
+
+        // Uma função geradora quando chamada não é executada imediatamente, ao invés disso um objeto iterator é retornado e quando o método next() deste objeto é executado o conteúdo da função geradora será processado até encontrar a palavra-chave yield.O método next() retorna um objeto com dois valores, value e done. Onde value é o valor que é retornado e done é um valor booleano que indica se aquele valor é o último ou não.
+  
+        // Sintaxe
+        function* cores() { // Função geradora para retonar varias cores, definidas abaixo
+            yield "Vermelho" // usamos a palavra-chave (yield) para poder ser procurado o interator com o método next()
+            yield "Verde"
+            yield "Azul"
+            yield "Amarelo"
+            yield "Roxo"
+            yield "Preto"
+            yield "Branco"
+        }
+
+        for(let c of cores()) { // Como estamos usando o for of, o interator é automaticamente gerenciado então vai fazer o next em cada uma das etapas do loop assim chamando todas as cores da function generator cores! Só conseguimos usar o for of nessa função geradora pq ela retorna o interator para quem fez a chamada
+            console.log(c)
+        }
+        
+
+        const cor = cores() // Associando a const cor a função geradora cores()
+
+        console.log(cor.next()) // Executando no console.log a const cor, lembrando que foi associada a function generator cores, com o metodo next()que é preciso para retonar o object interator atraves da palavra chave yield na função! 
+        console.log(cor.next()) // Chamando cada object pela ordem definida na função geradora ou seja cada console.log vai chamar uma cor pela ordem definida em sequencia
+        console.log(cor.next())
+        console.log(cor.next())
+
+        function* cont(n) { // Função geradora para contar com parametro (n)
+            let c = 0
+            while(c<=n) { // while para contar enquanto c for menor ou igual a n(c<=n)
+               yield console.log(c) // Quando usamos o yield se torna um object interator ou seja só pode ser chamada com o next()
+                c++ // incrementando +1 ate c for menor ou igual a n (c<=n)
+            }
+        }
+
+        const ct = cont(10) // Associando a function generator a const ct e definindo o valor de n no parametro (cont(10))
+
+        console.log(ct.next()) // chamando o object interator com o next no console log, lembrando que ct foi associado acima com a função geradora
+        console.log(ct.next()) // Lembrando que chama 1 por 1 e na ordem, senão tivesse a palavra chave yield na função nesse caso executaria a contagem completa de 0 ate 10
+
+    </script>   
+</body>
+</html>

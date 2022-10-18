@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos para manipulação de String 4</title>
+</head>
+<body>
+    <p id="txt">CFB Cursos - Curso de JavaScript - aula 46 do curso de javaScript </p>
+
+    <script>
+        var texto = document.getElementById("txt").innerHTML
+        var num = 15
+
+        var res = num.toString() // Metodo toString converte o conteudo em uma String
+        var bin = num.toString(2) // Podemos usar toString  para conversão de bases também, passando por parametro a base tipo : binária(2), octa(8), hexa(16)
+        var oct = num.toString(8)
+        var hex = num.toString(16)
+
+        document.write(res + "<br>")
+        document.write(bin + "<br>")
+        document.write(oct + "<br>")
+        document.write(hex + "<br>")
+
+        var texto2 = "       CFB Cursos - \nCurso de\nJavaScript" // Para colocar um caractere usamos \(barra invertida), usando desse modo: primeiro a barra e logo em seguida o caractere que desejo usar \"Curso"\. Para quebra de linha usamos \nCurso de\n(barra n), o resultado podemos ver no alert
+
+        var res = texto2.trim() // Metodo trim retira os espaços do inicio e final da String, os espaços dentro da String continuam 
+        alert(res)
+
+        document.write(res)
+
+
+    </script>   
+</body>
+</html>

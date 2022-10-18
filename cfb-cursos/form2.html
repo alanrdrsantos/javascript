@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Forms com JavaScript</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input {
+            display: block;
+        }
+
+        input[type=submit], label {
+            margin-top: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <form name="curso1" id="curso1" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Primeiro - 1">
+        <label>Senha</label>
+        <input type="password" name="fSenha" id="fSenha" value="123">
+        <input type="submit" name="btEnviar"value="Enviar">
+    </form>
+    <form name="curso2" id="curso2" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Segundo - 2">
+        <label>Senha</label>
+        <input type="password" name="fSenha" id="fSenha" value="123">
+        <input type="submit" name="btEnviar"value="Enviar">
+    </form>
+
+    <hr>
+
+    <script>
+        var fId = document.getElementById("teste").value // Forma mais facil de pegar um valor de um input na minha opinião, usando getElementById como uma variavél
+        document.write(fId + "<br>")
+
+        document.write(document.getElementById("curso1").elements[0].value) // Dessa forma seleciona o id do form e atraves do elements[]seleciona qual elemento quer manipular, sabendo seu valor com o (value)
+
+        var fm = document.forms[0].elements[0].value // (elements) Manipula os elementos dentro do formulário, passando qual elemento quer manipular atraves do indice do elements[0] pegando seu valor atraves do (value)
+        document.write(fm)
+
+        var fm1 = document.forms[0]
+        var el = fm1.elements // Dessa forma estou pegando todos os elementos do 1° formulario, selecioando atraves do (fm1). Podemos escolher o elemento atraves dos indices tbm elements[]
+
+        //Colando o -1 no length, estou selecioando todos menos o último input nesse caso
+        for(i=0; i < el.length-1; i++) { // Com o for consigo manipular todos os elementos, atraves do form escolhido no indice[]
+            el[i].style.backgroundColor = "#ddd"
+            el[i].value = "Cursos CFB"
+
+        }
+
+       
+
+
+    </script>
+</body>   

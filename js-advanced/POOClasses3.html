@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - Programação Orientada a Objetos Part 3 - Getter e Setter</title>
+</head>
+<body>
+    <script>
+        // As classes JavaScript contam com dois métodos especiais: um com o prefixo get que tem a função de retornar(obter) um valor, e outro precedido pela palavra set que serve para atribuir um valor a propriedade do objeto. Ambos funcionam como se fossem uma propriedade da classe
+
+        class Carro {
+            constructor(marca, modelo, cor) { // constructor é um método especial para criar e inicializar um objeto no momento em que a classe é instanciada 
+                this.marca = marca // this que faz a referencia ao objeto
+                this.modelo = modelo
+                this.cor = cor 
+                this.ligado = false
+                this.km = 0
+                this.comb = 10
+            }  
+            info(){
+                console.log(`Cor: ${this.cor}`) // this.cor é o atributo que criamos no constructor 
+                console.log(`Marca......: ${this.marca}`)
+                console.log(`Modelo.....: ${this.modelo}`)
+                console.log(`KM.........: ${this.km}`)
+                console.log(`Combustível: ${this.comb}`)
+                console.log(`Ligado.....:` + (this.ligado ? "SIM" : "NÃO"))
+                console.log("---------------------------")
+            }  
+            set Comb (v) { // Usando o metodo set para atribuir um valor, precisa passar um valor como parametro
+                this.comb = v // v nesse caso vai receber o valor que eu atribuir direto
+                console.log(`Combustível alterado, valor atual: ${this.comb} `)
+            }
+            get gComb() { // Usando o metodo get para obter um valor de um atributo
+                return this.comb // Retornando o valor do combustivel
+            }
+        }
+
+        let car1 = new Carro("Honda", "HRV", "Verde-limão") // instanciando um novo objeto a classe Carro, automaticamente chama o metodo constructor executando o que foi definido nele
+        let car2 = new Carro("VW", "Saveiro", "Vermelho") // Definido o parametro (c) do constructor da class Carro, passando por parametro "Vermelho" que vai ser a cor deinido no this.cor = c
+        let car3 = new Carro("GM","Camaro","Azul")
+        let car4 = new Carro("Lamborghini", "Aventador","Preto")
+
+        car1.Comb = "200" // Como Comb foi usado o metodo set, podemos atribuir um valor direto(="200"), se fosse um metodo normal teria que atribuir o valor por parametro
+
+        console.log(car1.gComb) // Obtendo o valor do this.comb, que foi definido no get! Como foi usado o metodo get nesse caso, não preciso colocar o () do metodo
+
+        car1.info() // Chamando o metodo info() para executar o que foi definido, no object car1 (car1.info())
+
+        car2.info()
+        car3.info()
+        car4.info()
+        
+
+
+    </script>   
+</body>
+</html>

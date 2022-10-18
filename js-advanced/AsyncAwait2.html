@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async / Await 2</title>
+</head>
+<body>
+    <script>
+        function primeiraFuncao(){ // Função que contem a promise
+            return new Promise((resolve) => { // Promise com um resolve definido por uma arrow function
+                setTimeout(()=> { // Dentro do resolve um seTimeout tbm definido por uma arrow function com o tempo de espera de 1s(1000) para executar o que foi passado abaixo:
+                    console.log("Esperou isso aqui!")
+                    resolve() // Chamando o resolve para executar o que foi definido na sua funcão ou seja resolve a promisse! Lembrando que posso colocar qualquer nome como parametro, sempre o primeiro vai ser o resolve e o segundo o rejected
+                },1000)
+            })
+        }
+
+        async function segundaFuncao() { // Função assincrona definido com um async na frente, vai ser executada na hora que for chamada ou seja ela para a execução do codigo para executa-la, faz isso por ser assincrona e o await garante que vai ter o retorno da promisse ja definida na função primeiraFuncao()
+            console.log("Iniciou")
+            
+            await primeiraFuncao() // await garante que a promise vai ser executada na hora que for chamada no codigo, sem o await não executa na sequencia que foi inserida
+            
+            console.log("Terminou")
+        }
+
+        segundaFuncao() // Chamando a função assincrona segundaFuncao() para executar
+
+        // Usando o Async na pratica
+
+        function getUser(id) {
+            return fetch(`https://reqres.in/api/users=?id=${id}`) // fetch faz requisições assincronas, tipo obtendo um usuário pela API! Retorna uma promisse
+            .then(data => data.json()) // Usando then para retornar se não tiver nenhum erro ou seja o fetch que retorna uma promisse seja executado corretamente
+            .catch(err => console.log(err))// Usando catch para retornar se tiver algum erro
+        }
+
+        async function showUserName(id) { // Async function para retornar o getUser()  
+            try { // Usando o try/cath para poder mostrar o erro se acontecer! Se cair no cath vai mostrar o erro
+                const user = await getUser(id) // Usando o await para que a requisição seja aguardada e assim executar o que foi definido abaixo
+                console.log(`O nome do usuario é: ${user.data.first_name}`) // Console.log para mostrar o nome do usuario definido no (user) com o (data) definido no then pegando seu primeiro nome (first_name)
+            }catch(err) { // Se acontecer um erro vai mostrar aqui como ja definido
+                console.log(err)
+            }
+        }
+
+        showUserName(3) // Chamando a função para executar
+    </script>
+    
+</body>
+</html>

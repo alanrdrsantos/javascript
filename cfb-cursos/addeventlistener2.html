@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener 2</title>
+    <style>
+        #dv1 {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        div > img {
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="dv1"><img src="img/281704-middle.png" alt=""></div>
+
+    
+    <script>
+
+        var px = 0
+        var py = 0
+        var obj = document.getElementById("dv1")
+
+        function move() {
+            var tecla = event.keyCode // keycode codigo das teclas 
+            //37= esquerda(negativo), 38=cima(negativo), 39=dereita(positivo) e 40= baixo(positivo) 13=enter
+            if(tecla==37) {
+                px-=10
+                obj.style.left= px + "px"
+            }else if (tecla==38) {
+                py-=10
+                obj.style.top= py + "px"
+            }else if (tecla==39) {
+                px+=10
+                obj.style.left= px + "px"
+            }else if(tecla==40) {
+                py+=10
+                obj.style.top= py + "px"
+            } else if (tecla==13) {
+                alert("Evento keydown Removido")
+                document.removeEventListener("keydown", move) // removeEventListener remove um evento
+                obj.style.backgroundColor = "#fff"
+            }
+            
+        }
+
+        function iniciar(){
+            document.addEventListener("keydown",move) // keydown evento que consigo mover um elemento atraves das teclas
+            alert("O evento keydown foi adicionado")
+            obj.style.background="red"
+        
+            }
+            obj.addEventListener("click",iniciar)
+
+    </script>   
+</body>
+</html>

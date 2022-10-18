@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replaceChild</title>
+</head>
+<body>
+    <h1 id="newElement">Novo Elemento</h1>
+    <div id="cfbcursos">
+        <p>Curso de JavaScript</p>
+        <p>Curso de HTML5</p>
+        <p>Curso de CSS3</p>
+        <p>Curso de PHP/MySQL</p>
+        <p>Curso de C++</p>
+        <p>Curso de Photoshop</p>
+        <p>Curso de Unity/C#</p>
+    </div>
+    <script>
+        // metodo replaceChild permite substituir um determidado elemento por outro
+        var newH = document.getElementById("newElement")
+        var novoH1 = document.createElement("h1") // Criando um elemento h1, passado por parametro, com o creatElement armazenando na variavel novoH1
+        var listaCursos = document.getElementById("cfbcursos")
+        var antigoP = listaCursos.childNodes[5] // Usando o childNodes para manipular os elementos filhos da listaCursos, passando em forma de array qual elemento vai ser manipulado[5](Curso de CSS3 - para ver o objeto manipulado podemos colocar em forma de alert(antigoP.innnerHTML))
+        var txtH = document.createTextNode(antigoP.innerHTML) // Criando um texto com o createTextNode e armazenando na variavel(txtH), o texto vai ser o mesmo da variavel antigoP para isso usamos o innerHTML (antigoP.innerHTML), passado por parametro
+        novoH1.appendChild(txtH) // Adicionando o texto da variavel(txtH) no elemento criado(novoH1) com o metodo appendChild
+        listaCursos.replaceChild(novoH1,antigoP) // Substituindo os elementos com o metodo replaceChild na listaCursos passando 2 parametros, 1° o elemento novo que vai ficar no lugar do substituido(novoH1) e 2° o elemento antigo que vai ser substituido(antigoP)
+
+       // listaCursos.replaceChild(newH,antigoP) // Podemos substituir um elemento existente tambem, usando assim nesse caso o elemento da variavel(newH - É um h1 com o texto Novo elemento), vai ficar no lugar do elemento da varial (antigoP - É um p com o texto Curso de CSS3)
+
+    </script>   
+</body>
+</html>

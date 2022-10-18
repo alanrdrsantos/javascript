@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Part 2</title>
+</head>
+<body>
+    <script>
+        let produtos = new Map([ // Criando um objeto map(produtos) já passando por parâmetro sua chave-valor, nesse caso usamos strings e arrays! Lembrando que no map podemos usar qualquer valor para key e value
+            ["01", ["Mouse", "R$10,75"]],
+            ["02", ["Teclado", "R$35,90"]],
+            ["03", ["Monitor", "R$420,50"]],
+            ["04", ["Gabinete", "R$150,00"]]
+        ])
+   
+        produtos.set("05",["Memória", "R$199,90"]) // Adicionando ao map produtos com o metodo set, uma key-value("05","Memória")
+        
+        // produtos.clear() // Metodo clear() apaga todos os elementos(key-value) do map
+
+        produtos.delete("03") // com o metodo delete podemos excluir elementos selecionados, passando sua key no parametro("03")
+
+        console.log(`Tamanho ${produtos.size}`) // Obtendo o tamanho do map produtos usando size(produtos.size)
+
+        for (p of produtos) // usando o for of para armazenar todos os elementos de produtos em p, lembrando que armazena na forma de array pegando sua chave-valor
+        console.log(p[1][1]) // Para manipular somente os preços mostrado no map, pegamos o array que é o valor no map[1] e em seguida os preços que ficam na posição[1] do array, ficando desta maneira(p[1][1])
+    </script>
+    
+</body>
+</html>

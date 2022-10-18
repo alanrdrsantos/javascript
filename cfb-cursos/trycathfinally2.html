@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Erros</title>
+    <script>
+        var num// máximo 10
+
+        try {
+            num=prompt("Digite um valor: ")
+            if (num > 10) {
+                throw new Error("Valor inválido! O valor máximo é 10<br>") 
+                // throw gera uma excessão, forçando assim um erro
+                // new Error = Novo objeto do tipo Error
+            }
+        }catch(e) {
+            console.log("ERR0: " + e.message) // message está pegando a mensagem de throw("Valor inválido")
+            num = 10
+        } finally { // finally é sempre executado, sendo no erro e fora do erro
+            document.write("Valor :" + num)
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

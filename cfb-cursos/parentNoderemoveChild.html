@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parentNode / remove / removeChild</title>
+</head>
+<body>
+    <div id="cfbcursos">
+        <p id="p1">Curso de JavaScript</p>
+        <p id="p2">Curso de HTML5</p>
+        <p id="p3">Curso de CSS3</p>
+        <p id="p4">Curso de PHP/MySQL</p>
+        <p id="p5">Curso de C++</p>
+        <p id="p6">Curso de Photoshop</p>
+        <p id="p7">Curso de Flash</p>
+        <p id="p8">Curso de Unity/C#</p>
+    </div>
+
+    <script>
+        // parentNode retorna o elemento pai de outro elemento especificado
+        // remove e removeChild remove os elementos, RemoveChild remove um elemento filho
+
+        var elemento = document.getElementById("p5")
+        // alert(elemento.parentNode.nodeName) // Obtendo o elemento pai do elemento(com id="p5" como espeficicado na variavel) e mostrando seu nome com o nodeName no alert
+        elemento.remove() // removendo o elemento(elemento p5 = Curso de C++) com o remove()
+        document.getElementById("p7").remove() // Posso usar o remove direto dessa forma sem armazenar em uma variavel tambem
+
+        var element = document.getElementById("cfbcursos").childNodes // Pegando todos os filhos do elemento (div com id="cfbcursos") com o childNodes e armazendo na variavel element
+        document.getElementById("cfbcursos").removeChild(element[1]) // Removendo um elemento filho com o removeChild passando por parametro qual elemento quero remover(element[1] - Removendo o p com texto Curso de JavaScript que esta no indice [1])
+
+
+
+
+
+
+    </script>    
+</body>
+</html>

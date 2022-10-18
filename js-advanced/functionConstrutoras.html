@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Construtoras</title>
+</head>
+<body>
+    <script>
+        let soma = new Function("n1,n2","return n1+n2") // Criando uma função construtora usando o (new Function) passando 2 parametros em forma de string! A primeira simboliza o conjunto de parametros que vou chamar na minha função("n1,n2"), como no console.log abaixo(soma(1,2)) e a segunda string representa o que a função vai fazer, nesse caso está retornando a soma dos dois numeros ("return n1+n2")
+
+        /* function soma (n1, n2) {
+            return n1 + n2
+        } */
+
+        console.log(soma(1,2)) // Passando os parametros para retornar a soma, definidos na new Function armazenado na variavel soma
+
+    </script>
+</body>
+</html>

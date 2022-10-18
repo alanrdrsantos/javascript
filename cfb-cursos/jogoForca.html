@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jodo da Forca</title>
+    <style>
+        .letra {
+            width: 30px;
+            font-size: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 5px;
+            display: none;
+        }
+
+        .letraJ {
+            width: 30px;
+            font-size: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .dvdisplay {
+            display: block;
+        }
+
+        #dvForca {
+            position: absolute;
+            left: 150px;
+        }
+
+        #cabeca {
+            position: absolute;
+            top: 0px;
+            left: 105px;
+        }
+
+        #corpo {
+            position: absolute;
+            top: 200px;
+            left: 105px;
+        }
+
+        #bracoE {
+            position: absolute;
+            top: 220px;
+            left: 12px;
+        }
+
+        #bracoD {
+            position: absolute;
+            top: 220px;
+            left: 202px;
+        }
+
+        #pernaE {
+            position: absolute;
+            top: 389px;
+            left: 9px;
+        }
+
+        #pernaD {
+            position: absolute;
+            top: 388px;
+            left: 199px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dvmenu">
+        <button onclick="iniciar()">Nova Palavra</button>   
+    </div>
+    <div id="dvpalav" class="dvdisplay">
+       <input type="text" id="letra0" class="letra" maxlength="1">
+       <input type="text" id="letra1" class="letra" maxlength="1">
+       <input type="text" id="letra2" class="letra" maxlength="1">
+       <input type="text" id="letra3" class="letra" maxlength="1">
+       <input type="text" id="letra4" class="letra" maxlength="1">
+       <input type="text" id="letra5" class="letra" maxlength="1">
+       <input type="text" id="letra6" class="letra" maxlength="1">
+       <input type="text" id="letra7" class="letra" maxlength="1">
+       <input type="text" id="letra8" class="letra" maxlength="1">
+       <input type="text" id="letra9" class="letra" maxlength="1">
+       <input type="text" id="letra10" class="letra" maxlength="1">
+       <input type="text" id="letra11" class="letra" maxlength="1">
+       <input type="text" id="letra12" class="letra" maxlength="1">
+       <input type="text" id="letra13" class="letra" maxlength="1">
+       <input type="text" id="letra14" class="letra" maxlength="1">
+       <input type="text" id="letra15" class="letra" maxlength="1">
+       <input type="text" id="letra16" class="letra" maxlength="1">
+       <input type="text" id="letra17" class="letra" maxlength="1">
+       <input type="text" id="letra18" class="letra" maxlength="1">
+       <input type="text" id="letra19" class="letra" maxlength="1">
+    </div>
+    <div id="dvjogador" class="dvdisplay">
+        <div id="controlesJogador">
+            <input type="text" id="letraJ" class="letraJ" maxlength="1">
+            <button onclick="jogar()">Jogar</button>
+            <button onclick="dica()">Dica</button>
+            <div id="dvmsg"></div><br>
+            <div id="dvletrasdigitadas">Letras Digitadas:</div>
+        </div>
+        <div id="dvForca">
+            <img id="cabeca" src="img/cabeca1.png">
+            <img id="corpo" src="img/corpo.png">
+            <img id="bracoE" src="img/bracoE.png">
+            <img id="bracoD" src="img/bracoD.png">
+            <img id="pernaE" src="img/pernaE.png">
+            <img id="pernaD" src="img/pernaD.png">
+        </div>
+    </div>  
+    
+    
+    <script>
+        var biblioteca = ["javascript", "curso", "computador", "transporte", "livraria", "tecnologia", "controle", "churrasco", "brasil", "impressora", "xícara", "telefone", "internet", "camera", "monitor", "brinquedo", "youtube", "portaria", "escola", "carnaval", "teclado", "guitarra", "bateria", "chinelo", "helicoptero", "arduíno"] // Palavras que serão sorteadas armazanadas em um array
+        var qtde = biblioteca.length-1 // Variavel que indica quantas palavras tenho dentro no array biblioteca usando o length
+        var pos = Math.round(Math.random()*qtde) // Variavel que define a posição dentro do array(biblioteca) em um numero aleatorio entre 0 () e a quantidade de palavras (qtde) atraves do Math.random, arredondando para um número inteiro atraves do Math.round
+        var palavra = biblioteca[pos] // Variavel que recebe a palavra sorteada atraves do número sorteado na sua posição[pos]
+        var tam = palavra.length // Variavel que recebe o tamanho da palavra, nesse caso a quantidade de letras atraves do length
+        var cxLetras = []
+        var acertos // Variavel que define o números de erros
+        var errosMax = 7 // Variavel que define o número maximo de erros, aqui definido o totais de peças para montar o boneco
+        var erros = 0 // Variavel que define o número totais de erros do usuário, assim começando em 0
+        var desenhos = [] // Variavel que vai armazenar as peças do boneco atraves de um array
+        var acertou = false // Variavel que define se voce acertou a palavra, iniciando em false
+        var jogando = false // Variavel que define se o jogo ainda está rolando, inicando em false
+        var jog
+
+        function defineLetras(l) { // função que vai determinar a quantidade de letras de acordo com o tamanho da palavra, a letra (l) definida como parametro aqui vai virar o (tam) como mostra la embaixo na função iniciar!
+            var obj
+            for(i=0; i < 20; i++) { // Aqui o for vai passar por todas as 20 letras que defini nos inputs com o id letras0 ate letras19 
+                obj=document.getElementById("letra" + i).value="" // definindo o input com valor 0 para resetar e não aparecer nenhuma letra quando for chamada essa função ,atraves do id letra + sua posição[i]
+                obj=document.getElementById("letra" + i).style.display="none" // Definindo todas as letras para esconder atraves do display none 
+            }
+            for (i=0; i<l; i++) { // Depois de esconder todas as letras esse for vai definir quantas posições tem a palavra, atraves de seu tamanho(l=tam) ou seja quantas letras tem a palavra
+                obj=document.getElementById("letra" + i).style.display="inline-block" // Definido para aparecer somente as letras da palavra de acordo seu tamanho(tam) atraves do display inline-block, assim cada input vai ser uma letra
+            }
+        }
+
+        function jogar() { // Função que acontece todas as rotinas dos jogo
+            jog.focus() // Mantendo o cursor no jog
+            if (jog.value=="") { // Se o valor de jog for nada ("") ou seja se não for digitado uma letra, o alert embaixo é acionado aparecendo a mensagem " Digite uma letra"
+                alert("Digite uma letra")
+            } else { // Se for digitando uma letra ele verifica 
+                if(jogando) { // Se o jogo ta rolando ou seja se (jogando) for true ele faz a rotina do jogo abaixo! 
+                    var obj
+                    var letraTmp
+                    var letra
+                    var pesq
+                    letra = jog.value // Definindo a variavel letra para receber o valor(jog.value) digitado no jog
+                    jog.value="" // Depois que armazenado no jog eu definido para receber nada novamente ("")
+                    acertou = false // Definindo acertou como false
+                    pesq = palavra.match(letra) // Definindo a variavel pesq para pesquisar atraves do match a letra digitada se existe na variavel palavra! palavra.match(letra)
+                    while(pesq != null) { // Enquanto pesq for diferente(!=) de null, significa que foram encontradas as letras digitadas na palavra e codigo abaixo vai ser executado
+                        letraTmp=palavra.search(letra) // Definindo a variavel letraTmp para pesquisar a letra dentro da palavra assim armazenando a posição dela em si atraves do (search)
+                        obj = document.getElementById("letra" + letraTmp).value=letra // Armazenando a letra + sua posição (letraTmP) pegando o resultado e armazenando na letra digitada. É por isso que esta dentro de um while, para repetir se houver mais letras iguais
+                        palavra = palavra.replace(letra, '0') // Substituindo a (letra) da (palavra) por valor'0' atraves do (replace) e amarzenando em (palavra)! Fazendo isso a letra fica com o valor '0' e o search não vai mais encontra-la novamente assim podendo procurar a proxima letra igual, com isso se houver mais letras iguais cada uma vai ficar na sua posição
+                        acertos++ // Chegando aqui vai incrementar acertos, lembrando que foi iniciado com o valor 0 na função inicar()
+                        pesq=palavra.match(letra) // Aqui faz a pesquisa novamente, enquanto for encontrando letras entra dentro no while! Se não achar a letra retorna null e sai no while
+                        acertou = true // Encontrando a letra acertou recebe true
+                    }
+                    if(!acertou) { // Saindo do While ele verifica Se não(!) acertou, lembrando que o acertou esta defindo em false
+                        document.getElementById("dvletrasdigitadas").innerHTML+=letra.toUpperCase() // Não acertando a letra armazeno no id dvletrasdigitadas atraves do innerHTML incrementando a letra  em letra maiuscula com o toUppercase()
+                        erros++ // Incrementando erros, lembrando que erros começa com 0 assim incrementando +1
+                        if(erros<7) { // Verificando se erros for menor que 7 (erros<7)
+                            desenhos[erros].style.display="block" // Sendo erros menor que 7 (erros<7) vai aparacer uma peça do desenhos atraves do display block deixando assim de ser none como definido inicialmente,[erros] vai chegar ate 6 mostrando a imagem de cada número em sequencia com o (erros++) que incrementa +1
+                        } else { // Se não for menor que 7 (erros<7)
+                            document.getElementById("cabeca").src="img/cabeca2.png" // Vai trocar a imagem da cabeça1 para mostrar a cabeça2
+                            document.getElementById("dvmsg").innerHTML="PERDEU" // Definindo para mostrar a mensagem "PERDEU" atraves do innerHTML na div com id #dvmsg
+                            jogando=false // Assim jogando recebe false, fazendo que o jogo pare(acabe) ou seja nao realizando a rotina novamente
+                        }
+                    }
+                    if(acertos==tam) { // Saindo do while se acertou for true, verfica se acertos é igual ao tamanho da palavra(tam)
+                        document.getElementById("dvmsg").innerHTML="" // Definindo para mostrar nada(apagar) na mensagem atraves do innerHTML na div com id #dvmsg! Lembrando que aqui nao é necessário fazer isso pq o texto abaixo ja vai substiuir
+                        document.getElementById("dvmsg").innerHTML="GANHOU" // Definindo para mostrar a mensagem "GANHOU" atraves do innerHTML na div com id #dvmsg
+                        jogando=false // Mesmo se ganhar o (jogando) tem que receber false para que nao seja realizado a rotina novamente, para realizar a rotina novamente posso relogar a pagina ou clicar no botão nova palavra definidos com a função inicar()
+                    }
+                }
+            }
+        }
+
+        function iniciar() { // Função iniciar, que é chamada assim que carrega a pagina definida em um load la embaixo
+            jogando = true // Passando a variavel jogando como true para iniciar o jogo
+            jog = document.getElementById("letraJ") // Armazenando o input letraJ dentro da variavel jog
+            jog.value="" // Definindo jog com seu valor 0
+            jog.focus() // Definindo o cursor do mouse no input atraves do focus(), ou seja o cursor ja cai direto nele
+            acertos=0 // Iniciando com 0 acertos
+            erros=0 // Iniciando com 0 erros
+            acertou=false // Definindo acertou como false novamente assim que se inicia um novo jogo
+            document.getElementById("dvletrasdigitadas").innerHTML="Letras Digitadas:" //Mudando o texto da div pegando seu id atraves do innerHTML, assim faço sumir as letras digitadas antes, quando a função iniciar() for chamada
+            pos=Math.round(Math.random()*qtde) // Sorteando a posição da palavras novamente
+            palavra=biblioteca[pos] // Definindo a palavra novamente
+            tam=palavra.length // Definindo a quantidade de letras novamente 
+            defineLetras(tam) // Aqui é chamada a função defineLetras já definida la em cima, passando como parametro o tamanho da palavra(tam)
+            document.getElementById("dvmsg").innerHTML="" // Definindo o texto da div com o innerHTML para não mostrar nada ("")
+            desenhos[1] = document.getElementById("cabeca") // Aqui adiciono todas as fotos no array desenhos nas suas posições definidas de [1] à [6], com o getElementById! Assim as imagens vão ser mostradas na ordem da sua posição no array
+            desenhos[3] = document.getElementById("bracoE")
+            desenhos[4] = document.getElementById("bracoD")
+            desenhos[5] = document.getElementById("pernaE")
+            desenhos[6] = document.getElementById("pernaD")
+            document.getElementById("cabeca").src="img/cabeca1.png" // Definindo para aparecer a imagem cabeca1 inicialmente, porque tenho outra cabeca2
+            for(i=1; i < 7 ; i ++) { // for para pegar todas as posições das imagens e escondelas como definido abaixo
+                desenhos[i].style.display = "none" // Usando desenhos[i] para esconder todas as fotos com o display none
+            }
+        }
+
+        function dica() { // Função para aparacer a palavra 
+            alert(palavra) // Aqui a palavra aparece atraves do alert
+            jog.focus() // Aqui o cursor volta para a jog
+        }
+
+        window.addEventListener("load", iniciar) // Chamando a função iniciar com o evento load, ou seja toda vez que carregar a pagina
+
+
+    </script>
+       
+</body>
+</html>

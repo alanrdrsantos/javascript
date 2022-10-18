@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName</title>
+</head>
+<body>
+    <p>CFB Cursos</p>
+    <p>Curso de JavaScript</p>
+    <p>Aula 25</p>
+    <p>www.youtube.com/cfbcursos</p>
+    <p>cfbcursos.com.br</p>
+    <hr>
+   
+   <script>
+        // Retorna o conjunto de elementos atraves da tag especificada em forma de arrays(vetores) se armazenado dentro de uma variavel
+        var tagsP = document.getElementsByTagName("p") //[2] usando assim retorna direto sem usar tagsP[2], como no exemplo embaixo 
+        document.write(tagsP[1].innerHTML) // InnerHTML desse modo vai pegar o conteudo da tag p[1] do html 
+        for(i=0; i < tagsP.length; i++) // Colocando todas TagsP em vermelho #f00
+        tagsP[i].style.color="#f00"
+    </script>
+</body>
+</html>

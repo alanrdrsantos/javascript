@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos para manipulação de String 2</title>
+</head>
+<body>
+    <p id="txt">CFB Cursos - Curso de Javascript - aula 46  curso de </p>
+
+    <script>
+        var texto = document.getElementById("txt").innerHTML
+        var txt2 = "javaScript"
+        
+        var res = texto.search(/curso/i) // Método search só retorna a primeira ocorrência encontrada assim retornando a posição do item informado, diferente do metodo match não retorna array
+
+        var res = texto.replace(/curso/ig, "aula") // Metodo replace substitui determinado caractere(palavra) dentro na string, passando por parametro a palavra que ira substituir, nesse caso "aula"! Usando o modificar (g), substitui todas as palavras definidas no parameto, nesse caso (/curso/)
+
+        var res = texto.charAt(11) // Metodo charAt retorna o caractere que defino na posição dento do parametro, nesse caso posição(11) 
+
+        var res = texto.charCodeAt(2) // Metodo charcodeAt retorna o codigo do caractere definido na posição dento do parametro, nesse caso posição(2)
+
+        document.write(String.fromCharCode(67) + "<br>") // Metodo fromCharCode ao contrário do charcodeAt retorna o  caractere atraves do codigo definido dento do parametro, nesse caso codigo(2)
+        
+        document.write(res + "<br>") 
+
+        var res1 = texto.concat(txt2 + " - Muito bom")// concat Metodo que concatena(junta) uma string na outra, nessa caso está juntando o conteúdo da variavel (texto) e da variavel(txt2)difinido la em cima, também posso passar a string direto por parametro ("- Muito bom") juntando com a variavel
+
+        document.write(res1)
+        
+
+        </script>
+</body>
+</html>

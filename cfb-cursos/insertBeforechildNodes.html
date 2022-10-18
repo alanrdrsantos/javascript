@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertBefore/ chilNodes</title>
+</head>
+<body>
+    <input type="text" id="fnovo"><button id="btnAdd" onclick="Adicionar()">Adicionar</button><button id="btnContar" onclick="Contar()">Contar</button><br><br>
+    <ul id="listaElementos"></ul>
+
+    <script>
+         // Metodo insertBefore adiciona elementos, me permite especificar um elemento para inserir antes do mesmo especificado ou seja tenho a possibilidade de informar antes de qual elemento eu quero inserir! Ao inves de adicionar no final como no appenChild ele vai inserir antes 
+        // Propriedade childNodes serve para controlar ou contar os elementos filhos de um determinado elemento
+
+        var texto = document.getElementById("fnovo") // Pegando o valor digitado no form atribuindo a uma variavel(texto)
+        var lista = document.getElementById("listaElementos")
+        var li = document.createElement("li") // Criando o elemento li atribuindo a uma variavel(li)
+
+        function Adicionar(){ // função para adicionar um li dentro da tag ul clicando no botão
+            var li = document.createElement("li")
+            li.textContent=texto.value // Atribuindo o texto digitado(texto) na li(li) com o textContent
+            lista.insertBefore(li, lista.childNodes[0])// Inserindo o novo elemento(li) ao ul(lista) com o insertBefore precisando passar 2 parametros pra ele, sendo eles o novo elemento que quero inserir(li) e antes que quem eu quero inserir(lista.childNodes[0]). Lembrando que childNodes pode retornar um array, sendo assim o elemento filho quando inserido vai ficar sempre na primeira posição da lista pois o indice informado é [0](lista.childNodes[0])
+            texto.value="" // Limpando a caixa do input agregando o value=""
+            texto.focus() // Colando o cursor na caixa de input com o focus()
+        }   
+        
+        function Contar() {
+            var lista = document.getElementById("listaElementos")
+            var num = lista.childNodes.length // Usando childNodes.length para contar os elementos da lista(lista.childNodes.lenght) armazenando na variavel (num)! O length nesse caso é usado para saber a quantidade de elementos filhos da lista
+            alert(`Existem ${num} na lista!`) // Alert para mostrar a quantidade de elementos na lista
+        }
+    </script>   
+</body>
+</html>

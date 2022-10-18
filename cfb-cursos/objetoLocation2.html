@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Location parte 2</title>
+</head>
+<body>
+    <h1>Objeto Location</h1>
+    <button id="btnSite" onclick="site()">Site</button>
+    <button id="btnReaload" onclick="rec()">Recarregar</button>
+
+    <script>
+        //location.assign("http://")Metodo  Assign tem a função de carregar um novo documento, passando por parameto o doucmento que quer carregar
+       
+        function rec() {
+            location.reload() // Metodo Reaload faz automaticamente um recarregamento da página 
+        }
+        
+        function site() {
+            location.replace("http://www.youtube.com") // Metodo Replace faz a mesma coisa que o assign com a diferença que ele remove a url do historico(history)
+        }
+
+     
+
+
+    </script>   
+</body>
+</html>

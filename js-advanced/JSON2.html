@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 2</title>
+</head>
+<body>
+
+    <script>
+        
+        const objs = [ { 
+            nome: "Alan",
+            idade: 30,
+            detalhes_profisão: {
+                profisão: "Programador",
+                empresa : "Empresa X"
+            },
+            esta_trabalhando: false,
+            hobbies: ["programar", "estudar", "jogar"],
+        },
+        { 
+            nome: "João",
+            idade: 25,
+            detalhes_profisão: {
+                profisão: null,
+                empresa : null,
+            },
+            esta_trabalhando: false,
+            hobbies: ["Academia", "jogar"]
+        }]
+        // converter object para JSON
+        const converterJson = JSON.stringify(objs) // stringify garante que o texto se torne em um JSON valido
+        
+        console.log(converterJson)
+        console.log(typeof converterJson)
+        
+        // converter JSON em object
+        
+        const objData = `{
+            "nome": "Alan",
+            "idade": 30,
+            "detalhes_profisão": {
+            "profisão": "Programador",
+            "empresa" : "Empresa X"
+            },
+            "esta_trabalhando": false,
+            "hobbies": ["programar", "estudar", "jogar"]
+            }`
+
+        const convertObj = JSON.parse(objData)
+
+        console.log(objData)
+
+
+        console.log(convertObj)
+
+        
+
+        
+
+    </script>    
+</body>
+</html>

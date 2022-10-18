@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+<body>
+    <script>
+        // Funções só são executadas quando chamadas
+        function escrever() {
+            document.write("Curso de JavaScript - CFBCursos <br>")
+        }
+        escrever() // Aqui a função foi chamada
+        escrever()
+        escrever()
+
+        
+        function soma (n1, n2) { // Funções com parametro 
+            var res = n1 + n2
+            document.write(`${res} <br>`)
+        }
+        soma(5, 2) // Quando chamada defino o valor do parametro(n1, n2), posso chamar varias vezes com o valor do parametro diferente
+        soma(10, 20)
+        soma(0, 1)
+
+        
+        function soma1(n1, n2) { // Funções que retornam valores atraves do (return)
+            return n1 + n2 // O que estiver definido no return, vai ser executado quando a função for chamada 
+        }
+        document.write(soma1(3,3) + "<br>") // Chamando a função com document write para retornar o valor atraves do return
+        var res = soma1(7, 7) // Posso chamar a função armazenando a uma variavel tbm(com return)
+        document.write(res + "<br>") // Quando chamada nesse caso(com return) preciso ultilizar o document.write para aparecer na tela, definindo o valor do parametro
+       
+
+
+        var numeros = [10, 2, 5, 30, 25, 19, 20, 50, 40, 150]
+        function media(nums){ // Funções com arrays, passando uma variavel no parametro
+            var tam = nums.length
+            var soma = 0
+            for (i = 0; i < tam; i++) {
+                soma += nums[i] // Estou acrescentando o valor da soma(difinido como 0) com ela mesma(+=), ou seja soma recebe o seu proprio valor(soma = soma + nums[i]), somando com todos os numeros do array(nums) atraves de sua posição[i] definido no for para saber quantos numeros devo somar
+            }
+            return Math.round(soma / tam) // Retornando a media com (soma) dividido pelo (tam) e arredondando com o metodo Match.round
+        }
+        document.write("A média foi de " + media(numeros))  // Chamando a função com o array [numeros] como parametro ,que foi definido como uma variavel, atraves do document.write. Calculando a média do array[numeros] passado como parametro, sendo o calculo definido no (return) dentro da função 
+    
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Window parte 4</title>
+</head>
+<body>
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+
+    <div id="painel"></div>
+
+    <script>
+        var qtde=window.length // Usando assim vai pegar a quantidade de iframes do html
+        var painel = document.getElementById("painel").innerHTML=qtde
+        for(i=0;i<qtde;i++) {
+            window.frames[i].location="http://cfbcursos.com.br"// Usando a propriedade frames da pra usar o número do iframe que quero trabalhar passando por array[]! O location permite adicionar uma url para essa pagina
+        }
+
+    </script>   
+</body>
+</html>

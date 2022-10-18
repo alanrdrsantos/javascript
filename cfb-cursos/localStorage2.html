@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage - LocalStorage parte 2 - Contador de Visitas</title>
+</head>
+<body>
+   
+    <script>
+
+        // Contador de acessos ao nosso site, toda vez que alguem entrar vai contar 1 acesso
+
+        if(typeof(Storage)!= "undefined") { // Verificando se o brownser suporta web Storage! Se o tipo(typeof) Storage for diferente (!=) de undefined(indefinido) significa que ele suporta o web Storage e executa o codigo abaixo
+            if (localStorage.visitas) {// Verificando se a chave(key) existe, se nao existir vou criar com o valor = 1 (definido no else)! Se localStorage.visitas existir ele incrementa
+                localStorage.visitas = Number(localStorage.visitas)+1 // Incrementando o valor de visitas para mostrar cada acesso ao site! Para isso pego o localStorage.visitas recebendo(=) o seu proprio valor fazendo a conversão com o Number para garantir que o valor vai ser numérico e nao string Number(localStorage.visitas)+1, assim sempre vai acrescentar +1 a cada acesso do site junto com seu valor anterior
+            }else {
+                localStorage.setItem("visitas", "1") // Posso usar localStorage.visitas = 1 também, dessa forma ja atribuindo a chave(visitas) com seu valor(1)
+            }
+            document.write("Visitas: " + localStorage.visitas) // Mostrando a quantidade de visitas
+
+        }else {
+            document.write("Sem suporte ao Web Storage")
+        }   
+
+    </script>   
+</body>
+</html>

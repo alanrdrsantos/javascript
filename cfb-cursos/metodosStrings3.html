@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos para manipulação de String 3</title>
+</head>
+<body>
+    <p id="txt">CFB Cursos - Curso de Javascript - aula 46  curso de javascript </p>
+
+    <script>
+        var texto = document.getElementById("txt").innerHTML
+        var texto2 = texto
+
+       var res = texto.indexOf("a") // Metodo indexOf retorna a primeira posição de um caractere definido no seu parametro, sendo o mesmo case sensitive caso não encontre retorna negativo
+        if (res < 0) {
+            document.write("Letra não encontrada")
+        } else {
+            document.write(res + "<br>")
+        }
+
+        var res = texto.lastIndexOf("C")  // Metodo lastIndexOf ao contrario o indexOf retorna a ultima posição de um caractere definido no seu parametro, sendo o mesmo case sensitive caso não encontre retorna negativo
+
+        document.write(res + "<br>") 
+
+        var res = texto.localeCompare(texto2)// Metodo localeCompare compara duas strings
+            if(res==0) {
+                document.write("String são iguais" + "<br>")
+            } else 
+               document.write("Strings são diferentes" + "<br>")
+
+        var res = texto.slice(21,32) // Metodo slice recorta uma string retornando o corte especificado no parametro(4,9) definindo onde começa e onde ternima o corte 
+
+        document.write(res + "<br>")
+
+        var res = texto.split(" ") // Metodo split vai separar(picar) toda a string no caracter indicado no parametro(" " = espaço, separa todas as palavras), assim cada palavra vai ser amarzenado em um array
+
+        document.write(res[0] + "<br>")
+
+        var res = texto.substr(4,6) // Semelhante ao metodo slice, o Metodo substr é indicado pela posição inicial e o tamanho do corte, assim passando os dois no parametro() 
+
+        document.write(res + "<br>")
+
+        var res = texto.toLowerCase() // Metodo que converte toda a string em letra minúscula 
+
+        document.write(res + "<br>")
+
+        var res = texto.toUpperCase() // Metodo que converte toda a string em letra maiúscula 
+
+        document.write(res + "<br>")
+
+        var res = texto.toUpperCase().substr(22,10) // Posso combinar 2 metodos, aqui estou combinando o metodo toUpperCase para deixar em letra maiúscula e o metodo substr para localizar a palavra, desse modo a palavra definida vai ficar em letra maiúscula
+
+        document.write(res + "<br>")
+
+
+
+    </script>    
+    
+</body>
+</html>

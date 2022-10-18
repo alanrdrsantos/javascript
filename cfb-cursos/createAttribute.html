@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateAttribute, setAttributeNode e removeAttribute</title>
+</head>
+<body>
+    <input type="text" id="fnum"><button id="btnDestaque" onclick="Destak()">Destacar</button><br><br>
+
+    <p>Curso de JavaScript</p>
+    <p>Curso de HTML5</p>
+    <p>Curso de CSS3</p>
+    <p>Curso de PHP/MySQL</p>
+    <p>Curso de C++</p>
+    <p>Curso de Photoshop</p>
+    <p>Curso de Unity/C#</p>
+    <p>Curso de Flash</p>
+
+
+    <script>
+        //createAttribute cria um atributo para uma determinada tag
+        //setAttributeNode define o valor do atributo
+        //removeAttribute remove o atributo de uma determinada tag
+
+        function Destak() {
+            var num = document.getElementById("fnum").value // Pegando o valor digitado no input e armazenando na variavel num
+            var p = document.getElementsByTagName("p") // Pegando todas as tags(p) com o getElementsByTagName
+            for(i=0;i<p.length;i++) { // for para percorrer os paragrafos e remover o atributo, já definido abaixo! Definindo o i=0 e enquanto i for menor que o tamanho do paragrafo(i<p.length) ele vai percorrer, lembrando que p é um array e quando usado o length ele pega a quantidade, nesse caso paragrafo(p)! incrementando +1 (i++) para ir percorrendo, passando i em array[i] para saber de qual paragrafo vai remover o atributo
+                p[i].removeAttribute("style") // Removendo o atributo com o removeAttribute passando por parametro o atributo que quero remover("style"), nesse caso está removendo o atributo style que estiver sendo atribuido a algum paragrafo(p[i])
+            }
+            var at=document.createAttribute("style") // Criando um atributo com o createAttribute passando por parametro o atributo que quero criar("style")
+            at.value="color:#f00;font-weight:bold;" // Para definir um valor ao atributo criado usando o value(at.value a variavel que esta armazando o atributo + .value) assim passando a formatação que quero adicionar entre "" usando ; 
+            p[num].setAttributeNode(at) // Para adicionar o atributo criado usamos o setAttributeNode passando por parametro o atributo que quero adicionar(at - variavel que o attribute esta guardado), nesse caso o atributo está sendo usando no paragrafo que for digitado (p[num] num sendo o numero do paragrafo que vai receber o atributo)
+        }
+
+
+    </script>   
+</body>
+</html>

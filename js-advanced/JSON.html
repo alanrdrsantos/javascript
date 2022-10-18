@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+
+    <script>
+        let colabJSON='{"colaboradores":['+
+        '{"nome": "Bruno","salario": 10000, "idade":40},'+
+        '{"nome": "Alan","salario": 600, "idade":30},'+
+        '{"nome": "Romario","salario": 8200, "idade":25},'+
+        '{"nome": "Fernanda","salario": 35000, "idade":38},'+
+        '{"nome": "Ronaldinho","salario": 5000, "idade":21}'+
+        ']}' 
+
+        let colabObj = JSON.parse(colabJSON)  // parse converte o JSON em Object JavaScript
+
+        console.log(colabObj) // Chamando colabObj que foi convertido em Object JavaScript
+
+        console.log(colabObj.colaboradores[2]) // Chamando uma posição especifica do Object agora ja convertido, para querer pegar um valor de alguma propriedade é só colocar o nome da frente como colabObj.colaboradores[2].nome vai aparecer o valor que esta armazenado em nome 
+
+        for(let n of colabObj.colaboradores) { // For of para obter todos os valores da propriedade nome do obj 
+            console.log(n.nome) // valores armazenados em n, pegando somente da proriedade nome
+        }
+
+        for(let i = 0; i < colabObj.colaboradores.length; i++){ // for para percorrer todos os objects
+            console.log(colabObj.colaboradores[i])
+        }
+
+        let colabOBJ=[
+        {"nome": "Bruno","salario": 10000, "idade":40},
+        {"nome": "Alan","salario": 600, "idade":30},
+        {"nome": "Romario","salario": 8200, "idade":25},
+        {"nome": "Fernanda","salario": 35000, "idade":38},
+        {"nome": "Ronaldinho", "salario": 5000, "idade": 21}]
+
+        let colabJson = JSON.stringify(colabOBJ) // stringify converte o Object JavaScript em JSON
+
+        console.log(colabJson) // chamando colabJson que foi convertido em JSON
+
+        let colab = {"nome": "Alan", "salario": 600, "idade": 30}
+
+        console.log(colab) // em forma de Object JavaScript
+        console.log(JSON.stringify(colab)) // em forma de JSON
+
+    </script>
+
+</body>
+</html>

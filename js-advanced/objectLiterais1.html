@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Literais</title>
+</head>
+<body>
+   
+    <script>
+
+        //sintaxe 
+        /* Encapsule o objeto entre chaves {}, separe nomes de propriedades e valores com um sinal de dois-pontos :
+        var obj = {
+            a: "",
+            b: "",
+            c: ""
+        }
+        */
+
+        const Carro = { // Criando uma const e definindo o nome do objeto literal para Carro
+            marca: "VW", // criamos uma propriedade(marca) e ultilizamos dois pontos : para atribuir seu valor("VW") e colocamos virgula no final(,)
+            modelo: "Golf", // Não usamos virgula na ultima propriedade 
+            info: function() { // Podemos definir metodos tbm,como funções, nos objetos literais
+                console.log(`Marca: ${this.marca}`) // usando o this para ligar o objeto dentro da função, dessa forma pegando seu valor
+                console.log(`Modelo: ${this.modelo}`)
+            }
+        }
+
+        Carro.marca = "Honda" //Dessa maneira redefinimos o valor da propriedade (marca) do objeto literal (Carro)
+        Carro.modelo = "HRV"
+
+        Carro["marca"] = "Chevrolet" // Podemos usar desse modo com array para atribuir novos valores tambem
+        Carro["modelo"] = "Camaro"
+
+        let car2 = Object.create(Carro) // Associando o objeto literal Carro com a let car2! O método Object.create() cria um novo objeto, utilizando um outro objeto existente como protótipo para o novo objeto a ser criado.
+
+        car2.marca = "Lamborghini" // Redefinindo a marca e o modelo do object criado (car2)
+        car2.modelo = "Aventador"
+
+        console.log(Carro.marca) // Para aparecer seu valor chamanos o objeto literal com sua propriedade (Carro.marca), podemos usar em forma de vetor também (Carro["marca"])
+        console.log(Carro.modelo)
+        
+        Carro.info() // Dessa forma chamamos o metodo info do objeto literal carro()
+        car2.info() // chamando o info do object criado, lembrando que foi associado ao objeto Carro usando o Object.create(Carro), marca e modelo foram redefinidos la em cima
+    
+
+    </script>   
+</body>
+</html>

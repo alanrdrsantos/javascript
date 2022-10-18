@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById</title>
+    <script>
+        var txt = document.getElementById("texto")
+
+        txt.style.color="red"
+    </script>
+</head>
+<body>
+    <h1 id="texto">CFB Cursos</h1>
+<div id="caixa"></div>
+
+
+<script>
+    var txt = document.getElementById("texto") // getElementById manipula o elemento id do html
+    txt.style.color="red"
+    txt.style.fontSize="50px"
+
+    var cx = document.getElementById("caixa")
+    cx.style.width="300px"
+    cx.style.height="300px"
+    cx.style.backgroundColor="green"
+    cx.style.border="4px solid black"
+</script>    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hidden</title>
+    <style>
+        body {
+            padding: 0px;
+        }
+        .carro {
+            width: 250px;
+            margin-bottom: 50px;
+        }
+        .menu_item {
+            height: 100%;
+            cursor: pointer;
+        }
+        #menu {
+            border: solid 3px #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <img id="btnc1" data-nome="c1" src="img/car1.png" class="menu_item"> <!-- Usando o dataset para poder associar os elementos -->
+        <img id="btnc2" data-nome="c2" src="img/car2.png" class="menu_item">
+        <img id="btnc3" data-nome="c3" src="img/car3.png" class="menu_item">
+        <img id="btnc4" data-nome="c4" src="img/car4.png" class="menu_item">
+    </div>
+    <img id="c1" src="img/car1.png" class="carro">
+    <img id="c2" src="img/car2.png" class="carro">
+    <img id="c3" src="img/car3.png" class="carro">
+    <img id="c4" src="img/car4.png" class="carro">
+
+    <script>
+        // hidden oculta elementos, sua forma de trabalhar funciona chamando o elemento usando hidden e definimos seu valor com true e false, se for true oculta o elemento e se for false o elemento fica visivel! Sintaxe elemento.hidden =true
+
+        function mostrar() {
+            for(i=1; i < 5; i++) { // for para percorrer as imagens usando o i menor que 5 (i < 5) porque existem 4 imagem ou seja ele vai percorrer enquanto o i for menor que 5
+                document.getElementById("c" + i).hidden=true // Usando o hidden para ocultar as imagens mostradas, ja que está dentro do for foi passado o indice(i) no id para pegar todas as imagens(c1,c2,c3,c4)
+            }
+            var obj = event.target.dataset.nome // Usando event.target que é uma referência ao objeto que enviou o evento, ou seja vai me retornar o elemento clicado, com o dataset e o nome da propriedade para retornar (dataset.modelo) o valor ja definido
+            document.getElementById(obj).hidden=false // Usando o o hidden com o valor false para mostrar a imagem
+        }
+        
+        function inicia() {
+            document.getElementById("btnc1").addEventListener("click", mostrar) // // Adicionando um evento de click com o addEventlistener, passado por parameto, no elemento com o id="btnc1", quando cliclado chama a função rolar() executando seus comandos
+            document.getElementById("btnc2").addEventListener("click", mostrar)
+            document.getElementById("btnc3").addEventListener("click", mostrar)
+            document.getElementById("btnc4").addEventListener("click", mostrar)
+
+            for(i=1; i < 5; i++) { // for para percorrer as imagens usando o i menor que 5 (i < 5) porque existem 4 imagem ou seja ele vai percorrer enquanto o i for menor que 5
+                document.getElementById("c" + i).hidden=true // Usando o hidden para ocultar todas as imagens, ja que está dentro do for foi passado o indice(i) no id para pegar todas as imagens(c1,c2,c3,c4)
+            }
+
+           // document.getElementById("c4").hidden=true //Ocultando o elemento(document.getElementById("c4")) com o hidden usando o valor true (hidden=true)
+
+        }
+
+     window.addEventListener("load", inicia)
+    </script>
+    
+</body>
+</html>

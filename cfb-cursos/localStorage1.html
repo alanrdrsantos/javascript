@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage - LocalStorage parte 1</title>
+</head>
+<body>
+
+    <script>
+        // LocalStorage basicamente define uma aréa para armazenamento de elementos chave/valor dentro do browser, podendo armazenar quantos dados quiser.Os armazenamentos não são excluidos ao fechar a pagina e a janela ou seja quando armazenados no LocalStorage não são deletados, para isso usamos outro metodo ou limpamos o localStorage do brownser
+
+            localStorage.setItem("canal","CFBCursos") // Criando uma chave(key) e um valor(value) para armazenar no localStorage usando o setItem, passando por parametro primeiro a key e depois o value
+    
+            //localStorage.removeItem("canal") // Removendo uma chave(key) e um valor(value) armazenado no localStorage usando o removeItem, basta colocar somente a key ("canal") no parametro
+    
+            var vcanal=localStorage.getItem("canal") // Com o getItem obtenho o valor(value) da chave(key) armazenado no localStorage, passando por parametro apenas a key já definida 
+    
+           // além do getItem podemos obter o valor da chave apenas passando seu nome dessa forma var vcanal=localStorage.canal
+           
+           document.write(vcanal)
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declarando Let e Const</title>
+</head>
+<body>
+    
+    <script>
+        // Não podemos usar let com o mesmo nome no mesmo escopo, podemos usar com o mesmo nome só em escopos diferentes ou seja let restringe a variavel ao escopo onde ele foi declarada e aos elementos filhos(como no exemplo abaixo, percebe que no segundo num não tem o let portanto é uma atribuição ou seja um filho ao let declarado !) Diferente de var que uma vai sobrescrever o valor da outra, sendo usado o ultimo valor declarado
+        
+      /*  let num = 10
+        {
+            num = 100
+        }
+        console.log(num)
+
+        // Uma vez atribuido um valor a uma const não vai permitir a ultlização de novos valores ou seja não pode ser alterado! Const são mais usadasas na funções anonimas(Arrow Function) como no exemplo abaixo
+
+        const num2 = 10
+        num2 = 5
+
+        console.log(num2) */
+
+        const dobro=(n)=> { // const dobro vai receber o resultado do retorno da função
+            return n*2 // Retornando o dobro do valor de entrada
+        }
+
+        console.log(dobro(5))
+    </script>    
+</body>
+</html>

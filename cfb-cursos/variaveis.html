@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaveis</title>
+    <script>
+        // Variaveis servem para armazenar valores  
+        var canal = "CFB Cursos" // Variavel tipo String, fica entre "aspas"
+        var ano = 2017 // Variavel tipo Number
+        var num = 10
+        var curso = "Web" 
+        var texto = canal+num // Quando houver concatenação(String + Number) entre variaveis se torna uma String
+        var soma = ano+num // Quando as variaveis são formadas só por Number, transformam no mesmo 
+        var texto2 = canal+(ano+num) // Desse modo a soma vai acontecer (Entre parantes) e vai retornar o resultado da concatenação
+
+        curso = "JavaScript" // Quando for mudar o valor da variavel não preciso mais usar a palavra (var), mas fique ao seu critério colocar ou não sendo que deste modo também será válido
+       
+
+        document.write(`${canal} ${ano} ${curso} <br>`)
+        document.write(texto + "<br>")
+        document.write(soma + "<br>")
+        document.write(texto2)
+
+    
+        console.log(typeof(canal)) // String
+        console.log(typeof(num)) // Number
+        console.log(typeof(texto)) // String
+        console.log(typeof(soma)) // Number
+        console.log(typeof(texto2)) // String
+        
+
+    
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

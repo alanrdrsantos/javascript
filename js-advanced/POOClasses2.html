@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - Programação Orientada a Objetos Part 2 - Propriedades e Metodos</title>
+</head>
+<body>
+    
+    <script>
+        class Carro {
+            constructor(marca, modelo, cor) { // constructor é um método especial para criar e inicializar um objeto no momento em que a classe é instanciada 
+                this.marca = marca // this que faz a referencia ao objeto
+                this.modelo = modelo
+                this.cor = cor 
+                this.ligado = false
+                this.km = 0
+                this.comb = 10
+            }  
+            info(){
+                console.log(`Cor: ${this.cor}`) // this.cor é o atributo que criamos no constructor 
+                console.log(`Marca......: ${this.marca}`)
+                console.log(`Modelo.....: ${this.modelo}`)
+                console.log(`KM.........: ${this.km}`)
+                console.log(`Combustível: ${this.comb}`)
+                console.log(`Ligado.....:` + (this.ligado ? "SIM" : "NÃO"))
+                console.log("---------------------------")
+            }  
+            ligar() {
+                this.ligado = true
+            }
+            desligado() {
+                this.ligado = false
+            }
+        }
+
+        let car1 = new Carro("Honda", "HRV", "Verde-limão") // instanciando um novo objeto a classe Carro, automaticamente chama o metodo constructor executando o que foi definido nele
+        let car2 = new Carro("VW", "Saveiro", "Vermelho") // Definido o parametro (c) do constructor da class Carro, passando por parametro "Vermelho" que vai ser a cor deinido no this.cor = c
+        let car3 = new Carro("GM","Camaro","Azul")
+        let car4 = new Carro("Lamborghini", "Aventador","Preto")
+
+        car2.cor = "Laranja" // Mudando o valor do atributo cor do objeto car2 para "Preto"
+
+        car4.ligar() // Chamando o metodo ligar() para executar o que foi definido, no object car4 (car4.info())
+        car2.ligar()
+
+        car1.info() // Chamando o metodo info() para executar o que foi definido, no object car1 (car1.info())
+
+        car2.info()
+        car3.info()
+        car4.info()
+
+    </script>   
+</body>
+</html>

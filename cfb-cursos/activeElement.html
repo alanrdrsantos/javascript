@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activeElement</title>
+</head>
+<body>
+    <div id="cx"></div>
+    <input type="text" name="text">
+    <button>teste</button>
+    <p>CFB Cursos - Curso de JavaScript</p>
+    <img src="img/logo.png"><br>
+    <textarea id="txt_original" cols="20" rows="5">CFB Cursos - Curso de JavaScript - Aula 88 - Atributo activeElement </textarea><br>
+    Texto Selecionado:<span id="texto_selecionado"></span>
+    
+
+    <script>
+        //activeElement retorna o elemento que esta ativo(selecionado com o mouse) dentro na pagina, só vai fazer a leitura da classe document! Posso obter o nome da tag (tagName), o id (id) o valor(value).. e tbm somente o elemento ativo(activeElement)
+        
+        /*function ativo() { 1° exemplo de ultilização do activeElement
+            var elemento = document.activeElement.tagName // Obtendo o nome da tag (tagName) do elemento ativo(activeElement) e armazendo na variavel elemento
+            console.log(elemento) // Mostrando no console a variavel elemento
+        } */
+
+        // var dvcx, frames
+
+       /* function loop() { 2° exemplo de ultilização do activeElement
+            dvcx.innerHTML = document.activeElement.tagName // Obtendo o nome da tag (tagName) do elemento ativo(activeElement) e mostrando na div associada(dvcx) com o innerHTML
+            frames=requestAnimationFrame(loop) // Armazenando na variavel frames o resquesAnimationFrame para fazer a animação da function loop passada por parametro, lembrando que é recursiva e pode chamar sua propria função
+        } */
+
+       function ativo() { // 3° exemplo de ultilização do activeElement
+           var cx = document.getElementById("texto_selecionado") // associando o elemento do id="texto_selecionado"(div) a variavel cx
+           var elemento = document.activeElement // Obtendo o elemento ativo(activeElement) e armazendo na variavel elemento
+           var selecao = elemento.value.substring(elemento.selectionStart, elemento.selectionEnd) // Obtendo o valor(value) do elemento pegando onde vai começar(selectionStart) e terminar(selectionEnd) com o substring passando por parametro
+           cx.innerHTML = selecao // Mostrando na div associada(cx) com o InnerHTML o conteudo ja definido na variavel selecao
+       }
+
+        function inicia() {
+            /*dvcx = document.getElementById("cx") // Comandos do 2° exemplo
+            loop() // chamando a function loop para ser iniciada quando a pagina for carregada, lembrando que a function inicia tem um evento de load */
+            var texto = document.getElementById("txt_original") // Comandos do 3° exemplo
+            texto.addEventListener("mouseup", ativo) // Associando o evento mouseup a variavel texto onde está armazenado o textarea, assim quando o mouse for liberado(mouseup) ele chama a função ativo
+        }
+
+        window.addEventListener("load", inicia) // evento de load para carregar a pagina com os comandos da function inicia()
+
+
+
+    </script>   
+</body>
+</html>

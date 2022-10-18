@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Spread part 2</title>
+</head>
+<body>
+
+    <script>
+        // Usamos o Spread também para poder copiar o conteúdo, lembrando que nos permite copiar rapidamente todo ou parte de um array ou objeto existente em outro array ou objeto como nos exemplos abaixo
+
+        const produtos = [{id:"001", desc:["Mouse", "25.00", ]},{id:"002", desc:["Teclado", "50.00", ]},{id:"003", desc:["Monitor", "430.00", ]}]
+
+        const p = [...produtos] // usando o operador spread para copiar objetos dentro de um array, nesse caso esta armazenando na const p que também está na forma de array (const p = []), ou seja não separa os elementos pq tambem está em um array portanto é uma forma de copiar
+
+        console.log(p)
+
+        const n1 = [100, 200, 300]
+        const n2 = [400, 500, 600]
+        const n3 = [700, 800, 900]
+        const n4 = [...n1,...n2,...n3] // Usando o spread para copiar os arrays n1,n2 e n3 e armazenando no n4! Assim a const n4 que tambem é um array vai ficar com o conteudo de todos 
+
+        console.log(n4)
+
+        const aluno = {nome: "Alan", sobrenome: "Rodrigues"}
+        const notas = {n1: 80, n2: 75, n3: 92, n4: 85}
+        const info = {...aluno, ...notas} // // Usando o spread para copiar os objects aluno, notas e armazenando na const info! Assim a const info que tambem é um object vai ficar com o conteudo de todos 
+
+        console.log(info)
+        console.info(info.nome, info.n3) // Para selecionar um object é só chamar pelo nome que vai aparecer seu valor, ja que concatenou(juntou) com todos os elementos dentro do object info
+
+    </script>   
+</body>
+</html>

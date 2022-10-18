@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - Programação Orientada a Objetos Part 5 - Herança</title>
+</head>
+<body>
+    <script>
+        class Carro {
+            constructor(tpCarro ,tpComb) {
+                this.qtdeComb = 100
+                this.ligado = false
+                this.tipoComb = tpComb
+                this.tipo = tpCarro
+            }
+            info() {
+                console.log(`Quantidade de combústivel: ${this.qtdeComb}`)
+                console.log(`Ligado...................:` + (this.ligado ? "Sim" : "Não"))
+                console.log(`Tipo do combustível......: ${this.tipoComb}`)
+                if(this.tipo == 1) {
+                    console.log(`Tipo de carro............: Passeio`)
+                } else if(this.tipo == 2){
+                    console.log(`Tipo de carro............: Combate`)
+                }else {
+                    console.log(`Tipo de carro............: Transporte`)
+                }
+            }
+            set setligado(t) {
+                this.ligado=t
+            }
+            get getligado() {
+                return this.ligado
+            }
+            set setComb(v) {
+                if(v<0 || v > 100) {
+                    alert("Valor invalido, combustível não pode passar de 100!")
+                } else {
+                    this.qtdeComb=v
+                }
+            }
+            get getComb() {
+                return this.qtdeComb
+            }
+        }
+
+        // A palavra chave extends é usada para criar uma classe filha de outra classe pai. A classe filha herda todos os métodos de outra classe
+        class CarroCombate extends Carro{ // Aqui CarroCombate está hernando a classe Carro com o extends ou seja tudo que tem na class Carro passa para class CarroCombate
+            constructor(tpCarro, tpComb, potTiro) { // contructor de CarroCombate(filho), no parametro passei o mesmo que estava definido no contructor da classe herdada e defini novos parametros para o class filha
+                super(tpCarro, tpComb) // A palavra-chave super é usada para chamar o construtor de sua classe pai para acessar as propriedades e métodos do pai, nesse caso a classe pai é Carro ou seja chamamos o método construtor de Carro e obtemos acesso às suas propriedades e métodos! Para que isso aconteça chamamos o super no contructor do filho (CarroCombat) assim a partir do contructor do filho acesso o contructor do pai usando super! Como o valor ja foi definido no new object instanciado passo por parametro o mesmo que foi definido no contructor do pai
+                this.tiros = 1000
+                this.potTiro = potTiro // Valor foi definido no object car1 instanciado nessa class
+                this.blindagem=100
+            } 
+            info() {
+                super.info() // Chamando o metodo info da class pai(Carro) com o super! Lembrando que o super herda metodos e propriedades da classe pai assim o metodo info vai acrescentar suas propriedades na hora que for chamado! Podemos ver isso no car1.info() 
+                console.log(`Qtde de Tiros...: ${this.tiros}`)
+                console.log(`Potencia do Tiro: ${this.potTiro}`)
+                console.log(`Blindagem.......: ${this.blindagem}`)
+                console.log(`-------------------------------`)
+            }     
+        }
+
+        class CarroTransporte extends Carro {
+            constructor() {
+                super(3, "Diesel") // Posso chamar o super ja definindo seu valor, dessa forma deixamos o constructor e o object instanciado(car3) com o parametro vazia
+            }
+        }
+
+       const car1 = new CarroCombate (1,"Gasosa","100") // Instanciando um new object a classe CarroCombat
+       const car2 = new CarroCombate (2, "Etanol", "50")
+       const car3 = new CarroTransporte()
+
+       car1.setligado = true //  Mudando o valor definido no setter (set) da class Carro
+       car2.setligado = false
+       
+       car1.info() // Como a classe CarroCombat herdou todos os metodos e propriedades da classe Carro, quando usamos o info() vai mostrar o que estava definido na class Carro, lembrando que car1 foi instanciado na class CarroCombat
+
+       car2.info()
+       car3.info()
+
+       console.log(`O carro 1 com o combustivel ${car1.tipoComb} tem ${car1.tiros} tiros sendo sua potencia de ${car1.potTiro} com uma blindagem de ${car1.blindagem}`) // Chamando o console.log ligando o car1 as propriedades ja definidas direto
+   
+   
+   </script>    
+</body>
+</html>

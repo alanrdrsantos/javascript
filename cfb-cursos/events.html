@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos em JavaScript</title>
+    <style>
+        #dv1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body onload="ola()"> <!-- onload evento que acontece quando a pagina é carregada-->
+    <div id="dv1" onmouseover="mudaCor(this, '#f00')" onmouseout="mudaCor(this, '#fff')"></div> <!-- onmouseover evento que acontece quando se passa o mouse sobre o elemento-->
+    <!-- onmouseout evento que acontece quando se tira o mouse do elemento-->
+    <br/>
+    <button onclick="alert('CFB - Cursos')" onmouseover="mudaPos(this)">Clica em mim</button>
+    <!-- usando o this como parametro está pegando ele mesmo(button) como elemento-->
+
+    <!-- onmouseover="mudaCor(document.getElementById('dv1'), '#00f')"-->
+
+    <script>
+        function mudaCor(obj,cor){
+            obj.style.backgroundColor=cor
+        }
+
+        function mudaPos(obj) {
+            obj.style.position="absolute"
+            obj.style.left=Math.random()*500 + "px"
+            obj.style.top=Math.random()*500 + "px"
+        }
+
+        function ola() {
+            var data = new Date()
+            var hora = data.getHours()
+            var txt = ""
+            if (hora < 12) {
+                txt="Bom dia!"
+            } else if (hora < 6){
+                txt="Boa tarde!"
+            } else {
+                txt=" Boa noite"
+            }
+            alert(`Ola, ${txt}`)
+            
+        }
+              
+
+
+    </script>
+</body>
+</html>

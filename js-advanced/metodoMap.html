@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metódo MAP</title>
+  </head>
+  <body>
+    <script>
+      // O método map() invoca uma função passada por argumento para cada elemento do Array original, em ordem chamando a função passada uma vez para cada elemento do array, e devolve um novo Array como resultado com base nos retornos de cada chamada
+
+      let num = [1, 4, 9, 16, 25];
+      let raiz = num.map(Math.sqrt); // Usando o map no array[num] passando por parametro a função que eu quero realizar para cada elemento do array usado, isso vai ficar armazenado em [raiz]
+
+      for (r of raiz) {
+        // Lembrando que raiz armazenou a função do map em outro array
+        console.log(r); // Aqui podemos ver o resultado de raiz usado no for of armazenando seus resultados em (r)
+      }
+
+      for (let i = 0; i < 5; i++) {
+        // For mais especificado para mostrar os numeros do array[num] e sua raiz quadrada armazenado em [raiz]
+        console.log(`Numero: ${num[i]} --- Raiz quadrada: ${raiz[i]}`);
+      }
+
+      const dobro = num.map((n) => {
+        // Usando uma Arrow Function direto no parametro do map, assim retornando a função para cada elemento do array [num]
+        return n * 2;
+      });
+
+      const mappedArray = [
+        { id: 1, nome: "Alan" },
+        { id: 2, nome: "Michel" },
+      ].map((user, index) => {
+        return `Developer ${user.nome}`;
+      });
+
+      console.log(mappedArray);
+
+      console.log("---------------------------------");
+
+      for (let i = 0; i < 5; i++) {
+        console.log(`Numero: ${num[i]} --- Dobro: ${dobro[i]}`);
+      }
+    </script>
+  </body>
+</html>

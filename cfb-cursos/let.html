@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variavel Let</title>
+    <script>
+        var num = 10 // variavel (var) se declara quando ela é global ou seja pode ser usada por qualquer parte do código, se mudava em outro local torna a receber o valor que foi declarado a partir dali 
+    
+        document.write(`${num} <br>`)
+        if (num == 10) {
+            let num = 5 // variavel (let) se declara quando ela é local só vale dentro do seu scopo(onde ela foi declarada). Se declarada como global tem acesso ao codigo inteiro como a (var) e se for mudada em alguma parte do código nao afeta seu valor global
+            document.write(`${num} <br>`)
+        }
+
+        document.write(`${num} <br>`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype em Funções construtoras</title>
+</head>
+<body>
+
+    <script>
+        function Student(name, email) {
+            this.name = name
+            this.email = email
+        }
+
+        Student.prototype.login = function login () {
+            return `${this.name} fez login`
+        }
+
+        Student.prototype.comment = function comment() {
+            return `${this.name} comentou`
+        }
+
+        function TeacherAssistant (name, email) {
+            Student.call(this,name,email) // O método call() invoca uma função com um dado valor this e argumentos passados individualmente, nesse caso esta invocando a função Student
+        }
+        TeacherAssistant.prototype = Object.create(Student.prototype) // Criando um prototype para TeacherAssistante usando o object.create para criar a partir de uma object ja existente, nesse caso esta criando o prototype de Student, assim o TeacherAssistant pode usar o protype de Stundent, mostrado no console log abaixo console.log(RonaldinhoGaucho.login())
+
+        TeacherAssistant.prototype.giveBadge = function({name}) {
+            return `${this.name} deu uma meldalha para ${name}`
+        }
+
+        const AlanScrappy = new Student("Alan Scrappy", "alanscrapy@gmail.com")
+        const RonaldinhoGaucho = new TeacherAssistant("Ronaldinho Gaucho", "ronaldinho@gmail.com")
+
+        console.log(AlanScrappy,RonaldinhoGaucho)
+
+        console.log(RonaldinhoGaucho.giveBadge(AlanScrappy)) // Chamando o prototype giveBadge criado no TeacharAssistant com o obj instanciado(RonaldinhoGaucho)
+
+        console.log(RonaldinhoGaucho.login())
+    </script>
+    
+</body>
+</html>

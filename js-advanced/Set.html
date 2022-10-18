@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coleção Set</title>
+</head>
+<body>
+    <script>
+        // O objeto Set permite que você armazene valores únicos de qualquer tipo, ou seja são coleções de valores nas quais é possível iterar os elementos em ordem de inserção como no Map, alias seus metodos também vão ser o mesmo no Map com a diferença que no Set só é passado um valor e no Map usamos uma key e um value
+
+        // Set é uma coleção de valores exclusivos.
+        //Cada valor só pode ocorrer uma vez em um Set.
+        //Um Set pode conter qualquer valor de qualquer tipo de dados.
+
+        /* Set Metodos
+
+        new Set() - Cria um novo Set()
+        add() - Adiciona um novo elemento ao Set()
+        delete() - Remove um elemento de um Set
+        has() - Retorna verdadeiro se existir um valor
+        clear() - Remove todos os elementos de um Set
+        forEach() - Invoca um retorno de chamada para cada elemento
+        values() - Retorna um Iterator com todos os valores em um Set
+        keys() - O mesmo que value()
+        entries() - Retorna um Iterator com os pares [value,value] de um Set */
+
+        let meuSet = new Set([1,2,3,3,2]) // Criando um Set com o (new Set) passando por parametro os valores, lembrando que os valores são unicos ou seja não posso repetir porque set nao inserir os valores duplicados
+
+        let meuMap = new Map("Chave", "Valor") // No Map usamos key e value, ja no Set usamos valores
+
+        meuMap.set("Chave2", "Valor2") // No map usamos set para adicionar elementos
+
+        meuSet.add(4) // Adicionando valores ao set com o add
+        meuSet.add(5)
+        meuSet.add(6)
+        meuSet.add(1)
+
+       console.log(meuSet.size) // Usando o size para saber o tamanho do Set(meuSet)! No map usamos size tbm
+       console.log("---------------------")
+
+
+        for( n of meuSet) {
+            console.log(n)
+        }
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator</title>
+</head>
+<body>
+
+
+    <script>
+        // Um objeto é um iterator quando sabe como acessar itens numa coleção, um por vez, enquanto mantém rastreada a posição atual em uma dada sequência. Em JavaScript um iterator é um objeto que oferece o método next(), o qual retorna o próximo item da sequência. Este método retorna um objeto com duas propriedades: done e value. Uma vez criado, um objeto iterator pode ser usado explicitamente ao chamar repetidas vezes o método next().
+        // Um objeto é iterável (iterable), se ele define seu comportamento de iteração, como no caso de quais valores percorridos em um laço do tipo for..of. Alguns tipos embutidos, como o Array, ou o Map, têm um comportamento iterável padrão, enquanto outros tipos (como o Object) não possuem.
+        // Para que um objeto seja iterable, o objeto precisa implementar o método @@iterator, significando que o objeto precisa ter uma propriedade com uma chave Symbol.iterator
+
+        let num =[10, 1, 9, 2, 8, 3, 7, 6, 4, 5] 
+        let it = num[Symbol.iterator]() // Definindo a let it para receber o iterator do array num (num[Symbol.iterator]()), usando a chava Symbol.iterator deixamos (num) interable
+
+        for(let i = 0; i < num.length; i++) { // Usando o for para percorrer o tamanho do array num, assim pegando todos os numeros
+            let v = it.next().value // Podemos armazenar dentro de uma variavel tambem, chamando o console.log vai retonar o 1˚ elemento
+            v%2 > 0 ? console.log("Impar") : console.log("Par") // Fazendo uma operação ternaria para retonar impar e par, lembrando que a primeira condiçao retorna se for tru e a segunda se for false, nessa caso os numeros que forem dividos por 2 e maior que 0 serão impar
+        }
+
+        // Uma vez inicializado, o método next() pode ser chamado para acessar os valores do objeto da vez em sequência como abaixo:
+        console.log(it.next().value) // Lembrando que it ficou como interator de num, assim obtendo todos os valores do array, podendo ser chamado em sequencia com o metodo next(), usando o value retornara o seu valor 
+        console.log(it.next()) 
+      
+
+
+    </script>   
+</body>
+</html>

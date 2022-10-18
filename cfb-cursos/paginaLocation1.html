@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f00;
+            color: #fff;
+        }
+
+        a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página 2 - p2.html</h1>
+
+    <a href="objetoLocation1.html">voltar</a>
+
+    <script>
+         
+        var aux = location.hash
+        var dados = aux.split("#")
+        var h = location.hostname
+        var hr = location.href
+        var o = location.origin
+        var p = location.pathname
+        var pt = location.port 
+        var pr = location.protocol
+        var se = location.search
+       
+        
+        document.write(`<hr>${dados}`)
+        document.write(`<br>${h}`)
+        document.write(`<br>${hr}`)
+        document.write(`<br>${o}`)
+        document.write(`<br>${p}`)
+        document.write(`<br>${pt}`)
+        document.write(`<br>${pr}`)
+        document.write(`<br>${se}`)
+        
+
+
+
+
+    
+    </script>
+    
+</body>
+</html>

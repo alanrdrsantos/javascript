@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object History</title>
+</head>
+<body>
+    <h1>Home - aula67.html</h1>
+    <p id="info"></p>
+
+    <a href="objetoHistory.html">Home</a>
+    <a href="history2.html">Pagina 2</a>
+    <a href="history3.html">Pagina 3</a><hr>
+    <button id="btnBack">Voltar</button>
+    <button id="btnForward">Avançar</button>
+    <button id="btnBack2">Voltar 2</button>
+    <script>
+        // Object History serve para manipular o historico da pagina
+
+        var painel, btnB, btnF, btnG
+
+        function historicoB(){
+            window.history.back() // history.back faz voltar a pagina 
+        }
+
+        function historicoF(){
+            window.history.forward() // history.forward faz avançar a pagina
+        }
+
+        function historicoG(){
+            window.history.go(-2) // history.go permite que eu avance ou retorne um numero determinado de elementos do historico, passando por parameto o numero de vezes que vai retornar (-2 negativo) ou avançar (2 positivo)
+        }
+
+        function inicia() {
+            btnG=document.getElementById("btnBack2")
+            btnB=document.getElementById("btnBack")
+            btnF=document.getElementById("btnForward")
+            btnB.addEventListener("click", historicoB)
+            btnF.addEventListener("click", historicoF)
+            btnG.addEventListener("click", historicoG)
+            painel=document.getElementById("info")
+            painel.innerHTML=`Tamanho do historico: ${history.length}` // history.lenght retorna o tamanho do historico
+            
+        }
+
+        window.addEventListener("load", inicia)
+
+    </script>
+</body>
+</html>

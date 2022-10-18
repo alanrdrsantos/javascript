@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Spread 3</title>
+</head>
+<body>
+    <div>Alan</div>
+    <div>CBF Cursos</div>
+    <div>Novo curso de JavaScript</div>
+
+    <script>
+        const objs1 = document.getElementsByTagName("div")
+        const objs2 = [...document.getElementsByTagName("div")]
+
+        
+           objs2.forEach(element => {
+              element.innerHTML="curso"  
+            });
+        
+
+        console.log(objs1)
+        console.log(objs2)
+    </script>   
+</body>
+</html>

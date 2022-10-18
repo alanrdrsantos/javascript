@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Spread</title>
+</head>
+<body>
+
+    <script>
+        // Operador Spread permite expandir uma expressão em um local que receba múltiplos argumentos ou elementos, ou seja transformam em elementos individuais. Além de permitir também copiar rapidamente todo ou parte de um array ou objeto existente em outro array ou objeto, dessa forma juntando os dois valores
+
+        // sintaxe (...exemplo)
+
+        const notas = [100, 60, 45, 78, 80, 32, 86]
+        console.log(...notas) // Usando dessa forma esta expandindo o array notas deixando o seu valor individual ou seja retorna os elementos individualemente
+        
+        const notes = [100,200,300]
+
+        function soma (n1,n2,n3) {
+            return n1+n2+n3
+        }
+
+        console.log(soma(...notes)) // Usando o spread para expandir o array notes assim transformando em elementos individuais, dessa forma podendo ser usado como parametro da função soma e executar a adição, ja que o array notes existem 3 números assim associando a função soma
+
+        const jogador = [nome="Bruno", pontos=1000, vidas=7]
+
+        console.log(...jogador) // Podemos expandir também um array de strings e numeros juntos, separando individualmente com o spread(...), assim mostrando seu valor individual
+        
+    </script>    
+</body>
+</html>

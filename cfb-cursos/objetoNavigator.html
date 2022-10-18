@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Navigator</title>
+    <style>
+        #painel {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="painel"></div>
+   
+   
+   <script>
+        //Navigator retorna informações do navegador(browser)
+
+        var painel
+
+        function localizar(pos) { // Função para saber as posições
+            var c = pos.coords
+            painel.innerHTML+=`Localização Latitude:${c.latitude} - Longitude:${c.longitude}<hr>`
+
+
+        }
+
+        function verifica() {
+            painel=document.getElementById("painel")
+            painel.innerHTML=`Nome do Browser: ${navigator.appName} <hr>` // navigator.appName retorna o nome do navegador(browser)
+            painel.innerHTML+=`Versão do Browser: ${navigator.appVersion} <hr>` // navigator.appVersion retorna a versão do navegador(browser)
+            painel.innerHTML+=`Cookies: ${navigator.cookieEnabled} <hr>` // navigator.cookieEnabled verifica se tem cookies habilitados ou não
+            navigator.geolocation.getCurrentPosition(localizar) // navigator.geolocation retorna se o object está habilitado, getCurrentPosition vai mostrar a localização geográfica de onde nós estamos, podemos passar 3 paramêtros, primeiro se está habilitado a localização, segundo vai chamar se não encontrar algum erro e o terceiro são opções de geolocalização como precisão.
+            painel.innerHTML+=`Idioma: ${navigator.language} <hr>` // navigator.language retorna a linguagem usada no navegador(browser)
+            painel.innerHTML+=`Online: ${navigator.onLine} <hr>`  // navigator.onLine retorna se o navegador(browser) está online ou não
+            painel.innerHTML+=`Sistema Operacional: ${navigator.platform} <hr>`  // navigator.platform retorna qual sitema operacional o navegador(browser) está rodando
+            painel.innerHTML+=`Engine: ${navigator.product} <hr>`  // navigator.product retorna a Engine do navegador(browser) 
+            painel.innerHTML+=`Agent: ${navigator.userAgent} <hr>`  // navigator.userAgent retorna qual agente foi enviado para o navegador(browser) pelo servidor
+        }
+
+        window.addEventListener("load", verifica)
+
+
+    </script>    
+</body>
+</html>

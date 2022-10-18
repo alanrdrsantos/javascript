@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Window parte 1</title>
+</head>
+<body>
+    <button onclick="AbreJ()">Abre Nova Janela</button>
+    <button onclick="fechaJ()">Fechar Janela</button>
+
+
+    <iframe name="cfb" src=""></iframe>
+
+    <script>
+        var minhaJanela
+
+        function AbreJ() { // Podemos colocar dentro de uma função tbm para associar com um botão, ou seja só vai abrir outra janela quando cliclar no botão atraves do evento onclick associado
+           /* var minhaJanela = window.open("tmp.html") // Dessa forma vai abrir uma nova janela(uma nova aba), para facilitar a manipulação associamos a uma variavel! Dentro do parametro podemos associar a pagina que vai abrir em outra janela
+            var minhaJanela = window.open("tmp.html","_self") // Usando _self a pagina vai abrir na mesma janela ou seja sem abrir outra
+            var minhaJanela = window.open("tmp.html","cfb") // Podemos abrir dentro de um iframe tambem, associando o nome do iframe no parametro ("cfb")*/
+            minhaJanela = window.open("tmp.html","_blank","width=300,height=300,top=300,left=300") // Dessa forma a janela vai abrir com a largura, altura e posição desejados
+
+        } 
+
+        function fechaJ() {
+            minhaJanela.close() // Evento close, vai fechar a janela! Lembrando que para fechar tenho que estar associado a uma variavel global
+        }
+
+    </script>   
+</body>
+</html>

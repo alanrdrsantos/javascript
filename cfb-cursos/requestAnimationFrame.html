@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame</title>
+    <style>
+        #jogador {
+            position:absolute;
+            top: 0px;
+            left: 0px;
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="jogador"></div>
+    <button id="start">Iniciar</button>
+    <button id="stop">Parar</button>
+
+    <script>
+        // requestAnimationFrame só preciso chamar a função, a administração do tempo o browser que define ou seja não determina um tempo ao contrário do setInterval
+
+        var vel 
+        var dx 
+        var dy 
+        var px 
+        var py 
+        var anima
+        var estado
+        var jog = document.getElementById("jogador")
+        var stp = document.getElementById("stop")
+        var str = document.getElementById("start")
+
+        function iniciar() {
+            vel = 2
+            dx = 1
+            dy = 0
+            px = 0
+            py = 0
+            estado = 1 // 1 = movendo - 0 = parada
+            game() // No final chama a função game
+           
+        }
+
+        function game () {
+            px+= dx*vel
+            //py+= dy*vel
+            jog.style.left = px + "px"
+            //jog.style.top = py + "px"
+            if ( px > 800) { // Definindo o deslocamento para direita(como foi definido no dx =1) até 800px, quando chegar no 800px se descola para esquerda definido no (dx= -1)
+                dx= -1
+            } else if (px < 0) { // Descolando para direira novamente quando chegar na posição definida (px < 0)
+                dx= 1
+            }
+            anima = requestAnimationFrame(game) // A função (game) faz a atualização da posição e chama ela novamente dentro do resquestAnimationFrame assim chamando ela mesmo varias vezes
+
+        }
+
+        function MoverParar () {
+            if (estado) { // estado(=1) é verdadeiro como foi definido la em cima, definindo ela como = 0 se torna falsa
+                estado = 0
+                cancelAnimationFrame(anima) // cancelAnimatioFrame cancela(para) o requestAnimationFrame definido na variavel anima
+                jog.style.backgroundColor= "#0f0"
+            } else {
+                estado = 1 // Aqui retorna o estado de verdadeiro e retoma a animação atraves do requestAnimationFrame
+                anima = requestAnimationFrame(game)
+                jog.style.backgroundColor= "#00f"
+
+            }     
+        }
+
+        function start () {
+            if(!estado) { // !estado(not estado) = se estado for false(zero) o estado recebe 1 como definido embaixo
+                estado=1
+                jog.style.backgroundColor= "#00f"
+                anima = requestAnimationFrame(game)
+            }
+        }
+
+        function stop() {
+            estado = 0
+            cancelAnimationFrame(anima)
+            jog.style.backgroundColor= "#0f0"
+        }
+
+
+        str.addEventListener("click", start)
+        stp.addEventListener("click", stop)
+        jog.addEventListener("click", MoverParar) // Adicionando o evento click a função Moverparar
+       
+        window.addEventListener("load", iniciar)
+            
+        
+
+    </script>   
+</body>
+</html>

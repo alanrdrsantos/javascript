@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAP</title>
+</head>
+<body>
+    <script>
+        // O objeto Map contém pares de chave-valor e lembra a ordem original da inserção das chaves. Qualquer valor (objetos e valores primitivos) podem ser usados como chave ou valor
+
+        // Criando um novo Map(new Map()) 
+        let produtos = new Map([ // Para adicionar valores key-value direto no parametro fazemos desta maneira
+            ["05", "Mouse"],
+            ["06", "Placa de Video"]
+        ]) 
+        
+        // O método map.set() é usado para adicionar pares chave-valor a um objeto Map. Também pode ser usado para atualizar o valor de uma chave existente. Cada valor deve ter uma chave exclusiva para que sejam mapeados corretamente.
+        produtos.set("01","Mouse") // Inserindo chaves e valores( key , value) com o set ao map prodrutos
+        produtos.set("02","Teclado")
+        produtos.set("03","Monitor")
+        produtos.set("04","Gabinete")
+
+        produtos.set("01", "Memoria") // Podemos trocar o valor usando o map.set informando a chave e o valor a ser trocado("01", "Memoria")
+
+        for(let p of produtos) // Podemos usar o for of para percorrer o map, assim retornando em forma de array sua chave-valor juntos
+        console.log(p)
+        //console.log(p[0]) // como retorna em forma de array sua chave-valor, para obter só as chaves passamos o indice[0] ao p que foram armazenados todas as key-value
+        //console.log(p[1]) // para obter só os valores passamos o indice[1]
+
+        
+
+        /* 
+        Podemos usar de forma encadeada tbm, definido o map só no primeiro set:
+        produtos.set("01","Mouse") 
+        .set("02","Teclado")
+        .set("03","Monitor")
+        .set("04","Gabinete") */
+
+        console.log(produtos.size) // Usamos size para retonar o tamanho do map ou seja, size retorna o número de elementos que estão dentro do objeto Map
+
+        //O método Map.get() pega a chave do elemento a ser retornado como argumento e retorna o elemento que está associado à chave especificada passada como argumento no parâmetro.
+        console.log(produtos.get("01")) //Obtendo o valor da chave ("02") com o metodo get, associada passada no parametro
+        console.log(produtos.get("02"))
+        console.log(produtos.get("03"))
+        console.log(produtos.get("04"))
+        console.log(produtos.get("05"))
+        console.log(produtos.get("06"))
+
+       
+        
+
+
+    </script>
+    
+</body>
+</html>

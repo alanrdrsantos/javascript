@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos para manipulação de String - Match</title>
+</head>
+<body>
+
+    <p id="txt">CFB Cursos - Curso de JavaScript - aula 46 do curso de javaScript </p>
+
+    <script>
+        // Metodo Match faz uma busca dentro da String por um texto (palavra, caractere, frase) específico, podendo retornar a quantidades de elementos que encontrou ou o elemento, podendo ser armazenado em um array tbm
+
+        var texto = document.getElementById("txt").innerHTML
+
+        var res = texto.match("aula") // Nesse caso indico a variavel que quero trabalhar (texto) que contem a String atraves do metodo match(texto.match) passando por parametro o que quero pesquisar
+
+        // document.write(res) desse modo retorna a palavra "Aula" definido no text.match("Aula")
+
+        document.write(res.length + "<br>") // Usando a unidade de medida lenght retorna a quantidade, definido no match("  ")
+
+        var res1 = texto.match(/a/ig) // Dessa forma que usa os modificadores, podendo retornar palavras, letras, caracteres! 
+        // modificador(i) busca sem case-sensitive,ou seja, não diferencia letras maiúsculas e minúsculas
+        // modificador(g) diz ao método para encontrar todas as ocorrências da palavra e não parar na primeira encontrada, cada ocorrência é amarzenada em uma posição do  array
+        // modificador(m) pesquisa normal sem amarzenar em forma de array
+
+       // var res1 = texto.match(/[ac]/ig) Se colocada em array text.match(/[ac]/ig) pesquisa a quantidade de letras informada, nesse caso duas[ac], podendo ser separada assim tbm (/[a|c]/ig)
+       
+        // var res1 = texto.match(/[^ac]/ig) Dessa forma [^ac] pesquisa todas as letras e caracteres da string informada, menos as letras a e c como foi determinado [^ac]
+
+        // var res1 = texto.match(/[a-c]/ig) Dessa forma [a-c] pesquisas todas as letras e caracteres entre a e c, como foi definido no texto.match(/[a-c]/ig), se usada assim [^a-c] pesquisa todos os caracteres e letras menos os que estão entre a e c[^a-b] 
+
+       // \w (/\w/) pesquisa somente por letras e numerais, ignorando espaços, traços, etc
+       // \W(/\W/) pesquisa por caracteres diferentes de números e letras
+       // \d (/\d/) pesquisa por numerais
+       // \D(/\D/) pesquisa por todos os caracteres que não são numerais
+       // \b (/\b/) pesquisa por ocorrência que iniciem ou terminem om uma letra ou número, cada ocorrência que iniciar e terminar com um número ou letra conta como 2
+       // \B (/\B/) pesquisa por ocorrência que NÃO iniciem ou terminem com uma letra ou número
+       // \O (/\O/) procura por caracteres nulos
+       // \n (/\n/) procura por quebra de linha
+       // \r (/\r/) procura por "retorno de carro" ENTER
+       // \t (/\t/) procura por caracteres de tabulação TAB
+       // \V(/\V/) procura por caracteres de tabulação vertical
+       // s+ (/s+/) procura por palavras que contenham uma ou mais letras "s"
+
+
+
+
+
+        document.write(res1 + " : " + res1.length + "<br>")
+
+        document.write(res1[1]) // Aqui podemos confirmar que a string pesquisada no metodo match ficou dentro de um array atraves do modificar(g)
+
+
+    </script>   
+</body>
+</html>

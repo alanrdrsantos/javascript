@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage - LocalStorage parte 3</title>
+    <style>
+        #fconf {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border: 1px solid #000;
+            background-color: rgb(174, 173, 173);
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>LocalStorage - Curso de JavaScript</h2>
+    <p id="painel"></p>
+
+    <button onclick="mostraConf()">configurações</button>
+
+    <form name="fconf" id="fconf">
+        <label>Nome:</label><br>
+        <input type="text" name="fnome" id="fnome" size="30"><br><br>
+        <label>Cor fundo:</label><br>
+        <input type="radio" name="fcorF" onclick="defineCor(1, '#000')">Preto<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1, '#fff')">Branco<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1, '#f00')">Vermelho<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1, '#0f0')">Verde<br>
+        <input type="radio" name="fcorF" onclick="defineCor(1, '#00f')">Azul<br><br>
+        <label>Cor texto:</label><br>
+        <input type="radio" name="fcorT" onclick="defineCor(0, '#000')">Petro<br>
+        <input type="radio" name="fcorT" onclick="defineCor(0, '#fff')">Branco<br><br>
+        <input type="button" value="Gravar" onclick="gravar()">
+    </form>
+   
+   
+    <script>
+        var vcorf, vcort, vnome
+        var form = document.getElementById("fconf")
+
+        //Armazenando escolhas e o nome do usuário
+
+        if(localStorage.nome) { // Verificando de existe algum valor na key nome, se sim excuta as configurações abaixo
+            vcorf = localStorage.corf // Armazenando a cor de fundo na variavel vcorf
+            vcort = localStorage.cort // Armazenando a cor do texto na variavel vcort
+            vnome = localStorage.nome // Armazenando o nome na variavel vnome
+            defineCor(1, vcorf) // 1 e a cor do fundo definido na função defineCor()
+            defineCor(0, vcort)// Qualquer número diferente de 1 é a cor do texto definido na função defineCor()
+            document.getElementById("painel").innerHTML=`Bem vindo ${vnome}<hr>` // Mostrando na tela com o innerHTML o nome guardado na variavel vnome
+
+        }
+
+       
+        function gravar(){ // função que vai gravar os itens selecionados 
+            vnome = document.querySelector("#fnome").value
+            localStorage.corf=vcorf // Criando no localStorage a key (corf) com o valor (vcorf) variavel que vai receber a cor do fundo
+            localStorage.cort=vcort // Criando no localStorage a key (cort) com o valor (vcort) variavel que vai receber a cor do texto
+            localStorage.nome=vnome // Criando no localStorage a key (nome) com o valor (vnome) variavel que vai receber o nome
+            form.style.display="none" // Definido com o display none para sumir o formulário
+        }
+
+        function defineCor(op,cor) { // Função que altera cor de fundo e do texto, passando por parametro uma operação(op é pra indicar se vai mudar a cor do texto ou do fundo) e uma cor(cor)
+            if(op==1){ // Se op é igual a 1
+                document.body.style.backgroundColor=cor  // vai mudar a cor do fundo 
+                vcorf = cor   // Armazenando a cor de fundo na variavel vcorf 
+            }else { // Senão, aqui qualquer número diferente de 1 vai executar abaixo
+                document.body.style.color=cor // muda a cor do texto
+                vcort = cor // Armazenando a cor do texto na variavel vcort
+            }
+
+        }
+
+        function mostraConf() { // Funçao para mostrar o formulario
+            form.style.display="block" // Quando apertar o botão Configurações vai aparecer o formulário, pois está definido como block aqui
+            
+        }
+    </script>  
+</body>
+</html>

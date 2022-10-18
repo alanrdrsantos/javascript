@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promisse 2</title>
+</head>
+<body>
+
+    <script>
+        const myPromise = new Promise((resolve,rejected)=> {
+            const name = "Alan"
+            if(name == "Alan") {
+                resolve("Usuário Alan encontrado")
+            } else {
+                rejected("Usuário não encontrado")
+            }
+        })
+
+        myPromise.then(sucess => console.log(sucess))
+        myPromise.catch(error => console.error(error))
+    
+        
+        const myPromise2 = new Promise((resolve,rejected)=> {
+            const name = "Alan"
+            if(name == "Alan") {
+                resolve("Usuário Alan encontrado")
+            } else {
+                rejected("Usuário não encontrado")
+            }
+        })
+
+        // Encadeamento de Thens
+        myPromise2.then((data) =>{
+            return data.toLowerCase() // Transformando a resposta do resolve em letra minuscula toLowerCase(), lembrando que o then retorna se não houver erros! 
+        }).then((stringModificada) => console.log(stringModificada)) // Mostrando a resposta do resolve modificada
+        // PODEMOS ENCADEAR QUANTOS THEN QUISERMOS
+
+        const myPromise3 = new Promise((resolve,rejected)=> {
+            const name = "Al"
+            if(name == "Alan") {
+                resolve("Usuário Alan encontrado")
+            } else {
+                rejected("Usuário não encontrado")
+            }
+        })
+
+        myPromise3.then((data) => console.log(data)).catch((error) => console.error(`ERROR: ${error}`)) // Usando o catch pra tratar do erro
+
+        
+        //Resolver várias promessas com all
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("P1 Ok Timeout")
+            },2000)
+        })
+
+        const p2 = new Promise((resolve, reject) => resolve("P2 Ok!"))
+
+        const p3 = new Promise((resolve, reject) => resolve("P3 Ok!"))
+
+        const resolveAll = Promise.all([p1, p2, p3]) // Armazenando as 3 promisses feitas (p1,p2,p3) na promisse resolveAll com o metodo Promisse.all em forma de array
+
+        resolveAll.then((data)=> console.log(data)) // Mostrando o resultado do resolve nas promisses armazenadas em resolveAll com o then, o valor retorna em forma de array tbm
+
+       //Resolver várias promessas com race
+        const p4 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("P4 Ok Timeout")
+            },2000)
+        })
+
+        const p5 = new Promise((resolve, reject) => resolve("P5 Ok!"))
+
+        const p6 = new Promise((resolve, reject) => resolve("P6 Ok!"))
+
+        const resolveAllRace = Promise.race([p4,p5,p6]).then((data)=> console.log(data)) // race tbm recebe um array de promisses, mas só retorna a 1ª que for resolvida ao contrario do all que retorna todas
+
+        // Fetch request na API do GitHub
+        // Fetch API
+
+        const username = "alanrdrsantos"
+
+        fetch(`https://api.github.com/users/${username}`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/vnd.github.v3+json',
+            },
+        }).then((response) => {
+            console.log(typeof response)
+            console.log(response)
+            return response.json() // Para facilicar para ver a resposta ultilizamos json no fecth
+        }).then((data) => console.log(data)).catch((err)=> console.log(`Houve algum erro: ${err}`))
+
+    </script>    
+</body>
+</html>

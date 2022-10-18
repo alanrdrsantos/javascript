@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data e hora com JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        var dt = new Date() // Criando um novo(new) objeto do tipo Date()
+        var dia = dt.getDate() // Retorna o dia do mês
+        var diasem = dt.getDay() // Retorna o dia da semana, começando no indice 0=domingo
+        var mes = dt.getMonth() // Retorna o mês, começando no indice 0=Janeiro
+        var ano = dt.getFullYear() // Retorna o ano
+        var horas = dt.getHours() // Retorna a hora
+        var minutos = dt.getMinutes() // Retona os minutos
+        var segundos = dt.getSeconds() // Retorna os segundos
+
+        var meses = ["janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        var semanas = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira","Sexta-Feira", "Sábado"]
+
+        document.write(semanas[diasem] + " , " + dia + " de " + meses[mes] + " de " + ano + "<br>")
+        // Atraves dos arrays podemos selecionar os nomes dos meses e o dias da semana, desta forma demostrada! (diasem) e (mes) ficam como seus indices, retornando o numero da localização informada nos arrays (semanas) e (meses)
+
+        document.write(horas + ":" + minutos + ":" + segundos + "<br>") // Mostrando as horas minutos e segundos, atraves das variaveis declaras acima
+
+        
+
+
+         document.write(Date()) // Usando o Date() assim me mostra a data completa
+    </script>   
+</body>
+</html> 

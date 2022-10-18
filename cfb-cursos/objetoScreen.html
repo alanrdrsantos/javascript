@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Screen</title>
+    <style>
+        #painel {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="painel"></div>
+
+    <script>
+        // objeto Screen vai me dar informações sobre a tela
+        var painel
+
+        function inicia() {
+             painel=document.getElementById("painel")
+             painel.innerHTML+=`Larguta da Tela: ${screen.width}px <hr>` // screen.width vai retornar a largura da tela
+             painel.innerHTML+=`Altura da Tela: ${screen.height}px <hr>` // screen.height vai retornar a altura da tela
+             painel.innerHTML+=`Resolução: ${screen.width}px / ${screen.height}px <hr>` 
+             painel.innerHTML+=`Larguta disponível da Tela: ${screen.availWidth}px <hr>` // screen.availWidth vai retornar a largura disponível da tela, retirando barras de ferramentas, barras de tarefas etc
+             painel.innerHTML+=`Altura disponível da Tela: ${screen.availHeight}px <hr>` // screen.availHeight vai retornar a altura disponível da tela, retirando barras de ferramentas, barras de tarefas etc
+             painel.innerHTML+=`Profundidade de cores(imagens): ${screen.colorDepth}bits<hr>` // screen.colorDepth vai retornar a profundidade em bits da paleta de cor para ixibir imagens
+             painel.innerHTML+=`Resolução cor da tela(pixel): ${screen.pixelDepth}bits/pixel<hr>` // screen.pixelDepth vai retornar a informação de resolução da cor em bits por pixel da tela
+             painel.style.cursor="pointer"
+
+            
+        }
+
+        window.addEventListener("load", inicia)
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando atributos do html</title>
+    <style>
+        #carro {
+            width: 500px;
+            height: 600px;
+        }
+
+        .c1 {
+            background-image: url("img/c1.jpeg");
+            background-size: cover;
+        }
+
+        .c2 {
+            background-image: url("img/c2.jpeg");
+            background-size: cover;
+        }
+
+        .c3 {
+            background-image: url("img/c3.png");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="trocaCarro(1)">Carro 1</button>
+    <button onclick="trocaCarro(2)">Carro 2</button>
+    <button onclick="trocaCarro(3)">Carro 3</button>
+    <button onclick="removerCarro()">Remover Carro</button>
+    <button onclick="verificar()">Verificar</button>
+    <div id="carro"></div>   
+    <script>
+        // setAtributte permite adicionar determinado atributo em uma tag html
+        // removeAtributte remove determinado atributo de uma tag html
+        // hasAtributte verifica se determinado atributo já esta ou não na tag html
+
+        function trocaCarro(c) {
+            var obj = document.getElementById("carro")
+            if (c==1) {
+                obj.setAttribute("class", "c1") // setAtribute recebe 2 parametros, 1˚o atributo que quero adicionar e 2˚ o valor do atributo (class="c1")
+            } else if (c==2) {
+                obj.setAttribute("class", "c2")
+            } else if (c==3) {
+                obj.setAttribute("class", "c3")
+            }
+            
+        }
+
+        function removerCarro() {
+            var obj = document.getElementById("carro")
+            obj.removeAttribute("class", "c1")  // removeAtributte recebe 1 parameto, sendo ele o atributo quero remover       
+        }
+
+        function verificar() {
+            var obj = document.getElementById("carro")
+            if(obj.hasAttribute("class")) { // hasAtributte recebe 1 parameto, sendo ele o atributo que quero verificar, se existir retorna true senão retorna false
+                alert("Atributo class está na tag")
+            } else {
+                alert("Esse atributo não está na tag")
+            }
+        }
+
+    </script>    
+</body>
+</html>
