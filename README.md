@@ -1,6 +1,6 @@
 # Atividades com JavaScript
 
-
+JavaScript do básico ao avançado, criando sites,projetos e até jogos!
 
 ![screencapture-file-Users-alansantos-Projects-javascript-cfb-cursos-jogoNave-html-2022-10-18-11_43_28](https://user-images.githubusercontent.com/100851091/196463082-25a6557a-6822-4277-b4d4-01274192abda.png)
 
