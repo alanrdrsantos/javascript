@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 3 - Atividades - Descobrindo o Quadrante das coodernadas X e Y</h1>
+
+    <script>
+        
+        
+        do {
+            
+            var x = +prompt("Digite a coordenada X : ")
+        
+            var y = +prompt("Digite a coodernada Y : ")
+
+
+            if(x > 0 && y > 0){
+                document.write("A coordenada X: " +x+ " , Y: " +y+ " pertence ao Quadrante I <br>") 
+            }else if(x < 0 && y > 0){
+                document.write("A coordenada X: " +x+ " , Y: " +y+ " pertence ao Quadrante II <br>") 
+            }else if(x < 0 && y < 0) {
+                document.write("A coordenada X: " +x+ " , Y: " +y+ " pertence ao Quadrante III <br>") 
+            }else if (x > 0 && y < 0) {
+                document.write("A coordenada X: " +x+ " , Y: " +y+ " pertence ao Quadrante VI<br>") 
+            } else {
+                document.write("Coordenadas nulas! - Algoritmo Interrompido")
+            } 
+
+        }while(x !== 0 && y !== 0)
+        
+        
+    </script>
+    
+</body>
+</html>

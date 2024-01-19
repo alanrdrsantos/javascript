@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 2 - Atividades - Situação do aluno</h1>
+
+    <script>
+        var nome = prompt("Seja bem vindo! Digite seu nome por favor: ")
+
+        var nota1 = +prompt("Digite sua primeira nota: ")
+
+        var nota2 = +prompt("Digite sua segunda nota: ")
+
+        var nota3 = +prompt("Digite sua terceira nota: ")
+
+        var media = (nota1 + nota2 + nota3) / 3
+
+        if(media >= 7) {
+            document.write("Parabéns " +nome+ ", sua média foi " +media.toFixed(2)+ " portanto voce foi APROVADO!")
+        } else {
+            if(media < 7 && media >=5) {
+                document.write(nome + ", sua média foi " +media.toFixed(2)+  " portanto voce ficou de RECUPERAÇÃO")
+            } else {
+                document.write(nome +  ", sua média foi " + media.toFixed(2) + " portanto você foi REPROVADO e repitirá o semestre")
+            }
+        }
+
+        
+        
+        
+        
+        /*var situcao 
+
+        switch (media) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+               situcao = "REPROVADO"  
+               break;
+            case 5:
+            case 6:
+               situcao = "RECUPERAÇÃO" 
+               break; 
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+               situcao = "APROVADO"
+               break;   
+            default:
+                break;
+        }
+
+        document.write("Olá, " +nome+ " sua situação é : " + situcao+"<br>")*/
+
+    </script>
+    
+</body>
+</html>

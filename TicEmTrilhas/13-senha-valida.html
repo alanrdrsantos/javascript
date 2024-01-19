@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 3 - Atividades - Senha Válida</h1>
+
+    <script>
+     
+        
+        do {    
+            var senha = +prompt("Digite sua senha: ")
+           
+            if(senha == 2023) {
+                document.write("ACESSO PERMITIDO <br>")
+                document.write("Sua senha " +senha+ " foi válida!")
+            } else {
+                document.write("Sua senha " +senha+ " é inválida!<br>")
+                document.write("TENTE NOVAMENTE<br>")
+            }
+
+        }while(senha !== 2023)
+
+    </script>
+    
+</body>
+</html>

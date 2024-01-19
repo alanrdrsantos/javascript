@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 1 - Atividades - Desafio triângulo!</h1>
+
+    <script>
+        alert("Desafio Triângulo!")
+
+        var a = +prompt("Digite o lado a do triângulo: ")
+
+        var b = +prompt("Digite o lado b do triângulo: ")
+
+        var c = +prompt("Digite o lado c do triângulo: ")
+
+        document.write("Verificando se os lados a = " +a+ " , b = " +b+ " , c = " +c+ " formam um triângulo: " + ((a + b) > c && (a + c) > b && (b + c) > a) + "<br>")
+
+        document.write("O triângulo é Equilátero (todos os lados iguais) ? : " +((a==b) && (a==c) && (b==c))+ "<br>")
+
+        document.write("O triângulo é Escaleno (todos os lados diferentes) ? : "
+        +((a!=b) && (a!=c) && (b!=c))+ "<br>")
+
+        document.write("O triângulo é Isósceles (dois lados são iguais) ? : " + ((a==b) || (a==c) || (b==c))+ "<br>")
+
+    </script>
+    
+</body>
+</html>

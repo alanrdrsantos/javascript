@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 2 - Atividades - Programa Solidário</h1>
+
+    <script>
+        var doacao = +prompt("Por favor digite o número correspondente do que deseja!  [1] para doar R$10,00  [2] para doar R$25,00 [3] para doar R$25,00 [4] para doar outros valores  [5] para cancelar")
+
+        var valor
+
+        switch (doacao) {
+            case 1:
+                valor = 10    
+                break;
+            case 2:
+                valor = 25   
+                break; 
+            case 3:
+                valor = 50   
+                break;   
+            case 4:
+                var outroValor = +prompt("Digite a quantia que quer doar por favor")
+                document.write("Você doou R$ " +outroValor.toFixed(2)+ "! Obrigado por nos ajudar")    
+                break;  
+            case 5:
+                document.write("Obrigado por nos visitar! Fique a vontade para fazer um doação a qualquer momento")         
+            break;
+            default:
+                break;
+        }
+
+        document.write("Você doou R$ " +valor.toFixed(2)+ "! Obrigado por nos ajudar") 
+
+        
+
+    </script>
+    
+</body>
+</html>

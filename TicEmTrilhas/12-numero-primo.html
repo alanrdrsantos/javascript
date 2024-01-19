@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 3 - Atividades - Número Primos</h1>
+
+    <script>
+        var numero = +prompt("Digite um número para saber se ele é primo: ")
+
+        var divisores = 0
+        
+        for(var i = 1; i <= numero; i++) {
+            if(numero % i == 0) {
+                divisores++
+            }
+        }
+            if(divisores == 2){
+                document.write("O número " +numero+ " é PRIMO")
+            }else {
+                document.write("O número " +numero+ " NÃO é primo")
+            }
+     
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 2 - Atividades - Par ou Ímpar</h1>
+
+    <script>
+        var number = Math.round(prompt("Digite o lado a do triângulo: "))
+
+        console.log(number)
+
+        /*if(number == 0) {
+          document.write("Digite um número acima de 0<br>")
+        } */
+
+        if(Math.sign(number) == 1) {
+            if(number % 2 == 0) {
+               document.write("O número " +number+  " é positivo e é par <br>")
+            } else {
+               document.write("O número " +number+  " é positivo e é impar <br>")
+            }
+        }else {
+            if(Math.sign(number) == 0) {
+                document.write("Por favor, digite um número maior que 0")
+            } else {
+                document.write("O número " +number+ " não é positivo <br>")      
+            }
+        }
+       
+    </script>
+    
+</body>
+</html>

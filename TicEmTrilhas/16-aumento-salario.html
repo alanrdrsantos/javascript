@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 3 - Atividades - Aumento de sálario</h1>
+
+    <script>
+        
+        var salario 
+        var porcentual = 0.015
+        var aumento = 0
+        var novoSalario 
+        var anoAtual = 2023
+
+        
+       
+        for(var ano = 2019; ano <= anoAtual; ano++) {
+
+            salario = 2000 + aumento
+            aumento = salario * porcentual
+            novoSalario = salario + aumento
+            porcentual = porcentual * 2
+            
+            
+            document.write("Seu salario de R$ " +salario+ " teve aumento de " +porcentual+ " % seu salário final séra de " +novoSalario.toFixed(2)+ " no ano de " +ano+ "<br>")
+     
+        }
+        
+    </script>
+    
+</body>
+</html>

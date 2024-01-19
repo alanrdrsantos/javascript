@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 2 - Atividades - IMC</h1>
+
+    <script>
+        var peso = +prompt("Digite o seu peso: ")
+
+        var altura = +prompt("Digite a sua altura: ")
+
+        var imc = peso / (altura * altura)
+
+        console.log(imc)
+
+        if(imc < 16) {
+            document.write("IMC = "+ imc.toFixed(2) + " -  Magreza grave")
+        }else if(imc == 16 || imc < 17) {
+            document.write("IMC = "+ imc.toFixed(2) + " -  Magreza moderada")     
+        }else if(imc == 17 || imc < 18.5){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Magreza leve")
+        }else if(imc == 18.5 || imc < 25){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Saudável")
+        }else if(imc == 25 || imc < 30){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Sobrepeso")
+        }else if(imc == 30 || imc < 35){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Obesidade Grau I")
+        }else if(imc == 35 || imc < 40){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Obesidade Grau II (severa)")   
+        }else if(imc >= 40){
+            document.write("IMC = "+ imc.toFixed(2) + " -  Obesidade Grau III (morbida)")
+        }
+    </script>
+    
+</body>
+</html>

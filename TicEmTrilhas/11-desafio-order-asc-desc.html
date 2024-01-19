@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 2 - Atividades - Desafio Ordem Crescente e Decrescente!
+        
+    </h1>
+
+    <script>
+        var i = Math.round(prompt("Digite o valor de I"))
+
+        var n1 = +prompt("Digite um valor para n1: ")
+
+        var n2 = +prompt("Digite um valor para n2: ")
+
+        var n3 = +prompt("Digite um valor para n3: ")
+
+        
+        var maior, meio, menor
+
+        if(n1 > n2 && n1 > n3) {
+            maior = n1
+            if(n2 < n3){
+                menor = n2
+                meio = n3
+            }else{
+                menor = n3
+                meio = n2
+            }
+        }else if(n1 < n2 && n1 < n3){
+            menor = n1
+            if(n2 > n3) {
+                maior = n2
+                meio = n3
+            }else {
+                maior = n3
+                meio = n2
+            }
+        }else{
+            meio = n1
+            if(n2 > n3) {
+                maior = n2
+                menor = n3
+            }else {
+                maior = n3
+                menor = n2
+            }
+        }
+        
+         
+        switch (i) {
+            case 1:
+                document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " à ordem crescente é: "+menor+ " , "+meio+" , "+maior)
+            case 2:
+            document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " à ordem decrescente é: "+meio+ " , "+meio+" , "+menor)   
+                break; 
+            case 3:
+            document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " o maior número que fica no meio é: "+menor+ " , "+maior+" , "+meio)   
+                break;          
+            break;
+            default:
+                document.write("Você nao digitou o número correspondente de I à 1, 2 ou 3!")
+                break;
+        }
+    </script>
+    
+</body>
+</html>

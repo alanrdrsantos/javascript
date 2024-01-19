@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 3 - Atividades - Tipo de produto e quantidade</h1>
+
+    <script>
+
+      
+       /* do {  
+            
+            var codigo = +prompt("Digite o código do produto por favor : ")
+    
+            var produto
+
+          switch (codigo) {
+              case 1: 
+              produto = "ProdutoA"
+                  break;
+              case 2: 
+              produto = "ProdutoB" 
+                  break;
+              case 3: 
+              produto = "ProdutoC"  
+                  break; 
+              case 4:
+              document.write("Fim! Muito Obrigado<br>") 
+                  break;       
+              default:
+              codigo = +prompt("Pavor digite um novo código de 1 a 4")      
+                  break;
+          }
+
+          document.write(produto)
+
+      }while (codigo !== 4) */ 
+
+     
+     
+      var soma = 0
+
+      var produto
+
+      var codigo
+      
+     
+
+      for(var i = 1; codigo !== 4; i++) {
+
+        
+    
+      codigo = +prompt("Digite o código do produto por favor : ")
+
+       
+      soma += codigo[i]
+
+     
+
+     
+
+            switch (codigo) {
+                case 1: 
+                produto = "ProdutoA"
+                
+                        break;
+                case 2: 
+                produto = "ProdutoB" 
+                       break;
+                case 3: 
+                produto = "ProdutoC"
+                document.write(`A soma do produto ${produto} é : ${soma}`)  
+                       break; 
+                case 4:
+                document.write("Fim! Muito Obrigado<br>") 
+                       break;       
+                default:
+                       codigo = +prompt("Pavor digite um novo código de 1 a 4")      
+                       break;
+            }
+       } 
+
+       
+       
+
+       
+       /*do{
+           var produto
+           
+             var codigo = +prompt("Digite o código do produto por favor : ")
+
+             var soma = 0
+
+
+        if(codigo==1) {
+            produto = "ProdutoA"
+            soma = produto + 1
+            document.write(`O ${produto} tem ${soma} quantidades`)
+
+        }else if(codigo==2) {
+            produto = "ProdutoB"
+        }else if(codigo==3){
+            produto = "ProdutoC"
+        }else if(codigo==4){
+            document.write("Fim<br>")
+            document.write(`O ${produto} tem ${soma} quantidades` )
+        }else {
+            codigo = +prompt("Digite o código do produto por favor : ")
+        }
+   
+
+        }while(codigo !== 4)*/
+
+        
+
+    
+        
+    </script>
+    
+</body>
+</html>
