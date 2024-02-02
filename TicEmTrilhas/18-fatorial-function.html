@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 4 - Atividades - Descobrindo o Fatorial de um número com Function</h1>
+
+    <script>
+        
+      let number = +prompt("Digite o valor do número por favor:")
+
+       function fatorial(n) {
+
+        if(n == 0 || n == 1) {
+            return 1
+        }else if (n > 1) {
+            return (n * fatorial(n - 1))
+        }     
+       }
+
+       document.write("O fatorial de " +number+ " é " +fatorial(number))
+
+        
+    </script>
+    
+</body>
+</html>

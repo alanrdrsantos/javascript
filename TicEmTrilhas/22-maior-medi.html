@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 5 - Atividades - Média maior</h1>
+
+    <script>
+
+        let alunos = []
+        let nota1 = []
+        let nota2 = []
+        let media = []
+        
+        for(i = 0; i < 5; i++) {
+            alunos[i] = prompt("Digite o nome do " + (i + 1)+ "º aluno")
+            nota1[i] = +prompt(alunos[i] + " digite sua primeira nota ")
+            nota2[i] = +prompt(alunos[i] + " digite sua segunda nota ")
+            media[i] = (nota1[i] + nota2[i]) / 2
+            
+            document.write(alunos[i]+ " suas notas foram "+nota1[i]+" e "+nota2[i]+ " portando sua média foi " +media[i]+ "<br>")
+
+        if(media[i] >= 7) { 
+            document.write("Parabéns " +alunos[i]+ " você obteve a média necessária para passar!<br><br>")
+        }else if(media[i]>= 5 && media[i] < 7) {
+            document.write("Sua média não foi o suficiente " +alunos[i]+", você ficou de recuperação!<br><br>")
+        }else{
+            document.write("Infelizmente sua média foi inferior das nossas expectativas " +alunos[i]+ ", você repetiu!<br><br>")
+        }
+
+        }
+
+        
+       
+       
+        let maior = Math.max(...media)
+
+        document.write("A maior média encontrada foi "+maior)
+
+
+               
+    </script>
+    
+</body>
+</html>

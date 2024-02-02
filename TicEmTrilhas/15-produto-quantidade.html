@@ -12,114 +12,30 @@
 
     <script>
 
-      
-       /* do {  
-            
-            var codigo = +prompt("Digite o código do produto por favor : ")
-    
-            var produto
+       var prod1 = 0
+       var prod2 = 0 
+       var prod3 = 0  
 
-          switch (codigo) {
-              case 1: 
-              produto = "ProdutoA"
-                  break;
-              case 2: 
-              produto = "ProdutoB" 
-                  break;
-              case 3: 
-              produto = "ProdutoC"  
-                  break; 
-              case 4:
-              document.write("Fim! Muito Obrigado<br>") 
-                  break;       
-              default:
-              codigo = +prompt("Pavor digite um novo código de 1 a 4")      
-                  break;
-          }
-
-          document.write(produto)
-
-      }while (codigo !== 4) */ 
-
-     
-     
-      var soma = 0
-
-      var produto
-
-      var codigo
-      
-     
-
-      for(var i = 1; codigo !== 4; i++) {
-
-        
-    
-      codigo = +prompt("Digite o código do produto por favor : ")
-
-       
-      soma += codigo[i]
-
-     
-
-     
-
-            switch (codigo) {
-                case 1: 
-                produto = "ProdutoA"
-                
-                        break;
-                case 2: 
-                produto = "ProdutoB" 
-                       break;
-                case 3: 
-                produto = "ProdutoC"
-                document.write(`A soma do produto ${produto} é : ${soma}`)  
-                       break; 
-                case 4:
-                document.write("Fim! Muito Obrigado<br>") 
-                       break;       
-                default:
-                       codigo = +prompt("Pavor digite um novo código de 1 a 4")      
-                       break;
-            }
-       } 
-
-       
-       
-
-       
-       /*do{
-           var produto
+        do{
            
              var codigo = +prompt("Digite o código do produto por favor : ")
 
-             var soma = 0
-
-
-        if(codigo==1) {
-            produto = "ProdutoA"
-            soma = produto + 1
-            document.write(`O ${produto} tem ${soma} quantidades`)
-
-        }else if(codigo==2) {
-            produto = "ProdutoB"
-        }else if(codigo==3){
-            produto = "ProdutoC"
-        }else if(codigo==4){
-            document.write("Fim<br>")
-            document.write(`O ${produto} tem ${soma} quantidades` )
-        }else {
-            codigo = +prompt("Digite o código do produto por favor : ")
-        }
-   
-
-        }while(codigo !== 4)*/
-
-        
-
     
-        
+        if(codigo==1) {
+            prod1 = prod1 + 1
+        }else if(codigo==2) {
+             prod2 = prod2 + 1
+        }else if(codigo==3){
+             prod3 = prod3 + 1
+        }else if(codigo==4){
+            document.write(prod1 + " clientes compraram o produto A <br>")
+            document.write(prod2 + " clientes compraram o produto B <br>")
+            document.write(prod3 + " clientes compraram o produto C <br>")
+            document.write("Fim<br>")
+        }
+    
+        }while(codigo !== 4)
+   
     </script>
     
 </body>

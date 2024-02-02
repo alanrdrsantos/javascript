@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 4 - Atividades - Tabuada com Function</h1>
+
+    <script>
+        
+      let number = +prompt("Digite o número da tabuada que deseja por favor:")
+
+       function tabuada(n) {
+
+        if(n >= 1 && n <= 10) {
+            for(let i = 1; i <= 10; i++) {
+                document.write(n+ " x " +i+ " = " +(n * i)+ "<br>")      
+            }
+        }else {
+            document.write("Digite um número de 1 até 10 por favor")
+        }
+
+        }   
+
+        tabuada(number)
+        
+            
+    </script>
+    
+</body>
+</html>

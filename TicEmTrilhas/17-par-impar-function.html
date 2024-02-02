@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>
+</head>
+<body>
+    <h1>Aula 4 - Atividades - Descobrindo se um número é par ou impar com Function</h1>
+
+    <script>
+        
+       let number = +prompt("Digite o valor do número por favor:")
+
+       function parOrImpar(number) {
+        if(number % 2 == 0) {
+            return "PAR"
+        }else {
+            return "IMPAR"
+        }
+       }
+
+       document.write("O número " +number+ " é " +parOrImpar(number))
+        
+    </script>
+    
+</body>
+</html>

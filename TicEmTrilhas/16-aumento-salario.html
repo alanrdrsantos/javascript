@@ -11,8 +11,8 @@
 
     <script>
         
-        var salario 
-        var porcentual = 0.015
+        var salario = 2000
+        var porcentual = 0
         var aumento = 0
         var novoSalario 
         var anoAtual = 2023
@@ -21,13 +21,22 @@
        
         for(var ano = 2019; ano <= anoAtual; ano++) {
 
-            salario = 2000 + aumento
+            
+            salario = salario + aumento
+            
+            if(salario == 2000) {
+                porcentual = 0.015
+                
+            }else {
+                porcentual = porcentual * 2
+                
+            }
+            
             aumento = salario * porcentual
             novoSalario = salario + aumento
-            porcentual = porcentual * 2
             
             
-            document.write("Seu salario de R$ " +salario+ " teve aumento de " +porcentual+ " % seu salário final séra de " +novoSalario.toFixed(2)+ " no ano de " +ano+ "<br>")
+            document.write("Seu salario de R$ " +salario.toFixed(2)+ " teve aumento de " +porcentual+ " % seu salário final séra de " +novoSalario.toFixed(2)+ " no ano de " +ano+ "<br>")
      
         }
         
