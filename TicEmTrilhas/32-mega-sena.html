@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 7 - Atividades - Números Mega Sena!</h1>
+
+    <script>
+
+        let array6 = []
+
+        for(let i = 1; i < 7; i++) {
+            let numberSort = Math.floor(Math.random() * 60) + 1 // == Math.random()* 61
+            if(array6.includes(numberSort)) {
+                numberSort = Math.floor(Math.random() * 60) + 1
+            }
+
+            array6[i] = numberSort
+        }
+        
+
+        for(let i = 1; i < 7; i++) {
+            let menor = i
+            for(let j = 1 + i; j < 11; j++) {
+                if(array6[j] < array6[menor]) {
+                    menor = j
+                }
+            }
+            if(menor != i) {
+                let aux = array6[i]
+                array6[i] = array6[menor]
+                array6[menor] = aux
+            }
+        }
+
+        document.write("Os números sorteados da Mega Sena foram : " +array6.join("  "))
+        
+
+        console.log(array6)
+
+
+      
+
+   
+               
+    </script>
+    
+</body>
+</html>
+

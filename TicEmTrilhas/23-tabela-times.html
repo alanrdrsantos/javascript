@@ -19,7 +19,82 @@
 
         }
 
-        document.write(times[0]+ " x " +times[1]+"<br>")
+        for(let i = 0; i < times.length; i++) {
+            if(times[i] == times[0]) {
+                times[1]
+            }else {
+                document.write(times[0]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[0]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+            
+            if(times[i] == times[1] || times[i] == times[0]){
+                times[2]
+            }else {
+                document.write(times[1]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[1]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[3]
+            }else {
+                document.write(times[2]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[2]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[4]
+            }else {
+                document.write(times[3]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[3]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[4] || times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[5]
+            }else {
+                document.write(times[4]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[4]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[5] || times[i] == times[4] || times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[6]
+            }else {
+                document.write(times[5]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[5]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[6] || times[i] == times[5] || times[i] == times[4] || times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[7]
+            }else {
+                document.write(times[6]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[6]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if(times[i] == times[7] || times[i] == times[6] || times[i] == times[5] || times[i] == times[4] || times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[8]
+            }else {
+                document.write(times[7]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[7]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+
+            if( times[i] == times[8] || times[i] == times[7] || times[i] == times[6] || times[i] == times[5] || times[i] == times[4] || times[i] == times[3] || times[i] == times[2] || times[i] == times[1] || times[i] == times[0]){
+                times[9]
+            }else {
+                document.write(times[8]+ " x " +times[i]+"<br>")
+                document.write(times[i]+ " x " +times[8]+"<br>")
+                document.write("-----------------------------<br>")
+            }
+            
+        }
+
+        /*document.write(times[0]+ " x " +times[1]+"<br>")
         document.write(times[2]+ " x " +times[3]+"<br>")
         document.write(times[4]+ " x " +times[5]+"<br>")
         document.write(times[6]+ " x " +times[7]+"<br>")
@@ -29,17 +104,8 @@
         document.write(times[3]+ " x " +times[2]+"<br>")
         document.write(times[5]+ " x " +times[4]+"<br>")
         document.write(times[7]+ " x " +times[6]+"<br>")
-        document.write(times[9]+ " x " +times[8]+"<br>")
-
-
-
-
-       
-        
-       
-       
-
-               
+        document.write(times[9]+ " x " +times[8]+"<br>")*/
+          
     </script>
     
 </body>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 7 - Atividades - Ordenação de 7 números entre -200 e 200</h1>
+
+    <script>
+
+        let array7 = []
+
+        for(let i = 1; i < 8; i++) {
+            array7[i] = Math.floor(Math.random() * (200 - -200 + 1) + -200)
+        }
+
+        for(let i = 1; i < 8; i++) {
+            let menor = i
+            for(let j = 1 + i; j < 8; j++) {
+                if(array7[j] < array7[menor]) { 
+                    menor = j
+                }
+            }
+            if(menor != i) {
+                let aux = array7[i]
+                array7[i] = array7[menor]
+                array7[menor] = aux
+            }
+        }
+
+        document.write("Ordenação de 7 números : " +array7.join("  ")+ "<br>")
+        
+
+        console.log(array7) 
+               
+    </script>
+    
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 7 - Atividades - Ordenando de forma Crescente e Decrescente!</h1>
+
+    <script>
+
+        let array8 = []
+
+        for(let i = 1; i < 9; i++) {
+            array8[i] = Math.round(prompt("Digite o " +i+ "° valor do vetor: "))
+            //document.write(array8[i] + "  ")
+        }
+
+        document.write("Vetor digitado: [" +array8.join("  ")+"] <br><br>")
+
+        
+        for(let i = 1; i < 9; i++) {
+            let menor = i
+            for(let j = 1 + i; j < 9; j++) {
+                if(array8[j] < array8[menor]) {
+                    menor = j
+                }
+            }
+            if(menor != i) {
+                let aux = array8[i]
+                array8[i] = array8[menor]
+                array8[menor] = aux
+            }
+            //document.write(array8[i] + "  ")
+        }
+
+        document.write("Vetor em ordem Crescente: [" +array8.join("  ")+"] <br><br>")
+
+        
+        for(let i = 1; i < 9; i++) {
+            let maior = i
+            for(let j = 1 + i; j < 9; j++) {
+                if(array8[j] > array8[maior]) {
+                    maior = j
+                }
+            }
+            if(maior != i) {
+                let aux = array8[i]
+                array8[i] = array8[maior]
+                array8[maior] = aux
+            }
+            //document.write(array8[i] + "  ")
+        }
+        
+        document.write("Vetor em ordem Decrescente: [" +array8.join(" ")+"] <br><br>")
+
+        console.log(array8)
+
+
+            
+    </script>
+    
+</body>
+</html>
+

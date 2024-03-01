@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+</head>
+<body>
+    <h1>Projeto Final - Jogo da velha</h1>
+
+    <script>
+
+
+let jogoDaVelha = [] 
+
+let l = +prompt("Digite o valor de l")
+let c = +prompt("Digite o valor de c")
+
+   
+for(let i = l; i < 3; i++){
+    jogoDaVelha[i] = []
+    for(let j = c; j < 3; j++){
+        jogoDaVelha[i][j] = prompt("Digite X ou O para o Jogo da Velha")
+        document.write("["+jogoDaVelha[i][j]+"]") 
+    }
+    document.write("<br>")
+}
+
+
+
+
+
+if(jogoDaVelha[0][0] == "X" && jogoDaVelha[0][1] == "X" && jogoDaVelha[0][2] == "X") {
+    document.write("Voce Ganhou!")
+}
+   
+   </script>  
+</body>
+</html>

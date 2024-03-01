@@ -11,14 +11,14 @@
     </h1>
 
     <script>
-        var i = Math.round(prompt("Digite o valor de I"))
-
+        
         var n1 = +prompt("Digite um valor para n1: ")
-
+        
         var n2 = +prompt("Digite um valor para n2: ")
-
+        
         var n3 = +prompt("Digite um valor para n3: ")
-
+        
+        var i = Math.round(prompt("Digite 1 para ordem crescente, 2 para ordem ordem decrescente e 3 para o maior número ficar no meio:  "))
         
         var maior, meio, menor
 
@@ -54,12 +54,13 @@
          
         switch (i) {
             case 1:
-                document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " à ordem crescente é: "+menor+ " , "+meio+" , "+maior)
+                document.write("Entre os números " +n1+ ", " +n2+ " e " +n3+ " à ordem crescente é: "+menor+ " , "+meio+" , "+maior)
+                 break;
             case 2:
-            document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " à ordem decrescente é: "+meio+ " , "+meio+" , "+menor)   
+            document.write("Entre os números " +n1+ ", " +n2+ " e " +n3+ " à ordem decrescente é: "+maior+ " , "+meio+" , "+menor)   
                 break; 
             case 3:
-            document.write("Entre os números " +n1+ " , " +n2+ " e " +n3+ " o maior número que fica no meio é: "+menor+ " , "+maior+" , "+meio)   
+            document.write("Entre os números " +n1+ ", " +n2+ " e " +n3+ " o maior número que fica no meio é: "+menor+ " , "+maior+" , "+meio)   
                 break;          
             break;
             default:

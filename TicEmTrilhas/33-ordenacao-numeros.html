@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 7 - Atividades - Ordenação de 20 números de 0 até 1000</h1>
+
+    <script>
+
+        let array20 = []
+
+        for(let i = 1; i < 21; i++) {
+            array20[i] = Math.floor(Math.random() * (1000 - 0 + 1) + 0) // == Math.random()* 1001
+        }
+
+        for(let i = 1; i < 21; i++) {
+            let menor = i
+            for(let j = 1 + i; j < 21; j++) {
+                if(array20[j] < array20[menor]) {
+                    menor = j
+                }
+            }
+            if(menor != i) {
+                let aux = array20[i]
+                array20[i] = array20[menor]
+                array20[menor] = aux
+            }
+        }
+
+        document.write("Ordenação de 20 números : " +array20.join("  "))
+        
+
+        console.log(array20)
+
+
+       
+               
+    </script>
+    
+</body>
+</html>
+

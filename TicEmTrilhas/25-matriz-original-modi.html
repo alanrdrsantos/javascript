@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 5 - Atividades - Matriz Original e Modificada</h1>
+
+    <script>
+
+        let matriz = []
+    
+        
+
+        for(let i = 0; i < 3; i++){
+            matriz[i] = []
+            for(let j = 0; j < 4; j++){
+                matriz[i][j] = Math.round(prompt("Digite o " +(i + 1)+ " º item da " +(j + 1)+ " ° coluna!"))
+            }
+        }
+
+        document.write("MATRIZ ORIGINAL : <br>")
+ 
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 4; j++){
+                document.write(matriz[i][j])     
+            }
+            document.write("<br>")
+        }
+
+        document.write("---------------------------<br>")
+
+        document.write("MATRIZ MODIFICADA : <br>")
+
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 4; j++){
+                if(matriz[i][j] < 0) {
+                    matriz[i][j] = 0   
+                }
+                   document.write(matriz[i][j])     
+            }
+            document.write("<br>")
+        }
+               
+    </script>
+    
+</body>
+</html>

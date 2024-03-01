@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 7 - Atividades - Ordenando de forma Crescente!</h1>
+
+    <script>
+
+        let array10 = []
+
+        for(let i = 1; i < 11; i++) {
+            array10[i] = +prompt("Digite o " +i+ "° valor do vetor: ")
+        }
+
+        for(let i = 1; i < 11; i++) {
+            let menor = i
+            for(let j = 1 + i; j < 11; j++) {
+                if(array10[j] < array10[menor]) {
+                    menor = j
+                }
+            }
+            if(menor != i) {
+                let aux = array10[i]
+                array10[i] = array10[menor]
+                array10[menor] = aux
+            }
+        }
+
+        for(let i = 1; i < 11; i++){
+            document.write(array10[i] + "  ")
+        }
+
+       console.log(array10)
+               
+    </script>
+    
+</body>
+</html>
+

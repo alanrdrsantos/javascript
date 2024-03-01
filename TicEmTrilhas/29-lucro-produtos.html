@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 6 - Atividades - Lucros dos produtos!</h1>
+
+    <script>
+
+        let nomeProduto = []
+        let precoCompra = []
+        let precoVenda = []
+        let totalCompra = 0
+        let totalVenda = 0
+        let lucroMenor = 0
+        let lucroMedio = 0
+        let lucroMaior = 0
+        let lucroTotal = 0
+
+
+        
+        for(let i = 0; i < 5; i++) {
+            nomeProduto[i] = prompt("Digite o nome do " +(i + 1)+ "° produto: ")
+            precoCompra[i] = +prompt("Digite o preço de compra do " +(i + 1)+ "°produto R$: ")
+            precoVenda[i] = +prompt("Digite o preço de venda do " +(i + 1)+ "° produto R$: ")
+
+            if((precoVenda[i] - precoCompra[i]) <  precoCompra[i] * 0.10 ) {
+                lucroMenor++
+            }
+
+            if((precoVenda[i] - precoCompra[i]) >= precoCompra[i] * 0.10 && (precoVenda[i] - precoCompra[i]) <= precoCompra[i] * 0.20) {
+                lucroMedio++
+            }
+
+            if((precoVenda[i] - precoCompra[i]) > precoCompra[i] * 0.20 ) {
+                lucroMaior++
+            }
+
+            
+            totalCompra += precoCompra[i]
+            totalVenda += precoVenda[i]
+
+            lucroTotal = totalVenda - totalCompra
+
+            
+     
+        }
+
+        console.log(nomeProduto)
+        console.log(precoCompra)
+        console.log(precoVenda)
+        
+        console.log(totalCompra)
+        console.log(totalVenda)
+        console.log(lucroTotal)
+
+        console.log(lucroMenor)
+        console.log(lucroMedio)
+        console.log(lucroMaior)
+
+        document.write("Produtos abaixo dos 10% de lucro : " +lucroMenor+ "<br>")
+        document.write("Produtos entre 10% e 20% de lucro : " +lucroMedio+ "<br>")
+        document.write("Produtos acima dos 20% de lucro : " +lucroMaior+ "<br>")
+        document.write("Valor total de compras : R$ " +totalCompra.toFixed(2)+ "<br>")
+        document.write("Valor total de vendass : R$ " +totalVenda.toFixed(2)+ "<br>")
+        document.write("O lucro total foi : R$ " +lucroTotal.toFixed(2))
+
+
+
+       
+        
+        
+               
+    </script>
+    
+</body>
+</html>
+

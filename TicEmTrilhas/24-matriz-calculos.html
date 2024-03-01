@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 5 - Atividades - Cálculos na Matriz</h1>
+
+    <script>
+
+        let matrizCalc = []
+        let somaTotal = 0
+        let somaLinha3 = 0
+        let somaCol2 = 0
+        let somaDiagonal = 0
+
+        
+        for(let i = 0; i < 3; i++){
+            matrizCalc[i] = []
+            for(let j = 0; j < 3; j++){
+                matrizCalc[i][j] = +prompt("Digite o " +(i + 1)+ " º item da " +(j + 1)+ " ° coluna!")
+            }
+        }
+
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 3; j++){
+                somaTotal += matrizCalc[i][j]
+                somaLinha3 = matrizCalc[2][0] + matrizCalc[2][1] + matrizCalc[2][2]
+                somaCol2 = matrizCalc[0][1] + matrizCalc[1][1] + matrizCalc[2][1]
+                somaDiagonal = matrizCalc[0][0] + matrizCalc[1][1] + matrizCalc[2][2]
+            }
+        }
+        document.write("A matriz é : " +(matrizCalc)+ "<br>")
+        document.write("A soma de todos elementos da matriz é : " + somaTotal + "<br>") 
+        document.write("A soma da Linha 3 é : " +somaLinha3+ "<br>")
+        document.write("A soma da Coluna 2 é : " +somaCol2+ "<br>")
+        document.write("a soma da Diagonal da matriz é : " +somaDiagonal+ "<br>")
+
+
+        
+                 
+    </script>
+    
+</body>
+</html>

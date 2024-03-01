@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 6 - Atividades - Maior salário do professor!</h1>
+
+    <script>
+
+        let professores = []
+        let qntHora = []
+        let valorHora = 7.50
+        let valorFinal = []
+        let maior = 0
+
+        for(let i = 0; i < 4; i++) {
+            professores[i] = prompt("Digite o " +(i + 1)+ "° nome: ")
+            qntHora[i] = +prompt( professores[i] + " digite sua quantidade e horas trabalhadas")
+
+            valorFinal[i] = qntHora[i] * valorHora
+
+            document.write(professores[i] + " você trabalhou " +qntHora[i]+ " horas e seu salário foi de R$ " +valorFinal[i].toFixed(2)+ "<br>")
+
+            if(valorFinal[i] > valorFinal[maior]){
+                maior = i
+            }
+
+        }
+        document.write("O maior salario encontrado foi R$" +valorFinal[maior].toFixed(2)+ ", do professor "+professores[maior]+ "!")
+        
+        
+               
+    </script>
+    
+</body>
+</html>

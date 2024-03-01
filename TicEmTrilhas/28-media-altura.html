@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programação</title>   
+</head>
+<body>
+    <h1>Aula 6 - Atividades - Descobrindo a média da altura dos homens e mulheres</h1>
+
+    <script>
+
+        let altura = []
+        let sexo = []
+        let maior = 0
+        let menor = 0
+        let mediaM = 0
+        let mediaF = 0
+        let somaSexoM = 0
+        let somaSexoF = 0
+
+      
+
+        for(let i = 0; i < 5; i++) {
+            altura[i] = +prompt("Digite a " +(i + 1)+ "° altura: ")
+            sexo[i] = prompt("Digite seu sexo por favor: ")
+
+            if(altura[i] > altura[maior]) {
+                maior = i
+            }
+
+            if(altura[i] < altura[menor]) {
+                menor = i
+            }
+
+            if(sexo[i] == "masculino") {
+                mediaM += altura[i]
+                somaSexoM++
+            }
+
+            if(sexo[i] == "feminino") {
+                mediaF += altura[i] 
+                somaSexoF++
+            }
+
+        }
+
+        console.log(altura)
+        console.log(sexo)
+        console.log(mediaM)
+        console.log(mediaF)
+        console.log(somaSexoM)
+        console.log(somaSexoF)
+        console.log(mediaM / somaSexoM)
+        console.log(mediaF / somaSexoF)
+
+        document.write("A maior altura foi: " +altura[maior].toFixed(2)+ "<br>")
+        document.write("A menorr altura foi: " +altura[menor].toFixed(2)+ "<br>")
+        document.write("A média da altura do sexo masculino é: " +(mediaM / somaSexoM).toFixed(2)+ "<br>")
+        document.write("A média da altura do sexo feminino é: " +(mediaF / somaSexoF).toFixed(2)+ "<br>")
+        
+        
+               
+    </script>
+    
+</body>
+</html>

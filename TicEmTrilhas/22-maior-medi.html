@@ -15,6 +15,7 @@
         let nota1 = []
         let nota2 = []
         let media = []
+       
         
         for(i = 0; i < 5; i++) {
             alunos[i] = prompt("Digite o nome do " + (i + 1)+ "º aluno")
@@ -23,6 +24,8 @@
             media[i] = (nota1[i] + nota2[i]) / 2
             
             document.write(alunos[i]+ " suas notas foram "+nota1[i]+" e "+nota2[i]+ " portando sua média foi " +media[i]+ "<br>")
+
+    
 
         if(media[i] >= 7) { 
             document.write("Parabéns " +alunos[i]+ " você obteve a média necessária para passar!<br><br>")
