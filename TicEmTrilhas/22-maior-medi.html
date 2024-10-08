@@ -15,9 +15,10 @@
         let nota1 = []
         let nota2 = []
         let media = []
+        let maiorM = 0
        
         
-        for(i = 0; i < 5; i++) {
+        for(i = 0; i < 3; i++) {
             alunos[i] = prompt("Digite o nome do " + (i + 1)+ "º aluno")
             nota1[i] = +prompt(alunos[i] + " digite sua primeira nota ")
             nota2[i] = +prompt(alunos[i] + " digite sua segunda nota ")
@@ -35,14 +36,20 @@
             document.write("Infelizmente sua média foi inferior das nossas expectativas " +alunos[i]+ ", você repetiu!<br><br>")
         }
 
+        if(media[i] > media[maiorM]) {
+            maiorM = i
         }
+
+        }
+
+        document.write("A maior média encontrada foi " +media[maiorM]+ "<br>") 
 
         
        
        
-        let maior = Math.max(...media)
+       /* let maior = Math.max(...media)
 
-        document.write("A maior média encontrada foi "+maior)
+        document.write("A maior média encontrada foi "+maior)*/
 
 
                

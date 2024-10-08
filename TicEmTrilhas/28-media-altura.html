@@ -34,18 +34,23 @@
                 menor = i
             }
 
-            if(sexo[i] == "masculino") {
+            if(sexo[i] == "m") {
                 mediaM += altura[i]
                 somaSexoM++
             }
-
-            if(sexo[i] == "feminino") {
+            
+            if(sexo[i] == "f") {
                 mediaF += altura[i] 
                 somaSexoF++
             }
-
+            
+            
+            
         }
-
+        
+        mediaF = mediaF / somaSexoF    
+        mediaM = mediaM / somaSexoM
+       
         console.log(altura)
         console.log(sexo)
         console.log(mediaM)
@@ -55,10 +60,13 @@
         console.log(mediaM / somaSexoM)
         console.log(mediaF / somaSexoF)
 
+
+        document.write("O números de homens é: "+somaSexoM+ "<br>")
+        document.write("O números de mulheres é: "+somaSexoF+ "<br>")
         document.write("A maior altura foi: " +altura[maior].toFixed(2)+ "<br>")
         document.write("A menorr altura foi: " +altura[menor].toFixed(2)+ "<br>")
-        document.write("A média da altura do sexo masculino é: " +(mediaM / somaSexoM).toFixed(2)+ "<br>")
-        document.write("A média da altura do sexo feminino é: " +(mediaF / somaSexoF).toFixed(2)+ "<br>")
+        document.write("A média da altura do sexo masculino é: " +mediaM.toFixed(2)+ "<br>")
+        document.write("A média da altura do sexo feminino é: " +mediaF.toFixed(2)+ "<br>")
         
         
                

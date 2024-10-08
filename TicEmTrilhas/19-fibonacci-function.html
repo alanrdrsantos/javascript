@@ -11,10 +11,8 @@
 
     <script>
 
-        let number = +prompt("Digite o valor do número por favor:")
-
         
-   /* function fibonacci(n){
+    function fibonacci(){
           let b = 1
           let a = 0
           let c = 0
@@ -22,7 +20,7 @@
 
           f += a + ", " + b
 
-        for(let i = 1; i <= 8; i++) {
+        for(let i = 1; i <= 10; i++) {
             c = a + b
             f += ", " + c
             a = b
@@ -32,18 +30,9 @@
 
         return f
         
-    } */
+    } 
 
-    function fibonacci(x) { 
-
-       if(x <= 1) {
-          return 1;
-        }else {
-          return ( fibonacci(x-1) + fibonacci(x-2) );
- }
-}
-
-       document.write("A sequência de fibonacci do número " +number+ " é " + fibonacci(number))
+       document.write("Os 10 primeiros números da sequência de Fibonacci são: " + fibonacci())
         
     </script>
     

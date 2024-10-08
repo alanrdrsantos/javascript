@@ -27,13 +27,31 @@
 
         for(let i = 0; i < 3; i++){
             for(let j = 0; j < 3; j++){
-                somaTotal += matrizCalc[i][j]
+                /*somaTotal += matrizCalc[i][j]
                 somaLinha3 = matrizCalc[2][0] + matrizCalc[2][1] + matrizCalc[2][2]
                 somaCol2 = matrizCalc[0][1] + matrizCalc[1][1] + matrizCalc[2][1]
-                somaDiagonal = matrizCalc[0][0] + matrizCalc[1][1] + matrizCalc[2][2]
+                somaDiagonal = matrizCalc[0][0] + matrizCalc[1][1] + matrizCalc[2][2]*/
+                somaTotal += matrizCalc[i][j]
+                if (i == 2) {
+                    somaLinha3 += matrizCalc[i][j]
+                }
+                if(j == 1) {
+                    somaCol2 += matrizCalc[i][j]
+                }
+                if(i == j) {
+                    somaDiagonal += matrizCalc[i][j]
+                }
             }
         }
-        document.write("A matriz é : " +(matrizCalc)+ "<br>")
+
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 3; j++){
+                document.write(matrizCalc[i][j] + "  ")
+            }
+            document.write("<br>")
+        }  
+
+        
         document.write("A soma de todos elementos da matriz é : " + somaTotal + "<br>") 
         document.write("A soma da Linha 3 é : " +somaLinha3+ "<br>")
         document.write("A soma da Coluna 2 é : " +somaCol2+ "<br>")

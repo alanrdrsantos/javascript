@@ -15,6 +15,8 @@
         let maior = 0
         let menor = 0
         let media
+        let soma = 0
+        let mediaTotal
 
 
         for(let i = 0; i < 50; i++) {
@@ -28,13 +30,18 @@
                 menor = i   
             }
 
+            soma += valores[i]
+
+            mediaTotal = soma / 50
+
             media = (valores[maior] + valores[menor]) / 2
      
         }
 
         document.write("O maior valor encontrado foi : " +valores[maior] + "<br>")
         document.write("O menor valor encontrado foi : " +valores[menor] + "<br>")
-        document.write("A média entre os 2 valores é : " +media)
+        document.write("A média entre os 2 valores é : " +media+ "<br>")
+        document.write("A média total dos nuúmeros é: " +mediaTotal+ "<br>")
        
        
         console.log(valores[maior])

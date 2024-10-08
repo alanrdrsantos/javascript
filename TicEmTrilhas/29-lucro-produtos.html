@@ -16,6 +16,7 @@
         let precoVenda = []
         let totalCompra = 0
         let totalVenda = 0
+
         let lucroMenor = 0
         let lucroMedio = 0
         let lucroMaior = 0
@@ -25,7 +26,7 @@
         
         for(let i = 0; i < 5; i++) {
             nomeProduto[i] = prompt("Digite o nome do " +(i + 1)+ "° produto: ")
-            precoCompra[i] = +prompt("Digite o preço de compra do " +(i + 1)+ "°produto R$: ")
+            precoCompra[i] = +prompt("Digite o preço de compra do " +(i + 1)+ "° produto R$: ")
             precoVenda[i] = +prompt("Digite o preço de venda do " +(i + 1)+ "° produto R$: ")
 
             if((precoVenda[i] - precoCompra[i]) <  precoCompra[i] * 0.10 ) {
@@ -70,9 +71,6 @@
         document.write("O lucro total foi : R$ " +lucroTotal.toFixed(2))
 
 
-
-       
-        
         
                
     </script>

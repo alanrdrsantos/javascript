@@ -24,7 +24,7 @@
         document.write("O triângulo é Escaleno (todos os lados diferentes) ? : "
         +((a!=b) && (a!=c) && (b!=c))+ "<br>")
 
-        document.write("O triângulo é Isósceles (dois lados são iguais) ? : " + ((a==b) || (a==c) || (b==c))+ "<br>")
+        document.write("O triângulo é Isósceles (dois lados são iguais) ? : " + ((a==b) && (a!=c) || (a==c) && (a!= b) || (b==c) && (b!= a))+ "<br>")
 
     </script>
     

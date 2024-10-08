@@ -7,32 +7,48 @@
 </head>
 <body>
     <h1>Projeto Final - Jogo da velha</h1>
+   
+
+
+
+
 
     <script>
 
 
-let jogoDaVelha = [] 
+let jogoDaVelha = [[1 , 2 ,3],
+                   [4 , 5, 6],
+                   [7 , 8, 9]]
+        
 
-let l = +prompt("Digite o valor de l")
-let c = +prompt("Digite o valor de c")
+/*let jogoDaVelha = new Array(3) 
+jogoDaVelha[0] = new Array(3)
+jogoDaVelha[1] = new Array(3)
+jogoDaVelha[2] = new Array(3)*/
 
-   
-for(let i = l; i < 3; i++){
-    jogoDaVelha[i] = []
-    for(let j = c; j < 3; j++){
-        jogoDaVelha[i][j] = prompt("Digite X ou O para o Jogo da Velha")
-        document.write("["+jogoDaVelha[i][j]+"]") 
-    }
-    document.write("<br>")
+for(let i = 0; i < 9; i++) {
+    let l = +prompt("Digite a posição da linha: ")
+    let c = +prompt("Digite a posição da coluna: ")
+    let jogo = prompt("Escolha X ou O")
+    jogoDaVelha[l][c] = jogo
 }
 
 
-
-
-
-if(jogoDaVelha[0][0] == "X" && jogoDaVelha[0][1] == "X" && jogoDaVelha[0][2] == "X") {
-    document.write("Voce Ganhou!")
+function exibirJogoDaVelha(jogoDaVelha){
+    document.write(jogoDaVelha[0][0]+" | "+jogoDaVelha[0][1]+" | "+jogoDaVelha[0][2]+ "<br>") 
+        document.write("--------- <br>")
+        document.write(jogoDaVelha[1][0]+" | "+jogoDaVelha[1][1]+" | "+jogoDaVelha[1][2]+ "<br>") 
+        document.write("--------- <br>")
+        document.write(jogoDaVelha[2][0]+" | "+jogoDaVelha[2][1]+" | "+jogoDaVelha[2][2]+ "<br>") 
 }
+
+exibirJogoDaVelha(jogoDaVelha)
+
+
+
+/*if(jogoDaVelha[0][0] == "X" && jogoDaVelha[0][1] == "X" && jogoDaVelha[0][2] == "X") {
+    document.write("O jogador X Ganhou!")
+}*/
    
    </script>  
 </body>

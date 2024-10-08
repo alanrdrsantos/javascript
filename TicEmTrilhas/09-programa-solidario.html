@@ -9,7 +9,7 @@
     <h1>Aula 2 - Atividades - Programa Solidário</h1>
 
     <script>
-        var doacao = +prompt("Por favor digite o número correspondente do que deseja!  [1] para doar R$10,00  [2] para doar R$25,00 [3] para doar R$25,00 [4] para doar outros valores  [5] para cancelar")
+        var doacao = +prompt("Por favor digite o número correspondente do que deseja! [1] para doar R$10,00  [2] para doar R$25,00 [3] para doar R$25,00 [4] para doar outros valores  [5] para cancelar")
 
         var valor
 
@@ -24,6 +24,7 @@
                 valor = 50   
                 break;   
             case 4:
+                //valor = +prompt("Digite a quantia que quer doar por favor")
                 var outroValor = +prompt("Digite a quantia que quer doar por favor")
                 document.write("Você doou R$ " +outroValor.toFixed(2)+ "! Obrigado por nos ajudar")    
                 break;  
